@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">CrapsGame</string>
+
+    <string name="id_add" translatable="false">ca-app-pub-7272346722496082~8095332935</string>
+    <string name="id_addTest" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+
+    <string name="cargaAnuncio">Find coins</string>
+    <string name="muestraAnuncio">Collect coins</string>
+    <string name="monedero">Coins:</string>
+    <string name="tituloDialog" translatable="false">Bonus</string>
+    <string name="anuncioNoCargo">Coins not found yet. Be patient!</string>
+    <string name="anuncioCargado">You can collect the coins now</string>
+    <string name="premio">You found 30 coins</string>
+    <string name="cuentaAtrasBoton">Time remaining </string>
+
+</resources>

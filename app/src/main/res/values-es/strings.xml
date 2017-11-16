@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="anuncioNoCargo">Todavía no se han encontrado!</string>
+    <string name="anuncioCargado">Ya puedes recoger las monedas!</string>
+    <string name="cargaAnuncio">Buscar monedas</string>
+    <string name="tituloDialog"></string>
+    <string name="premio">Has encontrado 30 monedas</string>
+    <string name="muestraAnuncio">Recoger monedas</string>
+    <string name="monedero">Monedas:</string>
+    <string name="cuentaAtrasBoton">Tiempo restante</string>
+</resources>
