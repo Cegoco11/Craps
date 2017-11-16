@@ -13,4 +13,13 @@
     <string name="premio">You found 30 coins</string>
     <string name="cuentaAtrasBoton">Time remaining </string>
 
+    <string-array name="dadosAzul">
+        <item>azul1</item>
+        <item>azul2</item>
+        <item>azul3</item>
+        <item>azul4</item>
+        <item>azul5</item>
+        <item>azul6</item>
+    </string-array>
+
 </resources>

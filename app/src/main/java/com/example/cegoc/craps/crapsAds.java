@@ -20,7 +20,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainActivity extends AppCompatActivity implements RewardedVideoAdListener {
+public class crapsAds extends AppCompatActivity implements RewardedVideoAdListener {
 
     private RewardedVideoAd mRewardedVideoAd;
     private ProgressBar progress;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.craps_ads);
 
         progress=(ProgressBar)findViewById(R.id.progressBar2);
 
@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     }
 
     /**
+
      * Metodo que carga un anuncio
      */
     private void loadRewardedVideoAd() {
