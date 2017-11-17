@@ -17,7 +17,7 @@ public class crapsPlay extends AppCompatActivity {
     private ImageView img1;
     private ImageView img2;
     private LinearLayout dadosLayout;
-    private TextView tiradaText;
+    private TextView tiradaText, monedasText;
     private boolean control,hasJugado;
     private int dado1, dado2, valorTirada1, monedas;
 
@@ -29,13 +29,14 @@ public class crapsPlay extends AppCompatActivity {
         // ToDo comprobar en save las monedas
         monedas=0;
 
-        estadoInicial();
-
         arrDado=getResources().getStringArray(R.array.dadosGris);
         img1=(ImageView) findViewById(R.id.dado1);
         img2=(ImageView) findViewById(R.id.dado2);
         dadosLayout=(LinearLayout)findViewById(R.id.dados);
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
+        monedasText=(TextView) findViewById(R.id.monedas);
+
+        estadoInicial();
 
         dadosLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,11 +50,12 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona el juego
      */
     private void playCraps(){
-        control=!control;
+
         if(!hasJugado){
             valorTirada1=primeraRonda();
-            tiradaText.setText(valorTirada1);
-            hasJugado=true;
+            if(valorTirada1!=0){
+                hasJugado=true;
+            }
         } else{
             rondas();
         }
@@ -96,32 +98,39 @@ public class crapsPlay extends AppCompatActivity {
      * @return El numero que ha salido o 0 si ya ha finalizado
      */
     private int primeraRonda() {
+        control=!control;
         tirarDados();
-        int total=dado1+dado2;
-        switch (total) {
-            case 7:
-            case 11:
-                // Ganas
-                estadoInicial();
-                Toast.makeText(this, "+"+MONEDAS_GANADAS+ " "+R.string.toastMoneda,
-                        Toast.LENGTH_SHORT).show();
-                monedas += MONEDAS_GANADAS;
-                break;
-            case 2:
-            case 3:
-            case 12:
-                // Pierdes
-                estadoInicial();
-                if (monedas <= 8) {
-                    monedas = 0;
-                } else {
-                    monedas -= MONEDAS_PERDIDAS;
-                }
-                Toast.makeText(this, "-"+MONEDAS_PERDIDAS+" "+R.string.toastMoneda,
-                        Toast.LENGTH_SHORT).show();
-                break;
+        if(!control){
+            int total=dado1+dado2;
+            tiradaText.setText(Integer.toString(total));
+            switch (total) {
+                case 7:
+                case 11:
+                    // Ganas
+                    Toast.makeText(this, ("+"+MONEDAS_GANADAS+" "+
+                                    getResources().getString(R.string.toastMoneda)),
+                            Toast.LENGTH_SHORT).show();
+                    monedas += MONEDAS_GANADAS;
+                    estadoInicial();
+                    break;
+                case 2:
+                case 3:
+                case 12:
+                    // Pierdes
+                    if (monedas <= 8) {
+                        monedas = 0;
+                    } else {
+                        monedas -= MONEDAS_PERDIDAS;
+                    }
+                    Toast.makeText(this, ("-"+MONEDAS_PERDIDAS+" "+
+                                    getResources().getString(R.string.toastMoneda)),
+                            Toast.LENGTH_SHORT).show();
+                    estadoInicial();
+                    break;
+            }
+            return total;
         }
-        return total;
+        return 0;
     }
 
     /**
@@ -130,24 +139,29 @@ public class crapsPlay extends AppCompatActivity {
      * Si se saca el mismo numero que en la ronda 1 se gana
      */
     private void rondas() {
+        control=!control;
         tirarDados();
-        if (valorTirada1 == (dado1+dado2)) {
-            // Ganas
-            estadoInicial();
-            Toast.makeText(this, "+"+MONEDAS_GANADAS+ " "+R.string.toastMoneda,
-                    Toast.LENGTH_SHORT).show();
-            monedas += MONEDAS_GANADAS;
-        }
-        if((dado1+dado2)==7){
-            // Pierdes
-            estadoInicial();
-            if (monedas <= 8) {
-                monedas = 0;
-            } else {
-                monedas -= MONEDAS_PERDIDAS;
+        if(!control) {
+            if (valorTirada1 == (dado1 + dado2)) {
+                // Ganas
+                Toast.makeText(this, ("+" + MONEDAS_GANADAS + " " +
+                                getResources().getString(R.string.toastMoneda)),
+                        Toast.LENGTH_SHORT).show();
+                monedas += MONEDAS_GANADAS;
+                estadoInicial();
             }
-            Toast.makeText(this, "-"+MONEDAS_PERDIDAS+" "+R.string.toastMoneda,
-                    Toast.LENGTH_SHORT).show();
+            if ((dado1 + dado2) == 7) {
+                // Pierdes
+                if (monedas <= 8) {
+                    monedas = 0;
+                } else {
+                    monedas -= MONEDAS_PERDIDAS;
+                }
+                Toast.makeText(this, ("-" + MONEDAS_PERDIDAS + " " +
+                                getResources().getString(R.string.toastMoneda)),
+                        Toast.LENGTH_SHORT).show();
+                estadoInicial();
+            }
         }
     }
 
@@ -157,6 +171,8 @@ public class crapsPlay extends AppCompatActivity {
     private void estadoInicial(){
         control=false;
         hasJugado=false;
+        valorTirada1=0;
         tiradaText.setText("");
+        monedasText.setText(Integer.toString(monedas));
     }
 }
