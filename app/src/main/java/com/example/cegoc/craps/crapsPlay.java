@@ -132,8 +132,9 @@ public class crapsPlay extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     estadoInicial();
                     break;
+                default:
+                    return total;
             }
-            return total;
         }
         return 0;
     }
