@@ -172,7 +172,12 @@ public class crapsPlay extends AppCompatActivity {
         control=false;
         hasJugado=false;
         valorTirada1=0;
-        tiradaText.setText("");
         monedasText.setText(Integer.toString(monedas));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tiradaText.setText("");
+            }
+        }, 200);
     }
 }
