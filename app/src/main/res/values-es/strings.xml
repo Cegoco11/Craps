@@ -10,4 +10,5 @@
     <string name="cuentaAtrasBoton">Tiempo restante</string>
     <string name="botonTirar">Tirar</string>
     <string name="botonTirarStop">Parar</string>
+    <string name="toastMoneda">monedas</string>
 </resources>

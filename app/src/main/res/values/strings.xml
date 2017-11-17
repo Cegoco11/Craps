@@ -16,6 +16,8 @@
 
     <!-- layout craps_play -->
 
+    <string name="toastMoneda">coins</string>
+
     <string-array name="dadosAzul">
         <item>azul1</item>
         <item>azul2</item>

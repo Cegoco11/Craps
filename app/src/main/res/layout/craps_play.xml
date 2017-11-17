@@ -27,7 +27,7 @@
             android:text="@string/monedero"
             android:textAlignment="textEnd"
             android:textAllCaps="false"
-            android:textColor="@android:color/holo_orange_dark"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="18sp"
             android:textStyle="bold|italic"
             android:visibility="visible"
@@ -46,8 +46,8 @@
             android:layout_marginStart="8dp"
             android:layout_weight="0"
             android:text="0"
-            android:textColor="@android:color/holo_orange_dark"
             android:textAlignment="textStart"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="20sp"
             android:textStyle="bold"
             android:visibility="visible"
@@ -58,6 +58,23 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tiradaRef"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:padding="6dp"
+        android:text=""
+        android:background="@drawable/borde_resultado"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_green_light"
+        android:textIsSelectable="false"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/dados"
         android:layout_width="wrap_content"
@@ -65,7 +82,7 @@
         android:layout_gravity="center"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="80dp"
         android:orientation="horizontal">
 
         <ImageView
