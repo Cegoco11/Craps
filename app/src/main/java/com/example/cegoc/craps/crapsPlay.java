@@ -13,14 +13,14 @@ import android.widget.Toast;
 public class crapsPlay extends AppCompatActivity {
 
     private final int MONEDAS_GANADAS=10;
-    private final int MONEDAS_PERDIDAS=8;
+    private final int MONEDAS_PERDIDAS=7;
     private String arrDado[];
     private ImageView img1;
     private ImageView img2;
     private LinearLayout dadosLayout;
-    private TextView tiradaText, monedasText;
+    private TextView tiradaText, monedasText, rondaText;
     private boolean control,hasJugado;
-    private int dado1, dado2, valorTirada1, monedas;
+    private int dado1, dado2, valorTirada1, monedas, contadorRondas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class crapsPlay extends AppCompatActivity {
         dadosLayout=(LinearLayout)findViewById(R.id.dados);
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
         monedasText=(TextView) findViewById(R.id.monedas);
+        rondaText=(TextView) findViewById(R.id.numRonda);
 
         estadoInicial();
 
@@ -102,9 +103,11 @@ public class crapsPlay extends AppCompatActivity {
         control=!control;
         tirarDados();
         if(!control){
+            contadorRondas++;
+            rondaText.setText("Ronda "+Integer.toString(contadorRondas));
             int total=dado1+dado2;
-            tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
             tiradaText.setText(Integer.toString(total));
+            tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
             switch (total) {
                 case 7:
                 case 11:
@@ -144,6 +147,8 @@ public class crapsPlay extends AppCompatActivity {
         control=!control;
         tirarDados();
         if(!control) {
+            contadorRondas++;
+            rondaText.setText("Ronda "+Integer.toString(contadorRondas));
             if (valorTirada1 == (dado1 + dado2)) {
                 // Ganas
                 Toast.makeText(this, ("+" + MONEDAS_GANADAS + " " +
@@ -170,10 +175,12 @@ public class crapsPlay extends AppCompatActivity {
      * Resea al valor inicial
      */
     private void estadoInicial(){
-        control=false;
         hasJugado=false;
+        control=false;
+        tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
         valorTirada1=0;
         monedasText.setText(Integer.toString(monedas));
-        tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
+        contadorRondas=0;
+        rondaText.setText("Ronda "+Integer.toString(contadorRondas));
     }
 }
