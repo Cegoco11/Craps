@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -13,8 +12,7 @@ public class crapsPlay extends AppCompatActivity {
     private String arrDado[];
     private ImageView img1;
     private ImageView img2;
-    LinearLayout dadosLayout;
-    private Button roll;
+    private LinearLayout dadosLayout;
     private boolean control;
     private int dado1, dado2;
 
@@ -27,18 +25,12 @@ public class crapsPlay extends AppCompatActivity {
         arrDado=getResources().getStringArray(R.array.dadosGris);
         img1=(ImageView) findViewById(R.id.dado1);
         img2=(ImageView) findViewById(R.id.dado2);
-        roll=(Button) findViewById(R.id.tirar);
         dadosLayout=(LinearLayout)findViewById(R.id.dados);
 
         dadosLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 control=!control;
-                if(control){
-                    roll.setText(getResources().getString(R.string.botonTirarStop));
-                } else{
-                    roll.setText(getResources().getString(R.string.botonTirar));
-                }
                 tirarDados();
             }
         });

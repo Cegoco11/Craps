@@ -15,8 +15,6 @@
     <string name="cuentaAtrasBoton">Time remaining </string>
 
     <!-- layout craps_play -->
-    <string name="botonTirar">Roll</string>
-    <string name="botonTirarStop">Stop</string>
 
     <string-array name="dadosAzul">
         <item>azul1</item>
