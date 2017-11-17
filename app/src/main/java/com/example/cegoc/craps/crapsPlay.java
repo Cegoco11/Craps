@@ -1,6 +1,7 @@
 package com.example.cegoc.craps;
 
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -102,6 +103,7 @@ public class crapsPlay extends AppCompatActivity {
         tirarDados();
         if(!control){
             int total=dado1+dado2;
+            tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
             tiradaText.setText(Integer.toString(total));
             switch (total) {
                 case 7:
@@ -149,8 +151,7 @@ public class crapsPlay extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
                 monedas += MONEDAS_GANADAS;
                 estadoInicial();
-            }
-            if ((dado1 + dado2) == 7) {
+            } else if ((dado1 + dado2) == 7) {
                 // Pierdes
                 if (monedas <= 8) {
                     monedas = 0;
@@ -173,11 +174,6 @@ public class crapsPlay extends AppCompatActivity {
         hasJugado=false;
         valorTirada1=0;
         monedasText.setText(Integer.toString(monedas));
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                tiradaText.setText("");
-            }
-        }, 200);
+        tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
     }
 }

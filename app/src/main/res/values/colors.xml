@@ -3,4 +3,6 @@
     <color name="colorPrimary">#2a8735</color>
     <color name="colorPrimaryDark">#206428</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="numeroTargetActivo">#ff99cc00</color>
+    <color name="numeroTargetDesactivado">#4999cc00</color>
 </resources>
