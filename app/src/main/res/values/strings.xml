@@ -16,6 +16,7 @@
 
     <!-- layout craps_play -->
     <string name="botonTirar">Roll</string>
+    <string name="botonTirarStop">Stop</string>
 
     <string-array name="dadosAzul">
         <item>azul1</item>
@@ -47,7 +48,7 @@
     <string-array name="dadosGris">
         <item>gris1</item>
         <item>gris2</item>
-        <item>gris</item>
+        <item>gris3</item>
         <item>gris4</item>
         <item>gris5</item>
         <item>gris6</item>

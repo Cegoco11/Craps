@@ -9,4 +9,5 @@
     <string name="monedero">Monedas:</string>
     <string name="cuentaAtrasBoton">Tiempo restante</string>
     <string name="botonTirar">Tirar</string>
+    <string name="botonTirarStop">Parar</string>
 </resources>
