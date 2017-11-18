@@ -1,5 +1,6 @@
 package com.example.cegoc.craps;
 
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,13 +20,12 @@ import com.google.android.gms.ads.AdView;
 public class crapsPlay extends AppCompatActivity {
 
     private final int MONEDAS_GANADAS=10;
-
     private final int MONEDAS_PERDIDAS=10;
 
+    private MediaPlayer dadoSound_agitar, dadoSound_soltar;
     private AdView mAdView;
     private String arrDado[];
-    private ImageView img1;
-    private ImageView img2;
+    private ImageView img1, img2;
     private TextView tiradaText, monedasText, rondaText;
     private boolean control, hasJugado;
     private int dado1, dado2, valorTirada1, monedas, contadorRondas;
@@ -57,6 +57,9 @@ public class crapsPlay extends AppCompatActivity {
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
         monedasText=(TextView) findViewById(R.id.monedas);
         rondaText=(TextView) findViewById(R.id.numRonda);
+        dadoSound_agitar=MediaPlayer.create(crapsPlay.this, R.raw.agitar);
+        dadoSound_agitar.setLooping(true);
+        dadoSound_soltar=MediaPlayer.create(crapsPlay.this, R.raw.soltar);
 
         estadoInicial();
 
@@ -68,6 +71,28 @@ public class crapsPlay extends AppCompatActivity {
         });
     }
 
+    /**
+     * Si se pulsa se activa el sonido agitar
+     * Si no, se activa el sonido soltar
+     */
+    private void sonidosDado(){
+        if(control){
+            dadoSound_agitar.start();
+        } else{
+            dadoSound_agitar.pause();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    dadoSound_soltar.start();
+                }
+            }, 50);
+        }
+    }
+
+    /**
+     * Metodo que carga un anuncio
+     * Cuando el anuncio no carga, vuelve a intentar cargarlo a los 10 segundos
+     */
     private void cargaAnuncio(){
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -109,6 +134,7 @@ public class crapsPlay extends AppCompatActivity {
         } else{
             rondas();
         }
+        sonidosDado();
     }
 
     /**
@@ -119,6 +145,7 @@ public class crapsPlay extends AppCompatActivity {
         if(control) {
             int resID;
             String aux;
+
             dado1 = (int) (Math.random()*6+1);
             dado2 = (int) (Math.random()*6+1);
 
@@ -143,8 +170,8 @@ public class crapsPlay extends AppCompatActivity {
 
     /**
      * Simula la primera ronda del juego
-     * Ganas con 7 o 11 (10 monedas)
-     * Pierdes con 2, 3 o 12 (8 monedas)
+     * Ganas con 7 o 11 (MONEDAS_GANADAS)
+     * Pierdes con 2, 3 o 12 (MONEDAS_PERDIDAS)
      * @return El numero que ha salido o 0 si ya ha finalizado
      */
     private int primeraRonda() {
