@@ -40,12 +40,19 @@ public class crapsPlay extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.adView);
         cargaAnuncio();
 
-        // ToDo comprobar en save las monedas
+        // ToDo comprobar las monedas guardadas
         monedas=0;
 
-        arrDado=getResources().getStringArray(R.array.dadosGris);
+        //ToDo Comprobar que color de dado guardado (el array cambia)
+
+        arrDado=getResources().getStringArray(R.array.dadosRojo);
+
         img1=(ImageView) findViewById(R.id.dado1);
+        int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
+        img1.setImageResource(resID);
         img2=(ImageView) findViewById(R.id.dado2);
+        resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
+        img2.setImageResource(resID);
         LinearLayout dadosLayout=(LinearLayout)findViewById(R.id.dados);
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
         monedasText=(TextView) findViewById(R.id.monedas);
@@ -238,6 +245,6 @@ public class crapsPlay extends AppCompatActivity {
                 tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
                         R.color.numeroTargetDesactivado));
             }
-        }, 250);
+        }, 200);
     }
 }
