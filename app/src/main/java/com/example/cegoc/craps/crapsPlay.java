@@ -101,8 +101,6 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona el juego
      */
     private void playCraps(){
-        control=!control;
-        tirarDados();
         if(!hasJugado){
             valorTirada1=primeraRonda();
             if(valorTirada1!=0){
@@ -150,6 +148,8 @@ public class crapsPlay extends AppCompatActivity {
      * @return El numero que ha salido o 0 si ya ha finalizado
      */
     private int primeraRonda() {
+        control=!control;
+        tirarDados();
         if(!control){
             contadorRondas++;
             rondaText.setText
@@ -201,6 +201,8 @@ public class crapsPlay extends AppCompatActivity {
      * Si se saca el mismo numero que en la ronda 1 se gana
      */
     private void rondas() {
+        control=!control;
+        tirarDados();
         if(!control) {
             contadorRondas++;
             rondaText.setText
