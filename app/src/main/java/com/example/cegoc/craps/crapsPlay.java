@@ -142,7 +142,8 @@ public class crapsPlay extends AppCompatActivity {
         tirarDados();
         if(!control){
             contadorRondas++;
-            rondaText.setText("Ronda "+String.valueOf(contadorRondas));
+            rondaText.setText
+                    (String.format(getResources().getString(R.string.rondas), contadorRondas));
             int total=dado1+dado2;
 
             tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
@@ -189,7 +190,8 @@ public class crapsPlay extends AppCompatActivity {
         tirarDados();
         if(!control) {
             contadorRondas++;
-            rondaText.setText("Ronda "+String.valueOf(contadorRondas));
+            rondaText.setText
+                    (String.format(getResources().getString(R.string.rondas), contadorRondas));
             if (valorTirada1 == (dado1 + dado2)) {
                 // Ganas
                 Toast.makeText(this, ("+" + MONEDAS_GANADAS + " " +
@@ -221,7 +223,8 @@ public class crapsPlay extends AppCompatActivity {
         tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
         valorTirada1=0;
         contadorRondas=0;
-        rondaText.setText("Ronda "+String.valueOf(contadorRondas));
+        rondaText.setText
+                (String.format(getResources().getString(R.string.rondas), contadorRondas));
         monedasText.setText(String.valueOf(monedas));
         new Handler().postDelayed(new Runnable() {
             @Override
