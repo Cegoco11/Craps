@@ -2,9 +2,11 @@
     <string name="app_name" translatable="false">CrapsGame</string>
 
     <!-- layout craps_ads -->
-    <string name="id_add" translatable="false">ca-app-pub-7272346722496082~8095332935</string>
-    <string name="id_addTest" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="id_app_adTest">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="id_adTestBanner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="id_adTestVideo" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
 
+    <!-- layout craps_ads -->
     <string name="cargaAnuncio">Find coins</string>
     <string name="muestraAnuncio">Collect coins</string>
     <string name="monedero">Coins:</string>
@@ -16,6 +18,8 @@
 
     <!-- layout craps_play -->
 
+    <string name="descDado1">Picture of the first dice</string>
+    <string name="descDado2">Picture of the second dice</string>
     <string name="toastMoneda">coins</string>
 
     <string-array name="dadosAzul">

@@ -10,16 +10,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+
 public class crapsPlay extends AppCompatActivity {
 
     private final int MONEDAS_GANADAS=10;
-    private final int MONEDAS_PERDIDAS=8;
+    private final int MONEDAS_PERDIDAS=10;
+
+    private AdView mAdView;
     private String arrDado[];
     private ImageView img1;
     private ImageView img2;
-    private LinearLayout dadosLayout;
     private TextView tiradaText, monedasText;
-    private boolean control,hasJugado;
+    private boolean control, hasJugado;
     private int dado1, dado2, valorTirada1, monedas;
 
     @Override
@@ -27,13 +34,18 @@ public class crapsPlay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.craps_play);
 
+        // Inicializo anuncio
+        MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
+        mAdView = (AdView) findViewById(R.id.adView);
+        cargaAnuncio();
+
         // ToDo comprobar en save las monedas
         monedas=0;
 
         arrDado=getResources().getStringArray(R.array.dadosGris);
         img1=(ImageView) findViewById(R.id.dado1);
         img2=(ImageView) findViewById(R.id.dado2);
-        dadosLayout=(LinearLayout)findViewById(R.id.dados);
+        LinearLayout dadosLayout=(LinearLayout)findViewById(R.id.dados);
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
         monedasText=(TextView) findViewById(R.id.monedas);
 
@@ -44,6 +56,31 @@ public class crapsPlay extends AppCompatActivity {
             public void onClick(View v) {
                 playCraps();
             }
+        });
+    }
+
+    private void cargaAnuncio(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.setVisibility(View.VISIBLE);
+        mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {}
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                mAdView.setVisibility(View.INVISIBLE);
+                cargaAnuncio();
+            }
+
+            @Override
+            public void onAdOpened() {}
+
+            @Override
+            public void onAdLeftApplication() {}
+
+            @Override
+            public void onAdClosed() {}
         });
     }
 
@@ -104,7 +141,7 @@ public class crapsPlay extends AppCompatActivity {
         if(!control){
             int total=dado1+dado2;
             tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
-            tiradaText.setText(Integer.toString(total));
+            tiradaText.setText(String.valueOf(total));
             switch (total) {
                 case 7:
                 case 11:
@@ -173,7 +210,13 @@ public class crapsPlay extends AppCompatActivity {
         control=false;
         hasJugado=false;
         valorTirada1=0;
-        monedasText.setText(Integer.toString(monedas));
-        tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
+        monedasText.setText(String.valueOf(monedas));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+                        R.color.numeroTargetDesactivado));
+            }
+        }, 300);
     }
 }
