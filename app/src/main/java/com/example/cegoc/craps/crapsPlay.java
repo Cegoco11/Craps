@@ -70,7 +70,6 @@ public class crapsPlay extends AppCompatActivity {
 
     private void cargaAnuncio(){
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.setVisibility(View.VISIBLE);
         mAdView.loadAd(adRequest);
         mAdView.setAdListener(new AdListener() {
             @Override
@@ -78,8 +77,13 @@ public class crapsPlay extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                mAdView.setVisibility(View.INVISIBLE);
-                cargaAnuncio();
+                Toast.makeText(crapsPlay.this, "adFailedToLoad", Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        cargaAnuncio();
+                    }
+                }, 10000);
             }
 
             @Override
@@ -97,7 +101,8 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona el juego
      */
     private void playCraps(){
-
+        control=!control;
+        tirarDados();
         if(!hasJugado){
             valorTirada1=primeraRonda();
             if(valorTirada1!=0){
@@ -145,8 +150,6 @@ public class crapsPlay extends AppCompatActivity {
      * @return El numero que ha salido o 0 si ya ha finalizado
      */
     private int primeraRonda() {
-        control=!control;
-        tirarDados();
         if(!control){
             contadorRondas++;
             rondaText.setText
@@ -198,8 +201,6 @@ public class crapsPlay extends AppCompatActivity {
      * Si se saca el mismo numero que en la ronda 1 se gana
      */
     private void rondas() {
-        control=!control;
-        tirarDados();
         if(!control) {
             contadorRondas++;
             rondaText.setText
