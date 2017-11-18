@@ -10,5 +10,5 @@
     <string name="toastMoneda">monedas</string>
     <string name="descDado1">Imagen del primer dado</string>
     <string name="descDado2">Imagen del segundo dado</string>
-    <string name="rondas">Ronda $1%d</string>
+    <string name="rondas">Ronda %d</string>
 </resources>

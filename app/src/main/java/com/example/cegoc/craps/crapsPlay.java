@@ -146,9 +146,6 @@ public class crapsPlay extends AppCompatActivity {
                     (String.format(getResources().getString(R.string.rondas), contadorRondas));
             int total=dado1+dado2;
 
-            tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
-            tiradaText.setText(String.valueOf(total));
-
             switch (total) {
                 case 7:
                 case 11:
@@ -174,6 +171,14 @@ public class crapsPlay extends AppCompatActivity {
                     estadoInicial();
                     break;
                 default:
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+                                    R.color.numeroTargetActivo));
+                            tiradaText.setText(String.valueOf(dado1+dado2));
+                        }
+                    }, 150);
                     return total;
             }
         }
@@ -229,9 +234,10 @@ public class crapsPlay extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                tiradaText.setText(String.valueOf(dado1+dado2));
                 tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
                         R.color.numeroTargetDesactivado));
             }
-        }, 500);
+        }, 250);
     }
 }

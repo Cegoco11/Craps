@@ -22,7 +22,7 @@
     <string name="descDado2">Picture of the second dice</string>
     <string name="toastMoneda">coins</string>
 
-    <string name="rondas">Round $1%d</string>
+    <string name="rondas">Round %d</string>
 
     <string-array name="dadosAzul">
         <item>azul1</item>

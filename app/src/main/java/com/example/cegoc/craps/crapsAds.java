@@ -25,7 +25,7 @@ public class crapsAds extends AppCompatActivity implements RewardedVideoAdListen
     private RewardedVideoAd mRewardedVideoAd;
     private ProgressBar progress;
     private TextView monedasText;
-    private Button cargaAnuncio,muestraAnuncio;
+    private Button cargaAnuncio;
     private int monedas=0;
     private CountDownTimer countDown;
 
@@ -37,11 +37,11 @@ public class crapsAds extends AppCompatActivity implements RewardedVideoAdListen
         MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
 
         cargaAnuncio=(Button)findViewById(R.id.carga);
-        muestraAnuncio=(Button)findViewById(R.id.muestra);
+        Button muestraAnuncio=(Button)findViewById(R.id.muestra);
 
         progress=(ProgressBar)findViewById(R.id.progressBar2);
         monedasText=(TextView) findViewById(R.id.monedas);
-        monedasText.setText(Integer.toString(monedas));
+        monedasText.setText(String.valueOf(monedas));
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
@@ -131,7 +131,7 @@ public class crapsAds extends AppCompatActivity implements RewardedVideoAdListen
         creaAlerta(getResources().getString(R.string.tituloDialog),
                 getResources().getString(R.string.premio)).show();
         monedas=monedas+30;
-        monedasText.setText(Integer.toString(monedas));
+        monedasText.setText(String.valueOf(monedas));
     }
 
     @Override
