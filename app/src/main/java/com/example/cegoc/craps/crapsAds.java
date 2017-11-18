@@ -34,11 +34,12 @@ public class crapsAds extends AppCompatActivity implements RewardedVideoAdListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.craps_ads);
 
-        progress=(ProgressBar)findViewById(R.id.progressBar2);
+        MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
 
         cargaAnuncio=(Button)findViewById(R.id.carga);
         muestraAnuncio=(Button)findViewById(R.id.muestra);
 
+        progress=(ProgressBar)findViewById(R.id.progressBar2);
         monedasText=(TextView) findViewById(R.id.monedas);
         monedasText.setText(Integer.toString(monedas));
 
@@ -118,7 +119,7 @@ public class crapsAds extends AppCompatActivity implements RewardedVideoAdListen
      * Metodo que carga un anuncio
      */
     private void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(getResources().getString(R.string.id_addTest),
+        mRewardedVideoAd.loadAd(getResources().getString(R.string.id_adTestVideo),
                 new AdRequest.Builder().build());
 
     }
@@ -149,7 +150,8 @@ public class crapsAds extends AppCompatActivity implements RewardedVideoAdListen
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
         progress.setVisibility(View.GONE);
         cargaAnuncio.setEnabled(true);
-        creaAlerta("Alerta","No se han encontrado monedas").show();
+        creaAlerta(getResources().getString(R.string.tituloDialog),
+                getResources().getString(R.string.anuncioNoCargo)).show();
     }
 
     @Override
