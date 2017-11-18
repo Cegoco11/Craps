@@ -235,7 +235,6 @@ public class crapsPlay extends AppCompatActivity {
     private void estadoInicial(){
         hasJugado=false;
         control=false;
-        tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
         valorTirada1=0;
         contadorRondas=0;
         rondaText.setText
