@@ -1,5 +1,6 @@
 package com.example.cegoc.craps;
 
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,13 +20,12 @@ import com.google.android.gms.ads.AdView;
 public class crapsPlay extends AppCompatActivity {
 
     private final int MONEDAS_GANADAS=10;
-
     private final int MONEDAS_PERDIDAS=10;
 
+    private MediaPlayer dadoSound_agitar, dadoSound_soltar;
     private AdView mAdView;
     private String arrDado[];
-    private ImageView img1;
-    private ImageView img2;
+    private ImageView img1, img2;
     private TextView tiradaText, monedasText, rondaText;
     private boolean control, hasJugado;
     private int dado1, dado2, valorTirada1, monedas, contadorRondas;
@@ -40,16 +40,26 @@ public class crapsPlay extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.adView);
         cargaAnuncio();
 
-        // ToDo comprobar en save las monedas
+        // ToDo comprobar las monedas guardadas
         monedas=0;
 
-        arrDado=getResources().getStringArray(R.array.dadosGris);
+        //ToDo Comprobar que color de dado guardado (el array cambia)
+
+        arrDado=getResources().getStringArray(R.array.dadosRojo);
+
         img1=(ImageView) findViewById(R.id.dado1);
+        int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
+        img1.setImageResource(resID);
         img2=(ImageView) findViewById(R.id.dado2);
+        resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
+        img2.setImageResource(resID);
         LinearLayout dadosLayout=(LinearLayout)findViewById(R.id.dados);
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
         monedasText=(TextView) findViewById(R.id.monedas);
         rondaText=(TextView) findViewById(R.id.numRonda);
+        dadoSound_agitar=MediaPlayer.create(crapsPlay.this, R.raw.agitar);
+        dadoSound_agitar.setLooping(true);
+        dadoSound_soltar=MediaPlayer.create(crapsPlay.this, R.raw.soltar);
 
         estadoInicial();
 
@@ -61,9 +71,30 @@ public class crapsPlay extends AppCompatActivity {
         });
     }
 
+    /**
+     * Si se pulsa se activa el sonido agitar
+     * Si no, se activa el sonido soltar
+     */
+    private void sonidosDado(){
+        if(control){
+            dadoSound_agitar.start();
+        } else{
+            dadoSound_agitar.pause();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    dadoSound_soltar.start();
+                }
+            }, 50);
+        }
+    }
+
+    /**
+     * Metodo que carga un anuncio
+     * Cuando el anuncio no carga, vuelve a intentar cargarlo a los 10 segundos
+     */
     private void cargaAnuncio(){
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.setVisibility(View.VISIBLE);
         mAdView.loadAd(adRequest);
         mAdView.setAdListener(new AdListener() {
             @Override
@@ -71,8 +102,13 @@ public class crapsPlay extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                mAdView.setVisibility(View.INVISIBLE);
-                cargaAnuncio();
+                Toast.makeText(crapsPlay.this, "adFailedToLoad", Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        cargaAnuncio();
+                    }
+                }, 10000);
             }
 
             @Override
@@ -90,7 +126,6 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona el juego
      */
     private void playCraps(){
-
         if(!hasJugado){
             valorTirada1=primeraRonda();
             if(valorTirada1!=0){
@@ -99,6 +134,7 @@ public class crapsPlay extends AppCompatActivity {
         } else{
             rondas();
         }
+        sonidosDado();
     }
 
     /**
@@ -109,6 +145,7 @@ public class crapsPlay extends AppCompatActivity {
         if(control) {
             int resID;
             String aux;
+
             dado1 = (int) (Math.random()*6+1);
             dado2 = (int) (Math.random()*6+1);
 
@@ -133,8 +170,8 @@ public class crapsPlay extends AppCompatActivity {
 
     /**
      * Simula la primera ronda del juego
-     * Ganas con 7 o 11 (10 monedas)
-     * Pierdes con 2, 3 o 12 (8 monedas)
+     * Ganas con 7 o 11 (MONEDAS_GANADAS)
+     * Pierdes con 2, 3 o 12 (MONEDAS_PERDIDAS)
      * @return El numero que ha salido o 0 si ya ha finalizado
      */
     private int primeraRonda() {
@@ -142,11 +179,9 @@ public class crapsPlay extends AppCompatActivity {
         tirarDados();
         if(!control){
             contadorRondas++;
-            rondaText.setText("Ronda "+String.valueOf(contadorRondas));
+            rondaText.setText
+                    (String.format(getResources().getString(R.string.rondas), contadorRondas));
             int total=dado1+dado2;
-
-            tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetActivo));
-            tiradaText.setText(String.valueOf(total));
 
             switch (total) {
                 case 7:
@@ -173,6 +208,14 @@ public class crapsPlay extends AppCompatActivity {
                     estadoInicial();
                     break;
                 default:
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+                                    R.color.numeroTargetActivo));
+                            tiradaText.setText(String.valueOf(dado1+dado2));
+                        }
+                    }, 150);
                     return total;
             }
         }
@@ -189,7 +232,8 @@ public class crapsPlay extends AppCompatActivity {
         tirarDados();
         if(!control) {
             contadorRondas++;
-            rondaText.setText("Ronda "+String.valueOf(contadorRondas));
+            rondaText.setText
+                    (String.format(getResources().getString(R.string.rondas), contadorRondas));
             if (valorTirada1 == (dado1 + dado2)) {
                 // Ganas
                 Toast.makeText(this, ("+" + MONEDAS_GANADAS + " " +
@@ -218,17 +262,18 @@ public class crapsPlay extends AppCompatActivity {
     private void estadoInicial(){
         hasJugado=false;
         control=false;
-        tiradaText.setTextColor(ContextCompat.getColor(this, R.color.numeroTargetDesactivado));
         valorTirada1=0;
         contadorRondas=0;
-        rondaText.setText("Ronda "+String.valueOf(contadorRondas));
+        rondaText.setText
+                (String.format(getResources().getString(R.string.rondas), contadorRondas));
         monedasText.setText(String.valueOf(monedas));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                tiradaText.setText(String.valueOf(dado1+dado2));
                 tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
                         R.color.numeroTargetDesactivado));
             }
-        }, 500);
+        }, 200);
     }
 }

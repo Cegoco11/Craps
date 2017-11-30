@@ -2,8 +2,8 @@
     <string name="app_name" translatable="false">CrapsGame</string>
 
     <!-- layout craps_ads -->
-    <string name="id_app_adTest">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="id_adTestBanner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="id_app_adTest" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="id_adTestBanner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="id_adTestVideo" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
 
     <!-- layout craps_ads -->
@@ -21,6 +21,8 @@
     <string name="descDado1">Picture of the first dice</string>
     <string name="descDado2">Picture of the second dice</string>
     <string name="toastMoneda">coins</string>
+
+    <string name="rondas">Round %d</string>
 
     <string-array name="dadosAzul">
         <item>azul1</item>

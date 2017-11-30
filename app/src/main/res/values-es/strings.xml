@@ -3,12 +3,12 @@
     <string name="anuncioNoCargo">Todavía no se han encontrado!</string>
     <string name="anuncioCargado">Ya puedes recoger las monedas!</string>
     <string name="cargaAnuncio">Buscar monedas</string>
-    <string name="tituloDialog"></string>
     <string name="premio">Has encontrado 30 monedas</string>
     <string name="muestraAnuncio">Recoger monedas</string>
     <string name="monedero">Monedas:</string>
     <string name="cuentaAtrasBoton">Tiempo restante</string>
-    <string name="botonTirar">Tirar</string>
-    <string name="botonTirarStop">Parar</string>
     <string name="toastMoneda">monedas</string>
+    <string name="descDado1">Imagen del primer dado</string>
+    <string name="descDado2">Imagen del segundo dado</string>
+    <string name="rondas">Ronda %d</string>
 </resources>
