@@ -29,7 +29,7 @@ public class crapsSplashScreen extends AppCompatActivity {
                         }
                     });
                     if(progressStatus==progressBar.getMax()+1){
-                        Intent intent = new Intent(crapsSplashScreen.this, crapsPlay.class);
+                        Intent intent = new Intent(crapsSplashScreen.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     }

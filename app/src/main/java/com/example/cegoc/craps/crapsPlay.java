@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.google.android.gms.ads.AdView;
 
 public class crapsPlay extends AppCompatActivity {
 
+    private final int APUESTA_INICIAL=10;
     private final int MONEDAS_GANADAS=10;
     private final int MONEDAS_PERDIDAS=10;
 
@@ -26,6 +28,7 @@ public class crapsPlay extends AppCompatActivity {
     private AdView mAdView;
     private String arrDado[];
     private ImageView img1, img2;
+    private Button botonNada;
     private TextView tiradaText, monedasText, rondaText;
     private boolean control, hasJugado;
     private int dado1, dado2, valorTirada1, monedas, contadorRondas;
@@ -60,6 +63,14 @@ public class crapsPlay extends AppCompatActivity {
         dadoSound_agitar=MediaPlayer.create(crapsPlay.this, R.raw.agitar);
         dadoSound_agitar.setLooping(true);
         dadoSound_soltar=MediaPlayer.create(crapsPlay.this, R.raw.soltar);
+
+        botonNada=(Button) findViewById(R.id.botonNada);
+        botonNada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                botonNada.setText(String.valueOf(contadorRondas));
+            }
+        });
 
         estadoInicial();
 
@@ -275,5 +286,23 @@ public class crapsPlay extends AppCompatActivity {
                         R.color.numeroTargetDesactivado));
             }
         }, 200);
+    }
+
+    /**
+     * ToDo asdaasdasdaasd
+     */
+    private void sePuedeApostar(){
+        int aux;
+        if (contadorRondas == 0) {
+            aux=1;
+        } else{
+            aux=contadorRondas;
+        }
+
+        if(monedas<(APUESTA_INICIAL*aux)){
+            // No se puede apostar
+        } else{
+            monedas-=(APUESTA_INICIAL*aux);
+        }
     }
 }
