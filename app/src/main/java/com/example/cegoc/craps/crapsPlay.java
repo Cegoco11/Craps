@@ -1,6 +1,7 @@
 package com.example.cegoc.craps;
 
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +25,10 @@ public class crapsPlay extends AppCompatActivity {
     private final int MONEDAS_GANADAS=10;
     private final int MONEDAS_PERDIDAS=10;
 
-    private MediaPlayer dadoSound_agitar, dadoSound_soltar;
+    private MediaPlayer dadosSound;
     private AdView mAdView;
     private String arrDado[];
+    private LinearLayout dadosLayout;
     private ImageView img1, img2;
     private Button botonNada;
     private TextView tiradaText, monedasText, rondaText;
@@ -49,20 +51,17 @@ public class crapsPlay extends AppCompatActivity {
         //ToDo Comprobar que color de dado guardado (el array cambia)
 
         arrDado=getResources().getStringArray(R.array.dadosRojo);
-
+        dadosSound=MediaPlayer.create(crapsPlay.this,R.raw.dados2);
         img1=(ImageView) findViewById(R.id.dado1);
         int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
         img1.setImageResource(resID);
         img2=(ImageView) findViewById(R.id.dado2);
         resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
         img2.setImageResource(resID);
-        LinearLayout dadosLayout=(LinearLayout)findViewById(R.id.dados);
+        dadosLayout=(LinearLayout)findViewById(R.id.dados);
         tiradaText=(TextView)findViewById(R.id.tiradaRef);
         monedasText=(TextView) findViewById(R.id.monedas);
         rondaText=(TextView) findViewById(R.id.numRonda);
-        dadoSound_agitar=MediaPlayer.create(crapsPlay.this, R.raw.agitar);
-        dadoSound_agitar.setLooping(true);
-        dadoSound_soltar=MediaPlayer.create(crapsPlay.this, R.raw.soltar);
 
         botonNada=(Button) findViewById(R.id.botonNada);
         botonNada.setOnClickListener(new View.OnClickListener() {
@@ -80,24 +79,6 @@ public class crapsPlay extends AppCompatActivity {
                 playCraps();
             }
         });
-    }
-
-    /**
-     * Si se pulsa se activa el sonido agitar
-     * Si no, se activa el sonido soltar
-     */
-    private void sonidosDado(){
-        if(control){
-            dadoSound_agitar.start();
-        } else{
-            dadoSound_agitar.pause();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    dadoSound_soltar.start();
-                }
-            }, 50);
-        }
     }
 
     /**
@@ -138,21 +119,30 @@ public class crapsPlay extends AppCompatActivity {
      */
     private void playCraps(){
         if(!hasJugado){
-            valorTirada1=primeraRonda();
-            if(valorTirada1!=0){
-                hasJugado=true;
-            }
+            tirarDados();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    valorTirada1=primeraRonda();
+                }
+            }, 1521);
+            hasJugado=true;
         } else{
-            rondas();
+            tirarDados();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    rondas();
+                }
+            }, 1521);
         }
-        sonidosDado();
     }
 
     /**
-     * Mientras control sea 'true' los dados se mueven
-     * Cuando control pasa a 'false' los dados se detienen
+     * Metodo auxiliar que hace que los dados cambien de valor cada 100 millsegundos
+     * mientras control sea 'true'
      */
-    private void tirarDados(){
+    private void tirarDadosAux(){
         if(control) {
             int resID;
             String aux;
@@ -173,10 +163,28 @@ public class crapsPlay extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    tirarDados();
+                    tirarDadosAux();
                 }
             }, 100);
         }
+    }
+
+    /**
+     * Metodo que gestiona una tirada de dados, con el sonido incluido
+     */
+    private void tirarDados(){
+        control=true;
+        dadosLayout.setClickable(false);
+        tirarDadosAux();
+        dadosSound.start();
+        new CountDownTimer(1520, 1000) {
+            public void onTick(long millisUntilFinished) {}
+
+            public void onFinish() {
+                control=false;
+                dadosLayout.setClickable(true);
+            }
+        }.start();
     }
 
     /**
@@ -186,8 +194,6 @@ public class crapsPlay extends AppCompatActivity {
      * @return El numero que ha salido o 0 si ya ha finalizado
      */
     private int primeraRonda() {
-        control=!control;
-        tirarDados();
         if(!control){
             contadorRondas++;
             rondaText.setText
@@ -239,8 +245,6 @@ public class crapsPlay extends AppCompatActivity {
      * Si se saca el mismo numero que en la ronda 1 se gana
      */
     private void rondas() {
-        control=!control;
-        tirarDados();
         if(!control) {
             contadorRondas++;
             rondaText.setText
