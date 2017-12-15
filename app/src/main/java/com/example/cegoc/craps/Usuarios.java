@@ -85,7 +85,7 @@ public class Usuarios extends AppCompatActivity {
 
     public void Cargar (View view) {
 
-        Jugador aux = new Jugador("Aux");
+        Jugador aux = new Jugador("Aux", "asd");
 
         String nombre = et1.getText().toString();
         File file = getFileStreamPath(nombre);
