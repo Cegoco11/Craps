@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     String usuario_activo;
     private TextView tv1;
     private TextView tv2;
-    private Jugador aux = new Jugador("Aux"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
+    private Jugador aux = new Jugador("Aux", "asd"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
 
 
 

@@ -1,6 +1,9 @@
 package com.example.cegoc.craps;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +25,7 @@ public class Jugador implements Serializable {
 
     public Jugador(String nombre, String clave){
         this.nombre = nombre;
-        this.clave = clave;
+        this.clave = getMD5(clave);
         this.monedas = 10;
 
         this.baraja1 = new ArrayList<>(50);
@@ -65,6 +68,22 @@ public class Jugador implements Serializable {
                 break;
             default:
                 break;
+        }
+    }
+    private static String getMD5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        }
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 }
