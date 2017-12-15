@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Jugador implements Serializable {
 
     private String nombre; //Nombre del usuario
+    private String clave;
     private int monedas;
 
     private ArrayList<Boolean> baraja1; // Array que guarda las cartas disponibles de la baraja del tipo 1
@@ -19,8 +20,9 @@ public class Jugador implements Serializable {
     private ArrayList<Boolean> baraja5; // Array que guarda las cartas disponibles de la baraja del tipo 5
 
 
-    public Jugador(String nombre){
+    public Jugador(String nombre, String clave){
         this.nombre = nombre;
+        this.clave = clave;
         this.monedas = 10;
 
         this.baraja1 = new ArrayList<>(50);
