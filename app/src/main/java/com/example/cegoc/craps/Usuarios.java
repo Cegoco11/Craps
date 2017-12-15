@@ -37,6 +37,7 @@ public class Usuarios extends AppCompatActivity {
     public void Guardar (View view){
 
         String nombre = et1.getText().toString();
+        String contra = et1.getText().toString(); // Prueba
         File file = getFileStreamPath(nombre); //Esta funcion se usa para comprobar si existe ya un archivo creado en memoria
 
 
@@ -48,7 +49,7 @@ public class Usuarios extends AppCompatActivity {
 
         if (!file.exists()) {
 
-            Jugador player = new Jugador(nombre);
+            Jugador player = new Jugador(nombre, contra);
 
             FileOutputStream fos;
             ObjectOutputStream out = null;
@@ -63,6 +64,7 @@ public class Usuarios extends AppCompatActivity {
                 SharedPreferences preferencias=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
                 editor.putString("name", player.mostrarnombre());
+
                 editor.commit();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
@@ -85,7 +87,7 @@ public class Usuarios extends AppCompatActivity {
 
     public void Cargar (View view) {
 
-        Jugador aux = new Jugador("Aux");
+        Jugador aux = new Jugador("Aux","asd");
 
         String nombre = et1.getText().toString();
         File file = getFileStreamPath(nombre);

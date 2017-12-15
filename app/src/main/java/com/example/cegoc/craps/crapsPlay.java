@@ -18,7 +18,6 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-
 public class crapsPlay extends AppCompatActivity {
 
     private final int APUESTA_INICIAL=10;
