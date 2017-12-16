@@ -22,8 +22,6 @@ public class crapsPlay extends AppCompatActivity {
 
     private final double MULTIPLICADOR=1.5;
     private final int APUESTA_INICIAL=10;
-    private final int MONEDAS_GANADAS=10;
-    private final int MONEDAS_PERDIDAS=10;
 
     private MediaPlayer dadosSound;
     private AdView mAdView;
@@ -32,7 +30,7 @@ public class crapsPlay extends AppCompatActivity {
     private ImageView img1, img2;
     private Button botonNada, botonDoble;
     private TextView tiradaText, monedasText, rondaText;
-    private boolean control, hasJugado;
+    private boolean control, hasJugado, all_in;
     private int dado1, dado2, valorTirada1, monedas, contadorRondas, apuestaActual;
 
     @Override
@@ -57,18 +55,21 @@ public class crapsPlay extends AppCompatActivity {
                 }, 200);
             }
         });
-        //ToDo trabajae mas aqui
+        //ToDo trabajar mas aqui
         botonDoble.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if((apuestaActual*MULTIPLICADOR)>=monedas){
                     // All-in
+                    all_in=true;
                     apuestaActual+=monedas;
                     monedas=0;
                 } else{
-                    apuestaActual=(int)(apuestaActual*MULTIPLICADOR);
+                    apuestaActual*=MULTIPLICADOR;
                     monedas-=apuestaActual;
                 }
+                Toast.makeText(crapsPlay.this, "Apuesta: "+apuestaActual,
+                        Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
                 monedasText.setText(String.valueOf(monedas));
                 muestraBotones(false);
@@ -120,26 +121,33 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona el juego
      */
     private void playCraps(){
-        tirarDados();
-        if(!hasJugado){
-            monedas-=APUESTA_INICIAL;
-            monedasText.setText(String.valueOf(monedas));
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    valorTirada1=primeraRonda();
-                    hasJugado=true;
+            if (!hasJugado) {
+                if(monedas-APUESTA_INICIAL>=0) {
+                    tirarDados();
+                    monedas -= APUESTA_INICIAL;
+                    monedasText.setText(String.valueOf(monedas));
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            hasJugado = true;
+                            valorTirada1 = primeraRonda();
+                        }
+                    }, 1521);
+                } else {
+                    Toast.makeText(crapsPlay.this, "No tienes suficientes monedas",
+                            Toast.LENGTH_SHORT).show();
                 }
-            }, 1521);
-        } else{
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    rondas();
-                }
-            }, 1521);
-        }
+            } else {
+                tirarDados();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        rondas();
+                    }
+                }, 1521);
+            }
     }
+
 
     /**
      * Metodo auxiliar que hace que los dados cambien de valor cada 100 millsegundos
@@ -206,36 +214,17 @@ public class crapsPlay extends AppCompatActivity {
             switch (total) {
                 case 7:
                 case 11:
-                    // Ganas
-                    Toast.makeText(this, ("+"+MONEDAS_GANADAS+" "+
-                                    getResources().getString(R.string.toastMoneda)),
-                            Toast.LENGTH_SHORT).show();
-                    monedas += MONEDAS_GANADAS;
-                    estadoInicial();
+                    finPartida(true);
                     break;
                 case 2:
                 case 3:
                 case 12:
-                    // Pierdes
-                    if (monedas <= 8) {
-                        monedas = 0;
-                    } else {
-                        monedas -= MONEDAS_PERDIDAS;
-                    }
-                    Toast.makeText(this, ("-"+MONEDAS_PERDIDAS+" "+
-                                    getResources().getString(R.string.toastMoneda)),
-                            Toast.LENGTH_SHORT).show();
-                    estadoInicial();
+                    finPartida(false);
                     break;
                 default:
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
-                                    R.color.numeroTargetActivo));
-                            tiradaText.setText(String.valueOf(dado1+dado2));
-                        }
-                    }, 150);
+                    tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+                            R.color.numeroTargetActivo));
+                    tiradaText.setText(String.valueOf(dado1+dado2));
                     muestraBotones(true);
                     return total;
             }
@@ -254,25 +243,15 @@ public class crapsPlay extends AppCompatActivity {
             rondaText.setText
                     (String.format(getResources().getString(R.string.rondas), contadorRondas));
             if (valorTirada1 == (dado1 + dado2)) {
-                // Ganas
-                Toast.makeText(this, ("+" + MONEDAS_GANADAS + " " +
-                                getResources().getString(R.string.toastMoneda)),
-                        Toast.LENGTH_SHORT).show();
-                monedas += MONEDAS_GANADAS;
-                estadoInicial();
+                finPartida(true);
             } else if ((dado1 + dado2) == 7) {
-                // Pierdes
-                if (monedas <= 8) {
-                    monedas = 0;
-                } else {
-                    monedas -= MONEDAS_PERDIDAS;
-                }
-                Toast.makeText(this, ("-" + MONEDAS_PERDIDAS + " " +
-                                getResources().getString(R.string.toastMoneda)),
-                        Toast.LENGTH_SHORT).show();
-                estadoInicial();
+                finPartida(false);
             } else{
-                muestraBotones(true);
+                if(all_in){
+                    dadosLayout.setClickable(true);
+                }else{
+                    muestraBotones(true);
+                }
             }
         }
     }
@@ -283,6 +262,7 @@ public class crapsPlay extends AppCompatActivity {
     private void estadoInicial(){
         hasJugado=false;
         control=false;
+        all_in=false;
         valorTirada1=0;
         contadorRondas=0;
         apuestaActual=APUESTA_INICIAL;
@@ -291,14 +271,9 @@ public class crapsPlay extends AppCompatActivity {
         rondaText.setText
                 (String.format(getResources().getString(R.string.rondas), contadorRondas));
         monedasText.setText(String.valueOf(monedas));
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                tiradaText.setText(String.valueOf(dado1+dado2));
-                tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
-                        R.color.numeroTargetDesactivado));
-            }
-        }, 200);
+        tiradaText.setText(String.valueOf(dado1+dado2));
+        tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+                R.color.numeroTargetDesactivado));
     }
 
     /**
@@ -323,8 +298,8 @@ public class crapsPlay extends AppCompatActivity {
         MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
         mAdView = (AdView) findViewById(R.id.adView);
 
-        monedas=50;
-        apuestaActual=APUESTA_INICIAL;
+        //ToDo Coger monedas del usuario en el sharedpreferences
+        monedas=500;
 
         arrDado=getResources().getStringArray(R.array.dadosNormal);
         dadosSound=MediaPlayer.create(crapsPlay.this,R.raw.dados2);
@@ -349,14 +324,16 @@ public class crapsPlay extends AppCompatActivity {
     private void finPartida(boolean estado){
         if(estado){
             // Ganar
-            Toast.makeText(this, ("+"+MONEDAS_GANADAS+" "+
+            Toast.makeText(this, ("+"+(int)(apuestaActual*MULTIPLICADOR)+" "+
                             getResources().getString(R.string.toastMoneda)),
                     Toast.LENGTH_SHORT).show();
-            monedas += MONEDAS_GANADAS;
-            estadoInicial();
+            monedas += apuestaActual*MULTIPLICADOR;
+
         } else{
             // Perder
-
+            Toast.makeText(this, ("Perdiste"),
+                    Toast.LENGTH_SHORT).show();
         }
+        estadoInicial();
     }
 }
