@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdView;
 
 public class crapsPlay extends AppCompatActivity {
 
+    private final double MULTIPLICADOR=1.5;
     private final int APUESTA_INICIAL=10;
     private final int MONEDAS_GANADAS=10;
     private final int MONEDAS_PERDIDAS=10;
@@ -29,48 +30,50 @@ public class crapsPlay extends AppCompatActivity {
     private String arrDado[];
     private LinearLayout dadosLayout;
     private ImageView img1, img2;
-    private Button botonNada;
+    private Button botonNada, botonDoble;
     private TextView tiradaText, monedasText, rondaText;
     private boolean control, hasJugado;
-    private int dado1, dado2, valorTirada1, monedas, contadorRondas;
+    private int dado1, dado2, valorTirada1, monedas, contadorRondas, apuestaActual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.craps_play);
 
-        // Inicializo anuncio
-        MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
-        mAdView = (AdView) findViewById(R.id.adView);
+        init();
+        estadoInicial();
         cargaAnuncio();
 
-        // ToDo comprobar las monedas guardadas
-        monedas=0;
-
-        //ToDo Comprobar que color de dado guardado (el array cambia)
-
-        arrDado=getResources().getStringArray(R.array.dadosRojo);
-        dadosSound=MediaPlayer.create(crapsPlay.this,R.raw.dados2);
-        img1=(ImageView) findViewById(R.id.dado1);
-        int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
-        img1.setImageResource(resID);
-        img2=(ImageView) findViewById(R.id.dado2);
-        resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
-        img2.setImageResource(resID);
-        dadosLayout=(LinearLayout)findViewById(R.id.dados);
-        tiradaText=(TextView)findViewById(R.id.tiradaRef);
-        monedasText=(TextView) findViewById(R.id.monedas);
-        rondaText=(TextView) findViewById(R.id.numRonda);
-
-        botonNada=(Button) findViewById(R.id.botonNada);
         botonNada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botonNada.setText(String.valueOf(contadorRondas));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        estadoInicial();
+                        dadosLayout.setClickable(true);
+                        muestraBotones(false);
+                    }
+                }, 200);
             }
         });
-
-        estadoInicial();
+        //ToDo trabajae mas aqui
+        botonDoble.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((apuestaActual*MULTIPLICADOR)>=monedas){
+                    // All-in
+                    apuestaActual+=monedas;
+                    monedas=0;
+                } else{
+                    apuestaActual=(int)(apuestaActual*MULTIPLICADOR);
+                    monedas-=apuestaActual;
+                }
+                dadosLayout.setClickable(true);
+                monedasText.setText(String.valueOf(monedas));
+                muestraBotones(false);
+            }
+        });
 
         dadosLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,17 +120,18 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona el juego
      */
     private void playCraps(){
+        tirarDados();
         if(!hasJugado){
-            tirarDados();
+            monedas-=APUESTA_INICIAL;
+            monedasText.setText(String.valueOf(monedas));
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     valorTirada1=primeraRonda();
+                    hasJugado=true;
                 }
             }, 1521);
-            hasJugado=true;
         } else{
-            tirarDados();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -172,8 +176,9 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que gestiona una tirada de dados, con el sonido incluido
      */
     private void tirarDados(){
-        control=true;
+        muestraBotones(false);
         dadosLayout.setClickable(false);
+        control=true;
         tirarDadosAux();
         dadosSound.start();
         new CountDownTimer(1520, 1000) {
@@ -181,7 +186,6 @@ public class crapsPlay extends AppCompatActivity {
 
             public void onFinish() {
                 control=false;
-                dadosLayout.setClickable(true);
             }
         }.start();
     }
@@ -232,6 +236,7 @@ public class crapsPlay extends AppCompatActivity {
                             tiradaText.setText(String.valueOf(dado1+dado2));
                         }
                     }, 150);
+                    muestraBotones(true);
                     return total;
             }
         }
@@ -266,6 +271,8 @@ public class crapsPlay extends AppCompatActivity {
                                 getResources().getString(R.string.toastMoneda)),
                         Toast.LENGTH_SHORT).show();
                 estadoInicial();
+            } else{
+                muestraBotones(true);
             }
         }
     }
@@ -278,6 +285,9 @@ public class crapsPlay extends AppCompatActivity {
         control=false;
         valorTirada1=0;
         contadorRondas=0;
+        apuestaActual=APUESTA_INICIAL;
+        muestraBotones(false);
+        dadosLayout.setClickable(true);
         rondaText.setText
                 (String.format(getResources().getString(R.string.rondas), contadorRondas));
         monedasText.setText(String.valueOf(monedas));
@@ -292,20 +302,61 @@ public class crapsPlay extends AppCompatActivity {
     }
 
     /**
-     * ToDo asdaasdasdaasd
+     * Muestra los botones "Nada" y "Doble"
+     * @param cond true para mostrar, false para ocultar
      */
-    private void sePuedeApostar(){
-        int aux;
-        if (contadorRondas == 0) {
-            aux=1;
+    private void muestraBotones(boolean cond){
+        if(cond){
+            botonDoble.setVisibility(View.VISIBLE);
+            botonNada.setVisibility(View.VISIBLE);
         } else{
-            aux=contadorRondas;
+            botonDoble.setVisibility(View.INVISIBLE);
+            botonNada.setVisibility(View.INVISIBLE);
         }
+    }
 
-        if(monedas<(APUESTA_INICIAL*aux)){
-            // No se puede apostar
+    /**
+     * Metodo que hace todas las inicializaciones
+     */
+    private void init(){
+        // Inicializo anuncio
+        MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
+        mAdView = (AdView) findViewById(R.id.adView);
+
+        monedas=50;
+        apuestaActual=APUESTA_INICIAL;
+
+        arrDado=getResources().getStringArray(R.array.dadosNormal);
+        dadosSound=MediaPlayer.create(crapsPlay.this,R.raw.dados2);
+        img1=(ImageView) findViewById(R.id.dado1);
+        int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
+        img1.setImageResource(resID);
+        img2=(ImageView) findViewById(R.id.dado2);
+        resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
+        img2.setImageResource(resID);
+        dadosLayout=(LinearLayout)findViewById(R.id.dados);
+        tiradaText=(TextView)findViewById(R.id.tiradaRef);
+        monedasText=(TextView) findViewById(R.id.monedas);
+        rondaText=(TextView) findViewById(R.id.numRonda);
+        botonDoble=(Button) findViewById(R.id.botonDoble);
+        botonNada=(Button) findViewById(R.id.botonNada);
+    }
+
+    /**
+     * Metodo para gestionar el ganar o perder de la partida
+     * @param estado true para ganar, false para perder
+     */
+    private void finPartida(boolean estado){
+        if(estado){
+            // Ganar
+            Toast.makeText(this, ("+"+MONEDAS_GANADAS+" "+
+                            getResources().getString(R.string.toastMoneda)),
+                    Toast.LENGTH_SHORT).show();
+            monedas += MONEDAS_GANADAS;
+            estadoInicial();
         } else{
-            monedas-=(APUESTA_INICIAL*aux);
+            // Perder
+
         }
     }
 }
