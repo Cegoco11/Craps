@@ -67,6 +67,7 @@
             android:inputType="textPassword" />
 
         <Button
+            android:onClick="Guardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrar" />

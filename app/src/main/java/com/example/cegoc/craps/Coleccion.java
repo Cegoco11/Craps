@@ -21,7 +21,7 @@ public class Coleccion extends AppCompatActivity {
 
         // Usuario de prueba para comprobar que funciona correctamente
         // Aqui habria que tener en cuenta quien es el usuario actual
-        Jugador prueba=new Jugador("Cesar","asd");
+        Jugador prueba=new Jugador("Cesar","asd", "asadsasad");
 
         avatares=(GridLayout) findViewById(R.id.AvataresGrid);
         ImageView aux;

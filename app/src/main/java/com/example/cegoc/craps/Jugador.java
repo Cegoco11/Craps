@@ -15,12 +15,14 @@ public class Jugador implements Serializable {
 
     private String nombre; //Nombre del usuario
     private String clave;
+    private String correo;
     private int monedas;
     private ArrayList<Item> avatares=new ArrayList<Item>();
     private ArrayList<Dados> dados=new ArrayList<Dados>();
 
-    public Jugador(String nombre, String clave){
+    public Jugador(String nombre, String clave, String correo){
         this.nombre = nombre;
+        this.correo = correo;
         this.clave = getMD5(clave);
         this.monedas = 10;
         avatares.add(new Item(R.drawable.avatar1, true, 0));

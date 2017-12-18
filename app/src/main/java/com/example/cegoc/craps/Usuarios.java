@@ -19,19 +19,24 @@ import java.util.ArrayList;
 public class Usuarios extends AppCompatActivity {
 
     private EditText et1;
+    private EditText et2;
+    private EditText et3;
     private ArrayList<String> myList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_usuarios);
-        et1 = (EditText) findViewById(R.id.input_usuario);
+        setContentView(R.layout.activity_registro);
+        et1 = (EditText) findViewById(R.id.nombre);
+        et2 = (EditText) findViewById(R.id.clave);
+        et3 = (EditText) findViewById(R.id.correo);
     }
 
     public void Guardar (View view){
 
         String nombre = et1.getText().toString();
-        String contra = et1.getText().toString(); // Prueba
+        String clave = et2.getText().toString();
+        String correo = et3.getText().toString();
         File file = getFileStreamPath(nombre); //Esta funcion se usa para comprobar si existe ya un archivo creado en memoria
 
         Toast toast1 = Toast.makeText(getApplicationContext(), "Nuevo usuario guardado: "+ nombre, Toast.LENGTH_LONG);
@@ -39,7 +44,7 @@ public class Usuarios extends AppCompatActivity {
 
         if (!file.exists()) {
 
-            Jugador player = new Jugador(nombre, contra);
+            Jugador player = new Jugador(nombre, clave, correo);
 
             FileOutputStream fos;
             ObjectOutputStream out = null;
@@ -68,9 +73,11 @@ public class Usuarios extends AppCompatActivity {
     }
 
     public void Cargar (View view) {
-        Jugador aux = new Jugador("Aux", "asd");
+        Jugador aux = new Jugador("Aux", "asd", "asdasd");
 
         String nombre = et1.getText().toString();
+        String clave = et2.getText().toString();
+        String correo = et3.getText().toString();
         File file = getFileStreamPath(nombre);
         Toast toast1 = Toast.makeText(getApplicationContext(), "No existe ese usuario", Toast.LENGTH_LONG);
 
