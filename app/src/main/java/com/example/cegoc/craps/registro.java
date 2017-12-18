@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author Yisusbot
  */
-public class registro extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
 
     private EditText et1;
     private EditText et2;
@@ -34,15 +34,19 @@ public class registro extends AppCompatActivity {
         et3 = (EditText) findViewById(R.id.correo);
     }
 
-    public void Guardar (View view){
+    public void GuardarUsuario (View view){
 
         String nombre = et1.getText().toString();
         String clave = et2.getText().toString();
         String correo = et3.getText().toString();
+        //ToDo Preguntar a Marina
+        // Cuando ejecutamos esta instruccion que es exactamente la misma que la de su proyecto
+        // en el if(!file.exists()) siempre sale por el else, nunca entra en el if
+        
         File file = getFileStreamPath(nombre); //Esta funcion se usa para comprobar si existe ya un archivo creado en memoria
 
         Toast toast1 = Toast.makeText(getApplicationContext(), "Nuevo usuario guardado: "+ nombre, Toast.LENGTH_LONG);
-        Toast toast2 = Toast.makeText(getApplicationContext(), "Nombre repetido o no valido", Toast.LENGTH_LONG);
+        Toast toast2 = Toast.makeText(getApplicationContext(), "Nombre repetido o no valido", Toast.LENGTH_SHORT);
 
         if (!file.exists()) {
 

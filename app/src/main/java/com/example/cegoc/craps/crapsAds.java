@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Caesar
  */
-public class crapsAds extends AppCompatActivity implements RewardedVideoAdListener {
+public class CrapsAds extends AppCompatActivity implements RewardedVideoAdListener {
 
     private RewardedVideoAd mRewardedVideoAd;
     private ProgressBar progress;

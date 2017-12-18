@@ -23,7 +23,7 @@ import com.google.android.gms.ads.AdView;
  *
  * @author Caesar
  */
-public class crapsPlay extends AppCompatActivity {
+public class CrapsPlay extends AppCompatActivity {
 
     private final double MULTIPLICADOR = 1.5;
     private final int APUESTA_INICIAL = 10;
@@ -75,7 +75,7 @@ public class crapsPlay extends AppCompatActivity {
                     apuestaActual *= MULTIPLICADOR;
                     monedas -= apuestaActual;
                 }
-                Toast.makeText(crapsPlay.this, "Apuesta: " + apuestaActual,
+                Toast.makeText(CrapsPlay.this, "Apuesta: " + apuestaActual,
                         Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
                 //monedasText.setText(String.valueOf(monedas));
@@ -105,7 +105,7 @@ public class crapsPlay extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                Toast.makeText(crapsPlay.this, "adFailedToLoad", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CrapsPlay.this, "adFailedToLoad", Toast.LENGTH_SHORT).show();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -148,7 +148,7 @@ public class crapsPlay extends AppCompatActivity {
                     }
                 }, 1521);
             } else {
-                Toast.makeText(crapsPlay.this, "No tienes suficientes monedas",
+                Toast.makeText(CrapsPlay.this, "No tienes suficientes monedas",
                         Toast.LENGTH_SHORT).show();
             }
         } else {
@@ -238,7 +238,7 @@ public class crapsPlay extends AppCompatActivity {
                     finPartida(false);
                     break;
                 default:
-                    tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+                    tiradaText.setTextColor(ContextCompat.getColor(CrapsPlay.this,
                             R.color.numeroTargetActivo));
                     tiradaText.setText(String.valueOf(dado1 + dado2));
                     muestraBotones(true);
@@ -288,7 +288,7 @@ public class crapsPlay extends AppCompatActivity {
                 (String.format(getResources().getString(R.string.rondas), contadorRondas));
        // monedasText.setText(String.valueOf(monedas));
         tiradaText.setText(String.valueOf(dado1 + dado2));
-        tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
+        tiradaText.setTextColor(ContextCompat.getColor(CrapsPlay.this,
                 R.color.numeroTargetDesactivado));
     }
 
@@ -319,7 +319,7 @@ public class crapsPlay extends AppCompatActivity {
         monedas = 500;
 
         arrDado = getResources().getStringArray(R.array.dadosNormal);
-        dadosSound = MediaPlayer.create(crapsPlay.this, R.raw.dados2);
+        dadosSound = MediaPlayer.create(CrapsPlay.this, R.raw.dados2);
         img1 = (ImageView) findViewById(R.id.dado1);
         int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
         img1.setImageResource(resID);

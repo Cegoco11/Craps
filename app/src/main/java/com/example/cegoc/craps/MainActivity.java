@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv2;
     private Jugador aux = new Jugador("Aux", "asd", "asdasdsad"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void Usuarios (View view){
 
-        Intent intent = new Intent(this, Usuarios.class);
+        Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }
 
     public void Jugar (View view){
 
-        Intent intent = new Intent(this, crapsPlay.class);
+        Intent intent = new Intent(this, CrapsPlay.class);
         startActivity(intent);
     }
 

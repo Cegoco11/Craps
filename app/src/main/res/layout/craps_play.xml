@@ -12,7 +12,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/tapete"
     android:orientation="vertical"
-    tools:context="com.example.cegoc.craps.crapsPlay">
+    tools:context="com.example.cegoc.craps.CrapsPlay">
 
     <LinearLayout
         android:layout_width="match_parent"
