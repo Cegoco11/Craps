@@ -52,7 +52,7 @@ public class Usuarios extends AppCompatActivity {
                 toast1.show();
                 SharedPreferences preferencias=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
-                editor.putString("name", player.mostrarnombre());
+                editor.putString("name", player.getNombre());
 
                 editor.commit();
                 Intent intent = new Intent(this, MainActivity.class);
@@ -85,7 +85,7 @@ public class Usuarios extends AppCompatActivity {
 
                 SharedPreferences preferencias=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
-                editor.putString("name", aux.mostrarnombre());
+                editor.putString("name", aux.getNombre());
                 editor.commit();
 
                 Intent intent = new Intent(this, MainActivity.class);

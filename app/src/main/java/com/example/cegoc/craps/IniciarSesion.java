@@ -15,7 +15,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 /**
- * Created by pablo on 15/12/2017.
+ *
+ * @author Pablo
  */
 
 public class IniciarSesion extends AppCompatActivity{

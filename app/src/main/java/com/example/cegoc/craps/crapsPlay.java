@@ -19,6 +19,10 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+/**
+ *
+ * @author Caesar
+ */
 public class crapsPlay extends AppCompatActivity {
 
     private final double MULTIPLICADOR = 1.5;

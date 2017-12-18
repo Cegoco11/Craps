@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 ObjectInputStream in = new ObjectInputStream(fis);
                 aux = (Jugador) in.readObject();
                 in.close();
-                tv2.setText("Monedas: "+ aux.mostrarmonedas());
+                tv2.setText("Monedas: "+ aux.getMonedas());
 
 
             } catch (Exception e) {
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Cartas (View view){
 
-        Intent intent = new Intent(this, Cartas.class);
+        Intent intent = new Intent(this, Coleccion.class);
         startActivity(intent);
 
     }

@@ -22,19 +22,27 @@
         <activity
             android:name=".crapsPlay"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".crapsAds"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".Usuarios"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name=".Cartas"
+            android:name=".Coleccion"
             android:screenOrientation="portrait" />
-        <activity android:name=".registro"></activity>
+
+        <activity
+            android:name=".registro"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
