@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
@@ -47,34 +47,68 @@
             android:layout_height="wrap_content"
             android:text="Contraseña" />
 
-        <EditText
-            android:id="@+id/clave"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/clave"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:maxLength="20" />
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/img1"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_weight="1"
+                android:padding="2dp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Repetir Contraseña" />
 
-        <EditText
-            android:id="@+id/clave2"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/clave2"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:maxLength="20" />
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/img2"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_weight="1"
+                android:padding="2dp" />
+        </LinearLayout>
 
         <Button
+            android:id="@+id/botonRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="GuardarUsuario"
             android:text="Registrar" />
 
-        <Space
+        <View
             android:layout_width="match_parent"
-            android:layout_height="13dp" />
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
 
         <Button
             android:id="@+id/button4"
