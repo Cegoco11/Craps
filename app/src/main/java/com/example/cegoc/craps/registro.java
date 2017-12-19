@@ -12,7 +12,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 /**
  *
@@ -23,7 +22,6 @@ public class Registro extends AppCompatActivity {
     private EditText et1;
     private EditText et2;
     private EditText et3;
-    private ArrayList<String> myList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +37,19 @@ public class Registro extends AppCompatActivity {
         String nombre = et1.getText().toString();
         String clave = et2.getText().toString();
         String correo = et3.getText().toString();
-        //ToDo Preguntar a Marina
-        // Cuando ejecutamos esta instruccion que es exactamente la misma que la de su proyecto
-        // en el if(!file.exists()) siempre sale por el else, nunca entra en el if
-        
+
         File file = getFileStreamPath(nombre); //Esta funcion se usa para comprobar si existe ya un archivo creado en memoria
 
         Toast toast1 = Toast.makeText(getApplicationContext(), "Nuevo usuario guardado: "+ nombre, Toast.LENGTH_LONG);
         Toast toast2 = Toast.makeText(getApplicationContext(), "Nombre repetido o no valido", Toast.LENGTH_SHORT);
 
+        Toast.makeText(this, "Hola", Toast.LENGTH_LONG);
         if (!file.exists()) {
 
             Jugador player = new Jugador(nombre, clave, correo);
 
             FileOutputStream fos;
             ObjectOutputStream out = null;
-
             try {
                 fos = openFileOutput(nombre, Context.MODE_PRIVATE); //Guardamos cada objeto de la clase Jugador en un archivo en memoria que lleve por nombre el nombre del jugador
                 out = new ObjectOutputStream(fos);
@@ -66,16 +61,15 @@ public class Registro extends AppCompatActivity {
                 editor.putString("name", player.getNombre());
 
                 editor.commit();
+
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finishAffinity(); //Esto se usa para cerrar esta activity y todos sus padres, asi no nos quedan actividades colgadas por ahí
             } catch (Exception e) {
-                toast2.show();
                 e.printStackTrace();
             }
         } else{
             toast2.show();
         }
     }
-
 }

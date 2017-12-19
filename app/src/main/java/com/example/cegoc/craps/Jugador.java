@@ -26,9 +26,9 @@ public class Jugador implements Serializable {
         this.clave = getMD5(clave);
         this.monedas = 10;
         avatares.add(new Item(R.drawable.avatar1, true, 0));
-        avatares.add(new Item(R.drawable.avatar2, true, 10));
-        avatares.add(new Item(R.drawable.avatar3, true, 20));
-        avatares.add(new Item(R.drawable.avatar4, true, 30));
+        avatares.add(new Item(R.drawable.avatar2, false, 10));
+        avatares.add(new Item(R.drawable.avatar3, false, 20));
+        avatares.add(new Item(R.drawable.avatar4, false, 30));
     }
 
     public String getNombre() {
