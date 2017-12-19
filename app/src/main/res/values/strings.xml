@@ -24,22 +24,13 @@
 
     <string name="rondas">Round %d</string>
 
-    <string-array name="dadosAzul">
-        <item>azul1</item>
-        <item>azul2</item>
-        <item>azul3</item>
-        <item>azul4</item>
-        <item>azul5</item>
-        <item>azul6</item>
-    </string-array>
-
-    <string-array name="dadosVerde">
-        <item>verde1</item>
-        <item>verde2</item>
-        <item>verde3</item>
-        <item>verde4</item>
-        <item>verde5</item>
-        <item>verde6</item>
+    <string-array name="dadosNormal">
+        <item>normal1</item>
+        <item>normal2</item>
+        <item>normal3</item>
+        <item>normal4</item>
+        <item>normal5</item>
+        <item>normal6</item>
     </string-array>
 
     <string-array name="dadosRojo">
@@ -49,24 +40,6 @@
         <item>rojo4</item>
         <item>rojo5</item>
         <item>rojo6</item>
-    </string-array>
-
-    <string-array name="dadosGris">
-        <item>gris1</item>
-        <item>gris2</item>
-        <item>gris3</item>
-        <item>gris4</item>
-        <item>gris5</item>
-        <item>gris6</item>
-    </string-array>
-
-    <string-array name="dadosFucsia">
-        <item>fucsia1</item>
-        <item>fucsia2</item>
-        <item>fucsia3</item>
-        <item>fucsia4</item>
-        <item>fucsia5</item>
-        <item>fucsia6</item>
     </string-array>
 
 </resources>

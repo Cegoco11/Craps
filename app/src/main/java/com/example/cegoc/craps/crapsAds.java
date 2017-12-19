@@ -19,8 +19,11 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.util.concurrent.TimeUnit;
 
-
-public class crapsAds extends AppCompatActivity implements RewardedVideoAdListener {
+/**
+ *
+ * @author Caesar
+ */
+public class CrapsAds extends AppCompatActivity implements RewardedVideoAdListener {
 
     private RewardedVideoAd mRewardedVideoAd;
     private ProgressBar progress;

@@ -12,7 +12,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/tapete"
     android:orientation="vertical"
-    tools:context="com.example.cegoc.craps.crapsPlay">
+    tools:context="com.example.cegoc.craps.CrapsPlay">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -107,7 +107,7 @@
             android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/descDado1"
-            app:srcCompat="@drawable/gris6" />
+            app:srcCompat="@drawable/normal6" />
 
         <ImageView
             android:id="@+id/dado2"
@@ -115,7 +115,7 @@
             android:layout_height="120dp"
             android:layout_marginStart="8dp"
             android:contentDescription="@string/descDado2"
-            app:srcCompat="@drawable/gris6" />
+            app:srcCompat="@drawable/normal6" />
 
     </LinearLayout>
 
@@ -133,14 +133,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="Nada" />
+            android:text="Salir" />
 
         <Button
             android:id="@+id/botonDoble"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Doble" />
+            android:text="Seguir" />
     </LinearLayout>
 
 </LinearLayout>

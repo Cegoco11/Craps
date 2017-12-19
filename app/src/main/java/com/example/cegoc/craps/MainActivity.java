@@ -17,9 +17,7 @@ public class MainActivity extends AppCompatActivity {
     String usuario_activo;
     private TextView tv1;
     private TextView tv2;
-    private Jugador aux = new Jugador("Aux", "asd"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
-
-
+    private Jugador aux = new Jugador("Aux", "asd", "asdasdsad"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 ObjectInputStream in = new ObjectInputStream(fis);
                 aux = (Jugador) in.readObject();
                 in.close();
-                tv2.setText("Monedas: "+ aux.mostrarmonedas());
+                tv2.setText("Monedas: "+ aux.getMonedas());
 
 
             } catch (Exception e) {
@@ -59,19 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void Usuarios (View view){
 
-        Intent intent = new Intent(this, Usuarios.class);
+        Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }
 
     public void Jugar (View view){
 
-        Intent intent = new Intent(this, crapsPlay.class);
+        Intent intent = new Intent(this, CrapsPlay.class);
         startActivity(intent);
     }
 
     public void Cartas (View view){
 
-        Intent intent = new Intent(this, Cartas.class);
+        Intent intent = new Intent(this, Coleccion.class);
         startActivity(intent);
 
     }

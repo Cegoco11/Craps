@@ -8,68 +8,58 @@ import java.util.ArrayList;
 
 /**
  * Created by Marina on 25-Nov-17.
+ * Edited by Caesar
  */
 
 public class Jugador implements Serializable {
 
     private String nombre; //Nombre del usuario
     private String clave;
+    private String correo;
     private int monedas;
+    private ArrayList<Item> avatares=new ArrayList<Item>();
+    private ArrayList<Dados> dados=new ArrayList<Dados>();
 
-    private ArrayList<Boolean> baraja1; // Array que guarda las cartas disponibles de la baraja del tipo 1
-    private ArrayList<Boolean> baraja2; // Array que guarda las cartas disponibles de la baraja del tipo 2
-    private ArrayList<Boolean> baraja3; // Array que guarda las cartas disponibles de la baraja del tipo 3
-    private ArrayList<Boolean> baraja4; // Array que guarda las cartas disponibles de la baraja del tipo 4
-    private ArrayList<Boolean> baraja5; // Array que guarda las cartas disponibles de la baraja del tipo 5
-
-
-    public Jugador(String nombre, String clave){
+    public Jugador(String nombre, String clave, String correo){
         this.nombre = nombre;
+        this.correo = correo;
         this.clave = getMD5(clave);
         this.monedas = 10;
-
-        this.baraja1 = new ArrayList<>(50);
-        this.baraja2 = new ArrayList<>(50);
-        this.baraja3 = new ArrayList<>(50);
-        this.baraja4 = new ArrayList<>(50);
-        this.baraja5 = new ArrayList<>(50);
+        avatares.add(new Item(R.drawable.avatar1, true, 0));
+        avatares.add(new Item(R.drawable.avatar2, false, 10));
+        avatares.add(new Item(R.drawable.avatar3, false, 20));
+        avatares.add(new Item(R.drawable.avatar4, false, 30));
     }
 
-
-    public String mostrarnombre() {
+    public String getNombre() {
         return nombre;	}
 
-    public int mostrarmonedas(){
+    public int getMonedas(){
         return monedas;
+    }
 
+    public ArrayList<Item> getAvatares(){
+        return avatares;
+    }
+
+    public ArrayList<Dados> getDados(){
+        return dados;
     }
 
     public void add_coin(int cantidad){
         monedas = monedas + cantidad;
     }
 
-    public void unblock_card(int baraja, int posicion){
+    public void desbloquear(int baraja, int posicion){
 
-        switch(baraja){
-            case 1:
-                baraja1.add(posicion,true);
-                break;
-            case 2:
-                baraja1.add(posicion,true);
-                break;
-            case 3:
-                baraja1.add(posicion,true);
-                break;
-            case 4:
-                baraja1.add(posicion,true);
-                break;
-            case 5:
-                baraja1.add(posicion,true);
-                break;
-            default:
-                break;
-        }
     }
+
+    /**
+     * Metodo para encriptar un string en md5
+     *
+     * @param input String a encriptar
+     * @return String encriptado
+     */
     private static String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

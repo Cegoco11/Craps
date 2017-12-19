@@ -17,7 +17,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 
 /**
- * Created by pablo on 15/12/2017.
+ *
+ * @author Pablo
  */
 
 public class IniciarSesion extends AppCompatActivity {
@@ -45,7 +46,7 @@ public class IniciarSesion extends AppCompatActivity {
     public void Cargar(View view) {
 
 
-        Jugador aux = new Jugador("Aux", "asd");
+        Jugador aux = new Jugador("Aux", "asd", "asdfa");
 
 
         String nombre = txtusuario.getText().toString();
@@ -72,7 +73,7 @@ public class IniciarSesion extends AppCompatActivity {
 
                 SharedPreferences preferencias = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferencias.edit();
-                editor.putString("name", aux.mostrarnombre());
+                editor.putString("name", aux.getNombre());
                 editor.commit();
 
 
