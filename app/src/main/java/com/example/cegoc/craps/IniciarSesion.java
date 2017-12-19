@@ -41,18 +41,11 @@ public class IniciarSesion extends AppCompatActivity {
 
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
-
-
-
-
     }
-
 
     public void Cargar(View view) {
 
-
         Jugador aux = new Jugador("Aux", "asd", "asdfa");
-
 
         String nombre = txtusuario.getText().toString();
         String contra = txtclave.getText().toString();
@@ -60,12 +53,9 @@ public class IniciarSesion extends AppCompatActivity {
         File file = getFileStreamPath(nombre);
         Toast toast = Toast.makeText(getApplicationContext(), "No existe ese usuario", Toast.LENGTH_LONG);
 
-
-
         if (file.exists()) {
             FileInputStream fis;
             ObjectInputStream in = null;
-
             try {
 
                 fis = openFileInput(nombre);
@@ -82,25 +72,17 @@ public class IniciarSesion extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finishAffinity();
-
-
             } catch (Exception e) {
                 toast.show();
                 e.printStackTrace();
-
             }
-
         } else {
             toast.show();
-
         }
-
     }
 
     public void irRegistro(View v){
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }
-
-
 }

@@ -72,4 +72,10 @@ public class Registro extends AppCompatActivity {
             toast2.show();
         }
     }
+
+
+    public void irIniciarSesion(){
+        Intent intent = new Intent(this, IniciarSesion.class);
+        startActivity(intent);
+    }
 }

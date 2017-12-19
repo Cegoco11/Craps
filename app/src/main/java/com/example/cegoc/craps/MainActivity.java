@@ -14,7 +14,7 @@ import java.io.ObjectInputStream;
 public class MainActivity extends AppCompatActivity {
 
 
-    String usuario_activo;
+    private String usuario_activo;
     private TextView tv1;
     private TextView tv2;
     private Jugador aux = new Jugador("Aux", "asd", "asdasdsad"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
@@ -31,47 +31,35 @@ public class MainActivity extends AppCompatActivity {
         tv1.setText("Usuario: "+ usuario_activo);
 
         if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
-
             try {
-
                 FileInputStream fis = openFileInput(usuario_activo);
                 ObjectInputStream in = new ObjectInputStream(fis);
                 aux = (Jugador) in.readObject();
                 in.close();
                 tv2.setText("Monedas: "+ aux.getMonedas());
-
-
             } catch (Exception e) {
                e.printStackTrace();
-
             }
-
         }
-
         else{
             tv2.setText("Monedas: 5");
         }
-
     }
 
 
     public void Usuarios (View view){
-
         Intent intent = new Intent(this, IniciarSesion.class);
         startActivity(intent);
     }
 
     public void Jugar (View view){
-
         Intent intent = new Intent(this, CrapsPlay.class);
         startActivity(intent);
     }
 
     public void Cartas (View view){
-
         Intent intent = new Intent(this, Coleccion.class);
         startActivity(intent);
-
     }
 
     public void Salir (View view){
