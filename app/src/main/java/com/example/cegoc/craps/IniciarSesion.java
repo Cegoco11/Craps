@@ -26,8 +26,10 @@ public class IniciarSesion extends AppCompatActivity {
 
     private EditText txtusuario;
     private EditText txtclave;
+
     private TextView tv1;
     private TextView tv2;
+
 
 
     @Override
@@ -36,8 +38,11 @@ public class IniciarSesion extends AppCompatActivity {
         setContentView(R.layout.layaut_iniciarsesion);
         txtusuario = (EditText) findViewById(R.id.txtusuario);
         txtclave = (EditText) findViewById(R.id.txtclave);
+
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
+
+
 
 
     }
@@ -51,23 +56,20 @@ public class IniciarSesion extends AppCompatActivity {
 
         String nombre = txtusuario.getText().toString();
         String contra = txtclave.getText().toString();
+
         File file = getFileStreamPath(nombre);
-        Toast toast1 = Toast.makeText(getApplicationContext(), "No existe ese usuario", Toast.LENGTH_LONG);
-        File file2 = getFileStreamPath(contra);
-        Toast toast2 = Toast.makeText(getApplicationContext(), "No existe la contraseña", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), "No existe ese usuario", Toast.LENGTH_LONG);
 
 
-        if (file.exists()&&file2.exists()) {
+
+        if (file.exists()) {
             FileInputStream fis;
-            FileInputStream fis2;
             ObjectInputStream in = null;
 
             try {
 
                 fis = openFileInput(nombre);
-                fis2 = openFileInput(contra);
                 in = new ObjectInputStream(fis);
-                in = new ObjectInputStream(fis2);
                 aux = (Jugador) in.readObject();
                 in.close();
 
@@ -83,16 +85,21 @@ public class IniciarSesion extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                toast1.show();
+                toast.show();
                 e.printStackTrace();
 
             }
 
         } else {
-            toast1.show();
+            toast.show();
 
         }
 
+    }
+
+    public void irRegistro(View v){
+        Intent intent = new Intent(this, Registro.class);
+        startActivity(intent);
     }
 
 

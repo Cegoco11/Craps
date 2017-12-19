@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Usuarios (View view){
 
-        Intent intent = new Intent(this, Registro.class);
+        Intent intent = new Intent(this, IniciarSesion.class);
         startActivity(intent);
     }
 

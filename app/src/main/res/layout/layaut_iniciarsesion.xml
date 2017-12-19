@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
 
+
         <TextView
             android:id="@+id/tv2"
             android:layout_width="match_parent"
@@ -31,15 +32,17 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
 
-        <Button
+
+    <Button
             android:id="@+id/ingresar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ingresar" />
 
-        <Button
-            android:id="@+id/crearCuenta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Crear Cuenta" />
+    <Button
+        android:id="@+id/crearCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="irRegistro"
+        android:text="Crear Cuenta" />
     </LinearLayout>
