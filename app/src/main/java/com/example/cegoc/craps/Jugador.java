@@ -34,6 +34,12 @@ public class Jugador implements Serializable {
         avatares.add(new Item(R.drawable.avatar3, false, 20));
         avatares.add(new Item(R.drawable.avatar4, false, 30));
 
+
+       // dados.add(new Item(R.drawable.icono_bloq_dado_rojo, true, 0));
+       // dados.add(new Item(R.drawable.icono_bloq_huevo, false, 10));
+      //  dados.add(new Item(R.drawable.icono_bloq_dado_legendario, false, 20));
+
+
         // Avatar predeterminado del usuario
         this.avatarActual=avatares.get(0).getImg();
         // Skin de prueba
