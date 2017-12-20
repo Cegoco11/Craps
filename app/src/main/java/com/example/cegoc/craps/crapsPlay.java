@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,7 +45,10 @@ public class CrapsPlay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.craps_play);
+        getSupportActionBar().hide();
 
         init();
         estadoInicial();
@@ -74,8 +78,8 @@ public class CrapsPlay extends AppCompatActivity {
                     apuestaActual += monedas;
                     monedas = 0;
                 } else {
-                    animacionContador(monedas, (int)(monedas-apuestaActual*MULTIPLICADOR), monedasText);
-                    apuestaActual *= MULTIPLICADOR;
+                    animacionContador(monedas, (int)(apuestaActual*MULTIPLICADOR), monedasText);
+                    apuestaActual = (int)(apuestaActual*MULTIPLICADOR);
                     monedas -= apuestaActual;
                 }
                 Toast.makeText(CrapsPlay.this, "Apuesta: " + apuestaActual,
@@ -351,7 +355,7 @@ public class CrapsPlay extends AppCompatActivity {
                             getResources().getString(R.string.toastMoneda)),
                     Toast.LENGTH_SHORT).show();
             animacionContador(monedas, (int)(monedas+apuestaActual*MULTIPLICADOR), monedasText);
-            monedas += apuestaActual * MULTIPLICADOR;
+            monedas += apuestaActual + apuestaActual * MULTIPLICADOR;
 
         } else {
             // Perder
@@ -369,7 +373,9 @@ public class CrapsPlay extends AppCompatActivity {
      * @param vista TextView al que se lo aplicamos
      */
     public void animacionContador(int start, int end, final TextView vista) {
-
+        if(end<0){
+            end=0;
+        }
         ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
         valueAnimator.setDuration(350);
 

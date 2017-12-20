@@ -34,12 +34,21 @@
     </string-array>
 
     <string-array name="dadosRojo">
-        <item>rojo1</item>
-        <item>rojo2</item>
-        <item>rojo3</item>
-        <item>rojo4</item>
-        <item>rojo5</item>
-        <item>rojo6</item>
+        <item>dado_rojo1</item>
+        <item>dado_rojo2</item>
+        <item>dado_rojo3</item>
+        <item>dado_rojo4</item>
+        <item>dado_rojo5</item>
+        <item>dado_rojo6</item>
+    </string-array>
+
+    <string-array name="dadosHuevos">
+        <item>sarten1</item>
+        <item>sarten2</item>
+        <item>sarten3</item>
+        <item>sarten4</item>
+        <item>sarten5</item>
+        <item>sarten6</item>
     </string-array>
 
 </resources>
