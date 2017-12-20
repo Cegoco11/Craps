@@ -30,4 +30,8 @@ public class Item implements Serializable {
     public int getPrecio(){
         return precio;
     }
+
+    public boolean getEstado(){
+        return estado;
+    }
 }

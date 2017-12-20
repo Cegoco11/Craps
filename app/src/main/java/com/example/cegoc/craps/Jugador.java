@@ -30,9 +30,16 @@ public class Jugador implements Serializable {
 
         // Todos los avatares de la app
         avatares.add(new Item(R.drawable.avatar1, true, 0));
-        avatares.add(new Item(R.drawable.avatar2, false, 10));
+        avatares.add(new Item(R.drawable.avatar2, true, 10));
         avatares.add(new Item(R.drawable.avatar3, false, 20));
         avatares.add(new Item(R.drawable.avatar4, false, 30));
+
+        // Skin dado normal
+        // dados.add(new Dados(R.drawable.icono_dado_rojo, true, 20));
+        dados.add(new Dados(R.drawable.avatar4, true, 20));
+        dados.add(new Dados(R.drawable.icono_dado_rojo, true, 20));
+        dados.add(new Dados(R.drawable.icono_huevo, false, 20));
+        dados.add(new Dados(R.drawable.icono_dado_legendario, false, 20));
 
         // Avatar predeterminado del usuario
         this.avatarActual=avatares.get(0).getImg();

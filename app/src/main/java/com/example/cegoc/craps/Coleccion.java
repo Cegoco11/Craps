@@ -27,11 +27,20 @@ public class Coleccion extends AppCompatActivity {
         ImageView aux;
         // Muestro todos los avatares, hay que filtrar por los que estan desbloqueados
         for(int i=0; i<prueba.getAvatares().size(); i++){
-            aux=new ImageView(this);
-            aux.setImageResource(prueba.getAvatares().get(i).getImg());
-            avatares.addView(aux);
+            if(prueba.getAvatares().get(i).getEstado()){
+                aux=new ImageView(this);
+                aux.setImageResource(prueba.getAvatares().get(i).getImg());
+                avatares.addView(aux);
+            }
         }
         skins=(GridLayout) findViewById(R.id.SkinsGrid);
         // ToDo Mostrar skins
+        for(int i=0; i<prueba.getAvatares().size(); i++){
+            if(prueba.getDados().get(i).getEstado()){
+                aux=new ImageView(this);
+                aux.setImageResource(prueba.getDados().get(i).getImg());
+                skins.addView(aux);
+            }
+        }
     }
 }
