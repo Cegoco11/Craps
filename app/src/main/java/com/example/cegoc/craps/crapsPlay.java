@@ -1,10 +1,13 @@
 package com.example.cegoc.craps;
 
 import android.animation.ValueAnimator;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -379,5 +382,37 @@ public class CrapsPlay extends AppCompatActivity {
             }
         });
         valueAnimator.start();
+    }
+
+    /**
+     *
+     */
+    public void muestraAyuda(View v){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setMessage("Tutorial").setTitle("Ayuda");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {}
+        });
+        builder.show();
+    }
+
+    public void conseguirMonedas(View v){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setMessage("Quieres conseguir un bonus de monedas?").setTitle("Conseguir monedas");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(CrapsPlay.this, CrapsAds.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 }

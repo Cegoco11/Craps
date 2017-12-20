@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/conteiners_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:focusableInTouchMode="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
@@ -15,6 +19,7 @@
 
         <EditText
             android:id="@+id/txtusuario"
+            android:hint="Introduce el nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
@@ -47,3 +52,5 @@
         android:onClick="irRegistro"
         android:text="Crear Cuenta" />
     </LinearLayout>
+
+</ScrollView>
