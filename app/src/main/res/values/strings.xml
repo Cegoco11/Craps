@@ -60,4 +60,18 @@
         <item>dado_legendario6</item>
     </string-array>
 
+
+    <!-- layouts de registro y login -->
+    <string name="registro">Register</string>
+    <string name="nombre">Username</string>
+    <string name="hintNombre">Insert username here</string>
+    <string name="correo">Email</string>
+    <string name="hintCorreo">Insert email here</string>
+    <string name="contra">Password</string>
+    <string name="contra2">Repeat password</string>
+    <string name="btnRegistrar">Register</string>
+    <string name="btnInicio">Login</string>
+    <string name="btnCrear">Create account</string>
+
+
 </resources>
