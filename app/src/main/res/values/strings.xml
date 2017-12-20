@@ -51,4 +51,13 @@
         <item>sarten6</item>
     </string-array>
 
+    <string-array name="dadosLegendarios">
+        <item>sarten1</item>
+        <item>sarten2</item>
+        <item>sarten3</item>
+        <item>sarten4</item>
+        <item>sarten5</item>
+        <item>sarten6</item>
+    </string-array>
+
 </resources>

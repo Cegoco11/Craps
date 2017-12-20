@@ -176,10 +176,10 @@ public class Registro extends AppCompatActivity {
         ImageView imagen2=(ImageView) findViewById(R.id.img2);
 
         if(campo1.equals(campo2)){
-            imagen2.setImageResource(R.drawable.tick);
+            imagen2.setImageResource(R.drawable.logo_correcto);
             return true;
         } else{
-            imagen2.setImageResource(R.drawable.error);
+            imagen2.setImageResource(R.drawable.logo_incorrecto);
             return false;
         }
     }
@@ -206,10 +206,10 @@ public class Registro extends AppCompatActivity {
         // ToDo
         ImageView imagen1=(ImageView) findViewById(R.id.img1);
         if(campo1.length()>=6 && esMayus && esNum){
-            imagen1.setImageResource(R.drawable.tick);
+            imagen1.setImageResource(R.drawable.logo_correcto);
             return true;
         } else{
-            imagen1.setImageResource(R.drawable.error);
+            imagen1.setImageResource(R.drawable.logo_incorrecto);
             return false;
         }
     }
