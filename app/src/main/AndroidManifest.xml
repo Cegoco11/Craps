@@ -42,7 +42,6 @@
         <activity
             android:name=".IniciarSesion"
             android:screenOrientation="portrait" />
-
     </application>
 
 </manifest>

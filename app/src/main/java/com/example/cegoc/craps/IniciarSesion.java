@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,11 +12,9 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 
 /**
- *
  * @author Pablo
  */
 
@@ -31,7 +28,6 @@ public class IniciarSesion extends AppCompatActivity {
     private TextView tv2;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +37,8 @@ public class IniciarSesion extends AppCompatActivity {
 
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
+
+
     }
 
     public void Cargar(View view) {
@@ -48,7 +46,7 @@ public class IniciarSesion extends AppCompatActivity {
         Jugador aux = new Jugador("Aux", "asd", "asdfa");
 
         String nombre = txtusuario.getText().toString();
-        String contra = txtclave.getText().toString();
+        String contra = Jugador.getMD5(txtclave.getText().toString());
 
         File file = getFileStreamPath(nombre);
         Toast toast = Toast.makeText(getApplicationContext(), "No existe ese usuario", Toast.LENGTH_LONG);
@@ -63,15 +61,18 @@ public class IniciarSesion extends AppCompatActivity {
                 aux = (Jugador) in.readObject();
                 in.close();
 
-                SharedPreferences preferencias = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferencias.edit();
-                editor.putString("name", aux.getNombre());
-                editor.commit();
+                if (aux.getClave().equals(contra)) {
+                    SharedPreferences preferencias = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferencias.edit();
+                    editor.putString("name", aux.getNombre());
+                    editor.commit();
 
-
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                finishAffinity();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                    finishAffinity();
+                } else {
+                    Toast.makeText(this, "contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                }
             } catch (Exception e) {
                 toast.show();
                 e.printStackTrace();
@@ -81,7 +82,7 @@ public class IniciarSesion extends AppCompatActivity {
         }
     }
 
-    public void irRegistro(View v){
+    public void irRegistro(View v) {
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }

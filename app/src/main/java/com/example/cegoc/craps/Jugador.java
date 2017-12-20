@@ -17,6 +17,8 @@ public class Jugador implements Serializable {
     private String clave;
     private String correo;
     private int monedas;
+    private int avatarActual;
+    private int dadosActual;
     private ArrayList<Item> avatares=new ArrayList<Item>();
     private ArrayList<Dados> dados=new ArrayList<Dados>();
 
@@ -25,14 +27,22 @@ public class Jugador implements Serializable {
         this.correo = correo;
         this.clave = getMD5(clave);
         this.monedas = 10;
+
+        // Todos los avatares de la app
         avatares.add(new Item(R.drawable.avatar1, true, 0));
         avatares.add(new Item(R.drawable.avatar2, false, 10));
         avatares.add(new Item(R.drawable.avatar3, false, 20));
         avatares.add(new Item(R.drawable.avatar4, false, 30));
+
+        // Avatar predeterminado del usuario
+        this.avatarActual=avatares.get(0).getImg();
     }
 
     public String getNombre() {
         return nombre;	}
+
+    public String getClave() {
+        return clave;	}
 
     public int getMonedas(){
         return monedas;
@@ -60,7 +70,7 @@ public class Jugador implements Serializable {
      * @param input String a encriptar
      * @return String encriptado
      */
-    private static String getMD5(String input) {
+    public static String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(input.getBytes());
