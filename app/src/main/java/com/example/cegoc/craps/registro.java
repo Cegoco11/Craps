@@ -143,7 +143,9 @@ public class Registro extends AppCompatActivity {
                     SharedPreferences preferencias=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferencias.edit();
                     editor.putString("name", player.getNombre());
-
+                    editor.putInt("coins", player.getMonedas());
+                    editor.putInt("skin", player.getDadosActual());
+                    editor.putInt("avatar", player.getAvatarActual());
                     editor.commit();
 
                     Intent intent = new Intent(this, MainActivity.class);
@@ -159,7 +161,6 @@ public class Registro extends AppCompatActivity {
             Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     public void irIniciarSesion(View v){
         Intent intent = new Intent(this, IniciarSesion.class);

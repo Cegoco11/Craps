@@ -1,8 +1,10 @@
 package com.example.cegoc.craps;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -291,7 +293,6 @@ public class CrapsPlay extends AppCompatActivity {
         dadosLayout.setClickable(true);
         rondaText.setText
                 (String.format(getResources().getString(R.string.rondas), contadorRondas));
-       // monedasText.setText(String.valueOf(monedas));
         tiradaText.setText(String.valueOf(dado1 + dado2));
         tiradaText.setTextColor(ContextCompat.getColor(CrapsPlay.this,
                 R.color.numeroTargetDesactivado));
@@ -320,10 +321,12 @@ public class CrapsPlay extends AppCompatActivity {
         MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
         mAdView = (AdView) findViewById(R.id.adView);
 
-        //ToDo Coger monedas del usuario en el sharedpreferences
-        monedas = 500;
+        // Se cogen las monedas y skin del usuario actual que esta en el SharedPreferences
+        SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
+        monedas = prefe.getInt("coins", 0);
+        int skinDadoJugador= prefe.getInt("skin", R.array.dadosNormal);
+        arrDado = getResources().getStringArray(skinDadoJugador);
 
-        arrDado = getResources().getStringArray(R.array.dadosNormal);
         dadosSound = MediaPlayer.create(CrapsPlay.this, R.raw.dados2);
         img1 = (ImageView) findViewById(R.id.dado1);
         int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());

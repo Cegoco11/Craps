@@ -52,12 +52,12 @@
     </string-array>
 
     <string-array name="dadosLegendarios">
-        <item>sarten1</item>
-        <item>sarten2</item>
-        <item>sarten3</item>
-        <item>sarten4</item>
-        <item>sarten5</item>
-        <item>sarten6</item>
+        <item>dado_legendario1</item>
+        <item>dado_legendario2</item>
+        <item>dado_legendario3</item>
+        <item>dado_legendario4</item>
+        <item>dado_legendario5</item>
+        <item>dado_legendario6</item>
     </string-array>
 
 </resources>

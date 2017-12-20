@@ -65,6 +65,9 @@ public class IniciarSesion extends AppCompatActivity {
                     SharedPreferences preferencias = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferencias.edit();
                     editor.putString("name", aux.getNombre());
+                    editor.putInt("coins", aux.getMonedas());
+                    editor.putInt("skin", aux.getDadosActual());
+                    editor.putInt("avatar", aux.getAvatarActual());
                     editor.commit();
 
                     Intent intent = new Intent(this, MainActivity.class);

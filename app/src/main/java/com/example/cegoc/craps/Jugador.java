@@ -26,7 +26,7 @@ public class Jugador implements Serializable {
         this.nombre = nombre;
         this.correo = correo;
         this.clave = getMD5(clave);
-        this.monedas = 10;
+        this.monedas = 100;
 
         // Todos los avatares de la app
         avatares.add(new Item(R.drawable.avatar1, true, 0));
@@ -36,6 +36,8 @@ public class Jugador implements Serializable {
 
         // Avatar predeterminado del usuario
         this.avatarActual=avatares.get(0).getImg();
+        // Skin de prueba
+        this.dadosActual=R.array.dadosLegendarios;
     }
 
     public String getNombre() {
@@ -46,6 +48,14 @@ public class Jugador implements Serializable {
 
     public int getMonedas(){
         return monedas;
+    }
+
+    public int getAvatarActual(){
+        return avatarActual;
+    }
+
+    public int getDadosActual(){
+        return dadosActual;
     }
 
     public ArrayList<Item> getAvatares(){
