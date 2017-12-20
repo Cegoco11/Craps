@@ -10,62 +10,62 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-        // Texto: Registro
+        <!-- Texto: Registro -->
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTRO"
+            android:text="@string/registro"
             android:textAlignment="center" />
 
-        //Texto: Nombre
+        <!-- Texto: Nombre -->
 
         <TextView
             android:id="@+id/TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre"
+            android:text="@string/nombre"
             android:textAlignment="center" />
 
-        //Campo: introducir nombre
+        <!-- Campo: Nombre -->
 
         <EditText
             android:id="@+id/nombre"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="Introduce el nombre"
+            android:hint="@string/hintNombre"
             android:inputType="textPersonName" />
 
-        //Texto: Nombre
+        <!-- Texto: Correo -->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Correo"
+            android:text="@string/correo"
             android:textAlignment="center" />
 
-        //Campo: introducir correo
+        <!-- Campo: Correo -->
 
         <EditText
             android:id="@+id/correo"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="Introduce el correo"
+            android:hint="@string/hintCorreo"
             android:inputType="textPersonName" />
 
-        //Texto: Contraseña
+        <!-- Texto: Contraseña -->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contraseña"
+            android:text="@string/contra"
             android:textAlignment="center" />
 
-        //Campo: introducir contraseña
+        <!-- Campo: Contraseña -->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,15 +88,15 @@
                 android:padding="2dp" />
         </LinearLayout>
 
-        //Texto: Contraseña
+        <!-- Texto: Contraseña2 -->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Repetir Contraseña"
+            android:text="@string/contra2"
             android:textAlignment="center" />
 
-        //Campo: introducir contraseña
+        <!-- Campo: Contraseña2 -->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -119,12 +119,14 @@
                 android:layout_weight="1"
                 android:padding="2dp" />
         </LinearLayout>
+
+        <!-- Boton Registrar -->
         <Button
             android:id="@+id/botonRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="GuardarUsuario"
-            android:text="Registrar"/>
+            android:text="@string/btnRegistrar"/>
 
         <View
             android:layout_width="match_parent"
@@ -133,12 +135,13 @@
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
 
+        <!-- Boton Iniciar -->
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="irIniciarSesion"
-            android:text="Iniciar Sesion" />
+            android:text="@string/btnInicio" />
 
     </LinearLayout>
 </ScrollView>

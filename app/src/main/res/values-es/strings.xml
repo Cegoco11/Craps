@@ -11,4 +11,14 @@
     <string name="descDado1">Imagen del primer dado</string>
     <string name="descDado2">Imagen del segundo dado</string>
     <string name="rondas">Ronda %d</string>
+    <string name="registro">Registro</string>
+    <string name="nombre">Usuario</string>
+    <string name="hintNombre">Introduce el nombre de usuario</string>
+    <string name="correo">Correo</string>
+    <string name="hintCorreo">Introduce el correo aqui</string>
+    <string name="contra">Contraseña</string>
+    <string name="contra2">Repite contraseña</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="btnInicio">Iniciar sesion</string>
+    <string name="btnCrear">Crear cuenta</string>
 </resources>

@@ -15,11 +15,11 @@
             android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usuario:" />
+            android:text="@string/nombre" />
 
         <EditText
             android:id="@+id/txtusuario"
-            android:hint="Introduce el nombre"
+            android:hint="@string/hintNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
@@ -29,7 +29,7 @@
             android:id="@+id/tv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clave:" />
+            android:text="@string/contra" />
 
         <EditText
             android:id="@+id/txtclave"
@@ -43,14 +43,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="Cargar"
-        android:text="ingresar" />
+        android:text="@string/btnInicio" />
 
     <Button
         android:id="@+id/crearCuenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="irRegistro"
-        android:text="Crear Cuenta" />
+        android:text="@string/btnCrear" />
     </LinearLayout>
 
 </ScrollView>
