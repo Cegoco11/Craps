@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Cartas (View view){
-        Intent intent = new Intent(this, Coleccion.class);
+        Intent intent = new Intent(this, tienda.class);
         startActivity(intent);
     }
 

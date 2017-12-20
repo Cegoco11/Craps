@@ -11,7 +11,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#70AA94"
+    android:background="@drawable/fondojuego2"
     android:orientation="vertical"
     android:paddingTop="20dp"
     tools:context="com.example.cegoc.craps.CrapsPlay">
