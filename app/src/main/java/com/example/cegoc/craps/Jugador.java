@@ -41,6 +41,9 @@ public class Jugador implements Serializable {
     public String getNombre() {
         return nombre;	}
 
+    public String getClave() {
+        return clave;	}
+
     public int getMonedas(){
         return monedas;
     }
@@ -67,7 +70,7 @@ public class Jugador implements Serializable {
      * @param input String a encriptar
      * @return String encriptado
      */
-    private static String getMD5(String input) {
+    public static String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(input.getBytes());

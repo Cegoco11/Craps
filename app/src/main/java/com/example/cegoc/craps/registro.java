@@ -161,10 +161,11 @@ public class Registro extends AppCompatActivity {
     }
 
 
-    public void irIniciarSesion(){
+    public void irIniciarSesion(View v){
         Intent intent = new Intent(this, IniciarSesion.class);
         startActivity(intent);
     }
+
 
     /**
      * Comprueba que los valores de et2 y et3 sean iguales, y muestra una imagen u otra
@@ -212,4 +213,5 @@ public class Registro extends AppCompatActivity {
             return false;
         }
     }
+
 }
