@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,7 +45,10 @@ public class CrapsPlay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.craps_play);
+        getSupportActionBar().hide();
 
         init();
         estadoInicial();
@@ -75,13 +79,12 @@ public class CrapsPlay extends AppCompatActivity {
                     monedas = 0;
                 } else {
                     animacionContador(monedas, (int)(monedas-apuestaActual*MULTIPLICADOR), monedasText);
-                    apuestaActual *= MULTIPLICADOR;
+                    apuestaActual = (int)(apuestaActual*MULTIPLICADOR);
                     monedas -= apuestaActual;
                 }
                 Toast.makeText(CrapsPlay.this, "Apuesta: " + apuestaActual,
                         Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
-                //monedasText.setText(String.valueOf(monedas));
                 muestraBotones(false);
             }
         });
@@ -142,7 +145,6 @@ public class CrapsPlay extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
                 animacionContador(monedas, monedas-APUESTA_INICIAL, monedasText);
                 monedas -= APUESTA_INICIAL;
-                //monedasText.setText(String.valueOf(monedas));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -351,7 +353,7 @@ public class CrapsPlay extends AppCompatActivity {
                             getResources().getString(R.string.toastMoneda)),
                     Toast.LENGTH_SHORT).show();
             animacionContador(monedas, (int)(monedas+apuestaActual*MULTIPLICADOR), monedasText);
-            monedas += apuestaActual * MULTIPLICADOR;
+            monedas = (int)(apuestaActual + apuestaActual * MULTIPLICADOR);
 
         } else {
             // Perder
@@ -369,7 +371,9 @@ public class CrapsPlay extends AppCompatActivity {
      * @param vista TextView al que se lo aplicamos
      */
     public void animacionContador(int start, int end, final TextView vista) {
-
+        if(end<0){
+            end=0;
+        }
         ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
         valueAnimator.setDuration(350);
 
