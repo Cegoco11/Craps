@@ -78,14 +78,13 @@ public class CrapsPlay extends AppCompatActivity {
                     apuestaActual += monedas;
                     monedas = 0;
                 } else {
-                    animacionContador(monedas, (int)(apuestaActual*MULTIPLICADOR), monedasText);
+                    animacionContador(monedas, (int)(monedas-apuestaActual*MULTIPLICADOR), monedasText);
                     apuestaActual = (int)(apuestaActual*MULTIPLICADOR);
                     monedas -= apuestaActual;
                 }
                 Toast.makeText(CrapsPlay.this, "Apuesta: " + apuestaActual,
                         Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
-                //monedasText.setText(String.valueOf(monedas));
                 muestraBotones(false);
             }
         });
@@ -146,7 +145,6 @@ public class CrapsPlay extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
                 animacionContador(monedas, monedas-APUESTA_INICIAL, monedasText);
                 monedas -= APUESTA_INICIAL;
-                //monedasText.setText(String.valueOf(monedas));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -355,7 +353,7 @@ public class CrapsPlay extends AppCompatActivity {
                             getResources().getString(R.string.toastMoneda)),
                     Toast.LENGTH_SHORT).show();
             animacionContador(monedas, (int)(monedas+apuestaActual*MULTIPLICADOR), monedasText);
-            monedas += apuestaActual + apuestaActual * MULTIPLICADOR;
+            monedas = (int)(apuestaActual + apuestaActual * MULTIPLICADOR);
 
         } else {
             // Perder
