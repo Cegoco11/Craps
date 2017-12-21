@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv1;
     private TextView tv2;
     private Jugador aux;
+    private Typeface Pixel1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,17 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // Oculta Titulo de la ventana
 
         tv1 = (TextView) findViewById(R.id.tv1);
+        String fuente1="Pixel1.ttf";
+        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente1);
+
+        tv1 = (TextView) findViewById(R.id.tv1);
+        tv1.setTypeface(Pixel1);
         tv2 = (TextView) findViewById(R.id.tv2);
+        String fuente2="Pixel1.ttf";
+        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente2);
+
+        tv2 = (TextView) findViewById(R.id.tv2);
+        tv2.setTypeface(Pixel1);
 
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE); //Usamos el sharedpreferences para saber que usuario esta activo
         SharedPreferences.Editor editor = prefe.edit();

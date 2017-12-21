@@ -3,6 +3,7 @@ package com.example.cegoc.craps;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,7 @@ public class IniciarSesion extends AppCompatActivity {
     private TextView tv1;
     private TextView tv2;
 
+    private Typeface Pixel1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,17 @@ public class IniciarSesion extends AppCompatActivity {
         txtclave = (EditText) findViewById(R.id.txtclave);
 
         tv1 = (TextView) findViewById(R.id.tv1);
+        String fuente1="Pixel1.ttf";
+        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente1);
+
+        tv1 = (TextView) findViewById(R.id.tv1);
+        tv1.setTypeface(Pixel1);
         tv2 = (TextView) findViewById(R.id.tv2);
+        String fuente2="Pixel1.ttf";
+        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente2);
+
+        tv2 = (TextView) findViewById(R.id.tv2);
+        tv2.setTypeface(Pixel1);
 
 
     }
