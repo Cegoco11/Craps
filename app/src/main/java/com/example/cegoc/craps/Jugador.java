@@ -30,7 +30,7 @@ public class Jugador implements Serializable {
 
         // Todos los avatares de la app
         avatares.add(new Item(R.drawable.invitado, true, 0, R.drawable.invitado));
-        avatares.add(new Item(R.drawable.avatar3, false, 150, R.drawable.avatar3off));
+        avatares.add(new Item(R.drawable.avatar3, true, 150, R.drawable.avatar3off));
         avatares.add(new Item(R.drawable.avatar4, false, 500, R.drawable.avatar4off));
         avatares.add(new Item(R.drawable.avatar1, false, 500, R.drawable.avatar1off));
         avatares.add(new Item(R.drawable.avatar2, false, 550, R.drawable.avatar2off));
