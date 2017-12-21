@@ -18,6 +18,7 @@ public class Coleccion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coleccion);
+        getSupportActionBar().hide(); // Oculta Titulo de la ventana
 
         // Usuario de prueba para comprobar que funciona correctamente
         // Aqui habria que tener en cuenta quien es el usuario actual

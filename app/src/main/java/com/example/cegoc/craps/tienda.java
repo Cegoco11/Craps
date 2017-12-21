@@ -19,6 +19,7 @@ public class tienda extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Oculta Titulo de la ventanagetSupportActionBar().hide(); // Oculta Titulo de la ventana
         setContentView(R.layout.coleccion);
 
         // Usuario de prueba para comprobar que funciona correctamente

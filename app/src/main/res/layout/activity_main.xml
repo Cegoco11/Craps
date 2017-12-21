@@ -1,36 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondojuego2"
+    android:background="@drawable/fondomain1"
     android:orientation="vertical"
-    android:padding="48dp">
+    android:padding="20dp">
 
-    <TextView
-        android:id="@+id/texto_conectar"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:text="Cachopo App"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/boton_iniciar_sesion"
-        style="?android:attr/buttonStyleSmall"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:text="Usuarios"
-        android:onClick="Usuarios"/>
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="2dp"
+            app:srcCompat="@drawable/avatar1" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:onClick="Borrar"
+            android:text="@string/usuario"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffbf00"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageButton"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/moneda"
+            android:layout_marginStart="10dp"/>
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffbf00"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:id="@+id/CSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:onClick="Borrar"
+            android:text="@string/txtCerrarSesion"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffbf00"
+
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Jugar"
+        android:background="@drawable/bplay"
         android:onClick="Jugar"/>
 
     <Button
@@ -38,36 +86,26 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Cartas"
+        android:background="@drawable/bcollection"
         android:onClick="Cartas"/>
+
+    <Button
+        android:id="@+id/boton_tienda"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/bshop"
+        android:onClick="Tienda"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Salir"
+        android:background="@drawable/bexit"
         android:onClick="Salir"/>
 
-    <TextView
-    android:id="@+id/tv1"
-    android:layout_width="wrap_content"
-    android:layout_height="0dp"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight="1"
-    android:gravity="center_vertical"
-    android:text="Usuario: Invitado"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textColor="#001AEE" />
 
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="Monedas: 0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#001AEE" />
 </LinearLayout>

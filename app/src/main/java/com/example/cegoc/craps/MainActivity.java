@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
@@ -22,13 +23,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); // Oculta barra de notificaciones
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide(); // Oculta Titulo de la ventana
+
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
 
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE); //Usamos el sharedpreferences para saber que usuario esta activo
         usuario_activo = prefe.getString("name","Invitado"); //Si no existe uno por defecto es Invitado
-        tv1.setText("Usuario: "+ usuario_activo);
+        tv1.setText(usuario_activo);
 
         if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
             try {
@@ -36,18 +41,18 @@ public class MainActivity extends AppCompatActivity {
                 ObjectInputStream in = new ObjectInputStream(fis);
                 aux = (Jugador) in.readObject();
                 in.close();
-                tv2.setText("Monedas: "+ aux.getMonedas());
+                tv2.setText(aux.getMonedas());
             } catch (Exception e) {
                e.printStackTrace();
             }
         }
         else{
-            tv2.setText("Monedas: 5");
+            tv2.setText("5");
         }
     }
 
-    public void Usuarios (View view){
-        Intent intent = new Intent(this, IniciarSesion.class);
+    public void Tienda (View view){
+        Intent intent = new Intent(this, tienda.class);
         startActivity(intent);
     }
 
@@ -57,15 +62,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Cartas (View view){
-        Intent intent = new Intent(this, tienda.class);
+        Intent intent = new Intent(this, Coleccion.class);
         startActivity(intent);
     }
 
     public void Salir (View view){
-        SharedPreferences preferencias=getSharedPreferences("Active_User", Context.MODE_PRIVATE); //Salimos y borramos el sharedpreferences del usuario activo, al iniciar la app otra vez volvera a salir por defecto invitado
+        this.finish();
+    }
+
+    public void Borrar (View v) {
+
+        SharedPreferences preferencias=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
         editor.clear();
         editor.commit();
-        this.finish();
+        Intent intent = new Intent(this, IniciarSesion.class);
+        startActivity(intent);
+
     }
 }

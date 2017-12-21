@@ -31,6 +31,7 @@ public class IniciarSesion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Oculta Titulo de la ventana
         setContentView(R.layout.layaut_iniciarsesion);
         txtusuario = (EditText) findViewById(R.id.txtusuario);
         txtclave = (EditText) findViewById(R.id.txtclave);

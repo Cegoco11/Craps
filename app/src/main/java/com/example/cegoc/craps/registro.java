@@ -30,6 +30,7 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Oculta Titulo de la ventana
         setContentView(R.layout.activity_registro);
 
         campo1=false;
