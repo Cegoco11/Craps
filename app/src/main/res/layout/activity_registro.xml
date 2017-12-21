@@ -11,17 +11,29 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
+
         <!-- Texto: Registro -->
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="@string/registro"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <!-- SEPARADOR -->
+        <View
+            android:layout_width="400dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/darker_gray" />
 
         <!-- Texto: Nombre -->
-
         <TextView
             android:id="@+id/TextView"
             android:layout_width="match_parent"
@@ -124,22 +136,26 @@
         <!-- Boton Registrar -->
         <Button
             android:id="@+id/botonRegistrar"
-            android:layout_width="match_parent"
+            android:layout_width="220dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:onClick="GuardarUsuario"
-            android:text="@string/btnRegistrar"/>
+            android:text="@string/btnRegistrar" />
 
+        <!-- SEPARADOR -->
         <View
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:background="@android:color/darker_gray" />
 
         <!-- Boton Iniciar -->
         <Button
             android:id="@+id/button4"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:onClick="irIniciarSesion"
             android:text="@string/btnInicio" />
