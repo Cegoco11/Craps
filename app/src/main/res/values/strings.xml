@@ -71,4 +71,8 @@
     <string name="btnRegistrar">Register</string>
     <string name="btnInicio">Login</string>
     <string name="btnCrear">Create account</string>
+
+    <!-- menu -->
+    <string name="txtCerrarSesion"><u>Logout</u></string>
+    <string name="usuario">Guest</string>
 </resources>
