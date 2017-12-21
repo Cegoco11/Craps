@@ -10,13 +10,15 @@ import java.io.Serializable;
 
 public class Item implements Serializable {
     protected int img; // Referencia a la imagen guardada en drawables
+    protected int img_bloq;
     protected boolean estado;
     protected int precio;
 
-    public Item(int i, boolean e, int p){
+    public Item(int i, boolean e, int p, int b){
         this.img=i;
         this.estado=e;
         this.precio=p;
+        this.img_bloq=b;
     }
 
     public void setDisponible(){
