@@ -9,7 +9,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv1;
     private TextView tv2;
     private Jugador aux;
-    private ImageView avatar;
     private Typeface Pixel1;
 
     @Override
@@ -42,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         this.Pixel1= Typeface.createFromAsset(getAssets(), fuente2);
 
         tv2 = (TextView) findViewById(R.id.tv2);
-        avatar= (ImageView) findViewById(R.id.avatar);
         tv2.setTypeface(Pixel1);
 
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE); //Usamos el sharedpreferences para saber que usuario esta activo
@@ -64,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
                 tv1.setText(aux.getNombre());
                 tv2.setText(String.valueOf(prefe.getInt("coins", 0)));
-                avatar.setImageResource(aux.getAvatarActual());
-
             } catch (Exception e) {
                e.printStackTrace();
             }
