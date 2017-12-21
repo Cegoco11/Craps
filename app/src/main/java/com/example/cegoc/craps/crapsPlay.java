@@ -24,6 +24,12 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 /**
  *
  * @author Caesar
@@ -33,6 +39,7 @@ public class crapsPlay extends AppCompatActivity {
     private final double MULTIPLICADOR = 1.5;
     private final int APUESTA_INICIAL = 10;
 
+    private SharedPreferences prefe;
     private MediaPlayer dadosSound;
     private AdView mAdView;
     private String arrDado[];
@@ -154,6 +161,7 @@ public class crapsPlay extends AppCompatActivity {
             } else {
                 Toast.makeText(crapsPlay.this, "No tienes suficientes monedas",
                         Toast.LENGTH_SHORT).show();
+                conseguirMonedas(dadosLayout);
             }
         } else {
             tirarDados();
@@ -319,7 +327,7 @@ public class crapsPlay extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.adView);
 
         // Se cogen las monedas y skin del usuario actual que esta en el SharedPreferences
-        SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
+        prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
         prefe.getInt("skin", 0);
         monedas = prefe.getInt("coins", 0);
         int skinDadoJugador= prefe.getInt("skin", R.array.dadosNormal);
@@ -354,7 +362,12 @@ public class crapsPlay extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             animacionContador(monedas, (int)(monedas+apuestaActual*MULTIPLICADOR), monedasText);
             monedas = (int)(apuestaActual + apuestaActual * MULTIPLICADOR);
-
+            Jugador aux=cargarJugador();
+            if(aux==null){
+                aux = new Jugador("Invitado", "asd", "asadsasad");
+            }
+            aux.setMonedas(monedas);
+            guardaJugador(aux);
         } else {
             // Perder
             Toast.makeText(this, ("Perdiste"),
@@ -418,6 +431,43 @@ public class crapsPlay extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    public Jugador cargarJugador() {
+        Jugador aux = null;
+        String nombre = prefe.getString("name", "Invitado");
+        File file = getFileStreamPath(nombre);
+        if (file.exists()) {
+            FileInputStream fis;
+            ObjectInputStream in = null;
+            try {
+                fis = openFileInput(nombre);
+                in = new ObjectInputStream(fis);
+                aux = (Jugador) in.readObject();
+                in.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return aux;
+    }
+
+    public void guardaJugador(Jugador player) {
+        File file=getFileStreamPath(player.getNombre());
+        if (file.exists()) {
+            FileOutputStream fos;
+            ObjectOutputStream out = null;
+            try {
+                fos = openFileOutput(player.getNombre(), Context.MODE_PRIVATE); //Guardamos cada objeto de la clase Jugador en un archivo en memoria que lleve por nombre el nombre del jugador
+                out = new ObjectOutputStream(fos);
+                out.writeObject(player);
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else{
+            // No existe el archivo
+        }
     }
 
     @Override

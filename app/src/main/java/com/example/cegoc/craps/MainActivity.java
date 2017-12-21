@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("skin", aux.getDadosActual());
             editor.putInt("avatar", aux.getAvatarActual());
             editor.commit();
-            tv1.setText(prefe.getString("name",""));
-            tv2.setText(String.valueOf(prefe.getInt("coins", 0)));
+            tv1.setText(aux.getNombre());
+            tv2.setText(String.valueOf(aux.getMonedas()));
         }
     }
 
@@ -125,10 +125,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, IniciarSesion.class);
         startActivity(intent);
         this.finish();
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        this.recreate();
     }
 }

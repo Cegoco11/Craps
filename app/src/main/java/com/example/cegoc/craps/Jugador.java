@@ -39,9 +39,9 @@ public class Jugador implements Serializable {
                 R.array.dadosNormal));
         dados.add(new Dados(R.drawable.icono_dado_rojo, true, 200, R.drawable.icono_bloq_dado_rojo,
                 R.array.dadosRojo));
-        dados.add(new Dados(R.drawable.icono_huevo, false, 500, R.drawable.icono_bloq_huevo,
+        dados.add(new Dados(R.drawable.icono_huevo, true, 500, R.drawable.icono_bloq_huevo,
                 R.array.dadosHuevos));
-        dados.add(new Dados(R.drawable.icono_dado_legendario, false, 1000,
+        dados.add(new Dados(R.drawable.icono_dado_legendario, true, 1000,
                 R.drawable.icono_bloq_dado_legendario, R.array.dadosLegendarios));
 
         // Avatar predeterminado
@@ -58,6 +58,10 @@ public class Jugador implements Serializable {
 
     public int getMonedas(){
         return monedas;
+    }
+
+    public void setMonedas(int num){
+        this.monedas=num;
     }
 
     public int getAvatarActual(){

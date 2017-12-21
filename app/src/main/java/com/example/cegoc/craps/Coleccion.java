@@ -69,7 +69,7 @@ public class Coleccion extends AppCompatActivity {
                             } else{
                                 Toast.makeText(Coleccion.this, "Invitado detected", Toast.LENGTH_SHORT).show();
                             }
-                            Toast.makeText(Coleccion.this, "Equippedasd", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -98,7 +98,7 @@ public class Coleccion extends AppCompatActivity {
                         } else{
                             Toast.makeText(Coleccion.this, "Invitado detected", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(Coleccion.this, "Equipped2", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
                     }
                 });
                 skins.addView(aux);
