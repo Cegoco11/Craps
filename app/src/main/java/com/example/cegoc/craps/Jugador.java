@@ -29,10 +29,10 @@ public class Jugador implements Serializable {
         this.monedas = 100;
 
         // Todos los avatares de la app
-        avatares.add(new Item(R.drawable.avatar1, true, 0));
-        avatares.add(new Item(R.drawable.avatar2, true, 10));
-        avatares.add(new Item(R.drawable.avatar3, false, 20));
-        avatares.add(new Item(R.drawable.avatar4, false, 30));
+        avatares.add(new Item(R.drawable.avatar1, true, 0, R.drawable.avatar1off));
+        avatares.add(new Item(R.drawable.avatar2, true, 10, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar3, false, 20, R.drawable.avatar4off));
+        avatares.add(new Item(R.drawable.avatar4, false, 30, R.drawable.avatar4off));
 
         // Skin dado normal
         // dados.add(new Dados(R.drawable.icono_dado_rojo, true, 20));
