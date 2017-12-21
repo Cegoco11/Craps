@@ -51,6 +51,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:hint="@string/hintNombre"
             android:inputType="textPersonName" />
 
         <!-- Texto: Correo -->
@@ -70,6 +71,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:hint="@string/hintCorreo"
             android:inputType="textPersonName" />
 
         <!-- Texto: Contraseña -->
