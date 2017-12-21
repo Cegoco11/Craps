@@ -34,6 +34,28 @@ public class Jugador implements Serializable {
         avatares.add(new Item(R.drawable.avatar4, true, 500, R.drawable.avatar4off));
         avatares.add(new Item(R.drawable.avatar1, true, 500, R.drawable.avatar1off));
         avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        // Mas avatares
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+
 
         dados.add(new Dados(R.drawable.icono_dado_normal, true, 0, R.drawable.icono_dado_normal,
                 R.array.dadosNormal));

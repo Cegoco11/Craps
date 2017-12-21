@@ -32,7 +32,7 @@ public class Coleccion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coleccion);
-
+        getSupportActionBar().hide();
         prefe = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
 
         // Usuario de prueba para comprobar que funciona correctamente
