@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("skin", aux.getDadosActual());
             editor.putInt("avatar", aux.getAvatarActual());
             editor.commit();
+            tv1.setText(prefe.getString("name","Guest"));
             tv2.setText(prefe.getInt("coins", 0));
         }
     }
