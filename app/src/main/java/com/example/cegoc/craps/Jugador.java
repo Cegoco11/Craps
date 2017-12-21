@@ -34,17 +34,15 @@ public class Jugador implements Serializable {
         avatares.add(new Item(R.drawable.avatar3, false, 20, R.drawable.avatar4off));
         avatares.add(new Item(R.drawable.avatar4, false, 30, R.drawable.avatar4off));
 
-        // Skin dado normal
-        // dados.add(new Dados(R.drawable.icono_dado_rojo, true, 20));
         dados.add(new Dados(R.drawable.icono_dado_normal, true, 20, R.drawable.icono_dado_normal));
-        dados.add(new Dados(R.drawable.icono_dado_rojo, true, 20, R.drawable.icono_bloq_dado_rojo));
+        dados.add(new Dados(R.drawable.icono_dado_rojo, false, 20, R.drawable.icono_bloq_dado_rojo));
         dados.add(new Dados(R.drawable.icono_huevo, false, 20, R.drawable.icono_bloq_huevo));
         dados.add(new Dados(R.drawable.icono_dado_legendario, false, 20, R.drawable.icono_bloq_dado_legendario));
 
-        // Avatar predeterminado del usuario
+        // Avatar predeterminado
         this.avatarActual=avatares.get(0).getImg();
-        // Skin de prueba
-        this.dadosActual=R.array.dadosLegendarios;
+        // Skin predeterminada
+        this.dadosActual=dados.get(0).getDados();
     }
 
     public String getNombre() {

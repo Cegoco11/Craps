@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private String usuario_activo;
     private TextView tv1;
     private TextView tv2;
-    private Jugador aux = new Jugador("Aux", "asd", "asdasdsad"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
+    private Jugador aux = new Jugador("Invitado", "123456A", "correo@correo.com"); //Objeto de la clase Jugador donde cargaremos al jugador que este activo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE); //Usamos el sharedpreferences para saber que usuario esta activo
         usuario_activo = prefe.getString("name","Invitado"); //Si no existe uno por defecto es Invitado
-        tv1.setText(usuario_activo);
 
         if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
             try {
@@ -41,13 +40,20 @@ public class MainActivity extends AppCompatActivity {
                 ObjectInputStream in = new ObjectInputStream(fis);
                 aux = (Jugador) in.readObject();
                 in.close();
+                tv1.setText(aux.getNombre());
                 tv2.setText(aux.getMonedas());
             } catch (Exception e) {
                e.printStackTrace();
             }
         }
         else{
-            tv2.setText("5");
+            SharedPreferences.Editor editor = prefe.edit();
+            editor.putString("name", aux.getNombre());
+            editor.putInt("coins", aux.getMonedas());
+            editor.putInt("skin", aux.getDadosActual());
+            editor.putInt("avatar", aux.getAvatarActual());
+            editor.commit();
+            tv2.setText(prefe.getInt("coins", 0));
         }
     }
 
