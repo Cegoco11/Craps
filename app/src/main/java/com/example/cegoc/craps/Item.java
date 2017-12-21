@@ -21,12 +21,16 @@ public class Item implements Serializable {
         this.img_bloq=b;
     }
 
-    public void setDisponible(){
+    public void compra(){
         estado=true;
     }
 
     public int getImg(){
         return img;
+    }
+
+    public int getImg_bloq(){
+        return img_bloq;
     }
 
     public int getPrecio(){

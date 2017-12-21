@@ -47,8 +47,6 @@ public class CrapsPlay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.craps_play);
         getSupportActionBar().hide();
 
@@ -340,7 +338,6 @@ public class CrapsPlay extends AppCompatActivity {
         rondaText = (TextView) findViewById(R.id.numRonda);
         botonDoble = (Button) findViewById(R.id.botonDoble);
         botonNada = (Button) findViewById(R.id.botonNada);
-
         monedasText.setText(String.valueOf(monedas));
     }
 
@@ -373,7 +370,7 @@ public class CrapsPlay extends AppCompatActivity {
      * @param end valor final
      * @param vista TextView al que se lo aplicamos
      */
-    public void animacionContador(int start, int end, final TextView vista) {
+    public static void animacionContador(int start, int end, final TextView vista) {
         if(end<0){
             end=0;
         }

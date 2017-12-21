@@ -18,7 +18,6 @@ public class Coleccion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coleccion);
-        getSupportActionBar().hide(); // Oculta Titulo de la ventana
 
         // Usuario de prueba para comprobar que funciona correctamente
         // Aqui habria que tener en cuenta quien es el usuario actual
@@ -36,7 +35,7 @@ public class Coleccion extends AppCompatActivity {
         }
         skins=(GridLayout) findViewById(R.id.SkinsGrid);
         // ToDo Mostrar skins
-        for(int i=0; i<prueba.getAvatares().size(); i++){
+        for(int i=0; i<prueba.getDados().size(); i++){
             if(prueba.getDados().get(i).getEstado()){
                 aux=new ImageView(this);
                 aux.setImageResource(prueba.getDados().get(i).getImg());
