@@ -21,4 +21,9 @@
     <string name="btnRegistrar">Registrar</string>
     <string name="btnInicio">Iniciar sesion</string>
     <string name="btnCrear">Crear cuenta</string>
+
+    <string name='dialog_title'>Compra</string>
+    <string name="dialog_message">Vas a comprar este articulo?</string>
+
+
 </resources>

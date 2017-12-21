@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
-public class CrapsSplashScreen extends AppCompatActivity {
+public class crapsSplashScreen extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private int progressStatus = 0;
@@ -33,7 +33,7 @@ public class CrapsSplashScreen extends AppCompatActivity {
                         }
                     });
                     if(progressStatus==progressBar.getMax()+1){
-                        Intent intent = new Intent(CrapsSplashScreen.this, MainActivity.class);
+                        Intent intent = new Intent(crapsSplashScreen.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     }

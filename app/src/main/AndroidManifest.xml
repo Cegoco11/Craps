@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CrapsSplashScreen"
+            android:name=".crapsSplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CrapsPlay"
+            android:name=".crapsPlay"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".CrapsAds"
+            android:name=".crapsAds"
             android:screenOrientation="portrait" />
 
         <activity
@@ -36,7 +36,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Registro"
+            android:name=".registro"
             android:screenOrientation="portrait" />
 
         <activity

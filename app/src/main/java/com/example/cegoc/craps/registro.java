@@ -22,7 +22,7 @@ import java.io.ObjectOutputStream;
  * @author Yisusbot
  */
 
-public class Registro extends AppCompatActivity {
+public class registro extends AppCompatActivity {
 
     private EditText et1, et2, et3, et4;
     private boolean campo1, campo2, campo3, campo4;

@@ -72,6 +72,8 @@ public class tienda extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Comprar
+
+
                         prueba.getAvatares().get(i).compra(); // Solo cambia el estado no gasta monedas
                     }
                 });
