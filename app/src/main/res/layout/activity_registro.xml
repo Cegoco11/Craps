@@ -147,6 +147,7 @@
             android:layout_height="wrap_content"
             android:onClick="GuardarUsuario"
             android:text="@string/btnRegistrar"
+            android:contentDescription="Registrarse"
             android:layout_marginTop="25dp"/>
 
         <!-- SEPARADOR -->
@@ -165,6 +166,7 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:onClick="irIniciarSesion"
+            android:contentDescription="Iniciar Sesion"
             android:text="@string/btnInicio" />
 
     </LinearLayout>

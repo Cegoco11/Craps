@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoscreen"
-    tools:context="com.example.cegoc.craps.CrapsSplashScreen">
+    tools:context="com.example.cegoc.craps.crapsSplashScreen">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"

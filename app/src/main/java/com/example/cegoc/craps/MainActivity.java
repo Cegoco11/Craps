@@ -6,9 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Jugar (View view){
-        Intent intent = new Intent(this, CrapsPlay.class);
+        Intent intent = new Intent(this, crapsPlay.class);
         startActivity(intent);
     }
 

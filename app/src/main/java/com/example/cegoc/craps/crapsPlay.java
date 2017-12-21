@@ -13,7 +13,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +28,7 @@ import com.google.android.gms.ads.AdView;
  *
  * @author Caesar
  */
-public class CrapsPlay extends AppCompatActivity {
+public class crapsPlay extends AppCompatActivity {
 
     private final double MULTIPLICADOR = 1.5;
     private final int APUESTA_INICIAL = 10;
@@ -82,7 +81,7 @@ public class CrapsPlay extends AppCompatActivity {
                     apuestaActual = (int)(apuestaActual*MULTIPLICADOR);
                     monedas -= apuestaActual;
                 }
-                Toast.makeText(CrapsPlay.this, "Apuesta: " + apuestaActual,
+                Toast.makeText(crapsPlay.this, "Apuesta: " + apuestaActual,
                         Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
                 muestraBotones(false);
@@ -111,7 +110,7 @@ public class CrapsPlay extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                Toast.makeText(CrapsPlay.this, "adFailedToLoad", Toast.LENGTH_SHORT).show();
+                Toast.makeText(crapsPlay.this, "adFailedToLoad", Toast.LENGTH_SHORT).show();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -153,7 +152,7 @@ public class CrapsPlay extends AppCompatActivity {
                     }
                 }, 1521);
             } else {
-                Toast.makeText(CrapsPlay.this, "No tienes suficientes monedas",
+                Toast.makeText(crapsPlay.this, "No tienes suficientes monedas",
                         Toast.LENGTH_SHORT).show();
             }
         } else {
@@ -243,7 +242,7 @@ public class CrapsPlay extends AppCompatActivity {
                     finPartida(false);
                     break;
                 default:
-                    tiradaText.setTextColor(ContextCompat.getColor(CrapsPlay.this,
+                    tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
                             R.color.numeroTargetActivo));
                     tiradaText.setText(String.valueOf(dado1 + dado2));
                     muestraBotones(true);
@@ -292,7 +291,7 @@ public class CrapsPlay extends AppCompatActivity {
         rondaText.setText
                 (String.format(getResources().getString(R.string.rondas), contadorRondas));
         tiradaText.setText(String.valueOf(dado1 + dado2));
-        tiradaText.setTextColor(ContextCompat.getColor(CrapsPlay.this,
+        tiradaText.setTextColor(ContextCompat.getColor(crapsPlay.this,
                 R.color.numeroTargetDesactivado));
     }
 
@@ -325,7 +324,7 @@ public class CrapsPlay extends AppCompatActivity {
         int skinDadoJugador= prefe.getInt("skin", R.array.dadosNormal);
         arrDado = getResources().getStringArray(skinDadoJugador);
 
-        dadosSound = MediaPlayer.create(CrapsPlay.this, R.raw.dados2);
+        dadosSound = MediaPlayer.create(crapsPlay.this, R.raw.dados2);
         img1 = (ImageView) findViewById(R.id.dado1);
         int resID = getResources().getIdentifier(arrDado[5], "drawable", getPackageName());
         img1.setImageResource(resID);
@@ -407,7 +406,7 @@ public class CrapsPlay extends AppCompatActivity {
         builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(CrapsPlay.this, CrapsAds.class);
+                Intent intent = new Intent(crapsPlay.this, crapsAds.class);
                 startActivity(intent);
             }
         });

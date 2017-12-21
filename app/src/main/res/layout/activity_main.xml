@@ -19,6 +19,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="2dp"
+            android:contentDescription="Avatatar desnudo"
             app:srcCompat="@drawable/invitado" />
 
         <TextView
@@ -38,6 +39,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             app:srcCompat="@drawable/moneda"
+            android:contentDescription="Moneda"
             android:layout_marginStart="10dp"/>
         <TextView
             android:id="@+id/tv2"
@@ -73,6 +75,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/bplay"
+        android:contentDescription="Jugar"
         android:onClick="Jugar"/>
 
     <Button
@@ -81,6 +84,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/bcollection"
+        android:contentDescription="Coleccion"
         android:onClick="Cartas"/>
 
     <Button
@@ -91,6 +95,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:background="@drawable/bshop"
+        android:contentDescription="Tienda"
         android:onClick="Tienda"/>
 
     <Button
@@ -99,6 +104,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/bexit"
+        android:contentDescription="Salir"
         android:onClick="Salir"/>
 
 
