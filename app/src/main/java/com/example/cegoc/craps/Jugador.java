@@ -35,10 +35,14 @@ public class Jugador implements Serializable {
         avatares.add(new Item(R.drawable.avatar1, true, 500, R.drawable.avatar1off));
         avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
 
-        dados.add(new Dados(R.drawable.icono_dado_normal, true, 0, R.drawable.icono_dado_normal));
-        dados.add(new Dados(R.drawable.icono_dado_rojo, true, 200, R.drawable.icono_bloq_dado_rojo));
-        dados.add(new Dados(R.drawable.icono_huevo, false, 500, R.drawable.icono_bloq_huevo));
-        dados.add(new Dados(R.drawable.icono_dado_legendario, false, 1000, R.drawable.icono_bloq_dado_legendario));
+        dados.add(new Dados(R.drawable.icono_dado_normal, true, 0, R.drawable.icono_dado_normal,
+                R.array.dadosNormal));
+        dados.add(new Dados(R.drawable.icono_dado_rojo, true, 200, R.drawable.icono_bloq_dado_rojo,
+                R.array.dadosRojo));
+        dados.add(new Dados(R.drawable.icono_huevo, false, 500, R.drawable.icono_bloq_huevo,
+                R.array.dadosHuevos));
+        dados.add(new Dados(R.drawable.icono_dado_legendario, false, 1000,
+                R.drawable.icono_bloq_dado_legendario, R.array.dadosLegendarios));
 
         // Avatar predeterminado
         this.avatarActual=avatares.get(0).getImg();

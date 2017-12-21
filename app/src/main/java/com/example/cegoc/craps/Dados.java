@@ -12,13 +12,9 @@ public class Dados extends Item implements Serializable {
 
     private int dados; // Referencia al array guardado en strings.xml
 
-    public Dados(int img, boolean estado, int precio, int bloq){
+    public Dados(int img, boolean estado, int precio, int bloq, int array){
         super(img, estado, precio, bloq);
-        this.dados=R.array.dadosNormal;
-    }
-
-    public void setDados(int dados){
-        this.dados=dados;
+        this.dados=array;
     }
 
     public int getDados(){

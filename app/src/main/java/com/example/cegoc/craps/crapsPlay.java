@@ -322,7 +322,7 @@ public class crapsPlay extends AppCompatActivity {
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
         prefe.getInt("skin", 0);
         monedas = prefe.getInt("coins", 0);
-        int skinDadoJugador= prefe.getInt("skin", R.array.dadosHuevos);
+        int skinDadoJugador= prefe.getInt("skin", R.array.dadosNormal);
         arrDado = getResources().getStringArray(skinDadoJugador);
 
         dadosSound = MediaPlayer.create(crapsPlay.this, R.raw.dados2);
