@@ -320,8 +320,9 @@ public class crapsPlay extends AppCompatActivity {
 
         // Se cogen las monedas y skin del usuario actual que esta en el SharedPreferences
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
+        prefe.getInt("skin", 0);
         monedas = prefe.getInt("coins", 0);
-        int skinDadoJugador= prefe.getInt("skin", R.array.dadosNormal);
+        int skinDadoJugador= prefe.getInt("skin", R.array.dadosHuevos);
         arrDado = getResources().getStringArray(skinDadoJugador);
 
         dadosSound = MediaPlayer.create(crapsPlay.this, R.raw.dados2);
@@ -402,7 +403,7 @@ public class crapsPlay extends AppCompatActivity {
 
     public void conseguirMonedas(View v){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setMessage("Quieres conseguir un bonus de monedas?").setTitle("Conseguir monedas");
+        builder.setMessage("Quieres conseguir un bonus de monedas?").setTitle("Conseguir monedas (WIP)");
         builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -417,5 +418,11 @@ public class crapsPlay extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        this.recreate();
     }
 }
