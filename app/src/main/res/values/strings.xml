@@ -1,20 +1,16 @@
 <resources>
-    <string name="app_name" translatable="false">CrapsGame</string>
 
     <!-- layout craps_ads -->
-    <string name="id_app_adTest" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="id_adTestBanner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="id_adTestVideo" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
 
     <!-- layout craps_ads -->
-    <string name="cargaAnuncio">Find coins</string>
+    <string name="cargaAnuncio">Search coins</string>
     <string name="muestraAnuncio">Collect coins</string>
     <string name="monedero">Coins:</string>
     <string name="tituloDialog" translatable="false">Bonus</string>
-    <string name="anuncioNoCargo">Coins not found yet. Be patient!</string>
+    <string name="anuncioNoCargo">Coins no found yet, Be Patinent</string>
     <string name="anuncioCargado">You can collect the coins now</string>
     <string name="premio">You found 30 coins</string>
-    <string name="cuentaAtrasBoton">Time remaining </string>
+    <string name="cuentaAtrasBoton">Time Remaining</string>
 
     <!-- layout craps_play -->
 
@@ -73,4 +69,27 @@
     <!-- menu -->
     <string name="txtCerrarSesion"><u>Logout</u></string>
     <string name="usuario">Guest</string>
+
+    <!-- accesibilidad -->
+    <string name="imgAvatar">Avatar</string>
+    <string name="imgMoneda">Coin</string>
+    <string name="btnJugar">Play</string>
+    <string name="btnColeccion">Colletion</string>
+    <string name="btnTienda">Shop</string>
+    <string name="btnSalir">Exit</string>
+    <string name="btnRegist">Log on</string>
+    <string name="btnLogin">Log in</string>
+    <string name="btnBMoneda">Search coins</string>
+    <string name="btnRMoneda">Recoger monedas</string>
+    <string name="btnAyuda">Ayuda</string>
+    <string name="btnMoneda">Conseguir monedas</string>
+    <string name="btnSeguir">Seguir</string>
+    <string name="btnCrearC">Crear cuenta</string>
+    <string name="dialog_title">Buy</string>
+    <string name="dialog_message">do you goint to buy this article?</string>
+    <string name="app_name" translatable="false">CrapsGame</string>
+    <string name="id_app_adTest" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="id_adTestBanner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="id_adTestVideo" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+
 </resources>

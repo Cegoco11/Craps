@@ -71,7 +71,7 @@
         android:onClick="Cargar"
         android:text="@string/btnInicio"
         android:layout_gravity="center"
-        android:contentDescription="Logearse"
+        android:contentDescription="@string/btnLogin"
         android:layout_marginTop="25dp"/>
 
     <View
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="irRegistro"
-        android:contentDescription="Crear cuenta"
+        android:contentDescription="@string/btnCrearC"
         android:text="@string/btnCrear" />
     </LinearLayout>
 
