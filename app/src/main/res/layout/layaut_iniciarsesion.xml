@@ -41,7 +41,6 @@
 
         <EditText
             android:id="@+id/txtusuario"
-            android:hint="@string/hintNombre"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
