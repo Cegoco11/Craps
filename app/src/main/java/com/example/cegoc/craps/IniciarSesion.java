@@ -56,7 +56,7 @@ public class IniciarSesion extends AppCompatActivity {
 
     public void Cargar(View view) {
 
-        Jugador aux = new Jugador("Aux", "asd", "asdfa");
+        Jugador aux = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
 
         String nombre = txtusuario.getText().toString();
         String contra = Jugador.getMD5(txtclave.getText().toString());

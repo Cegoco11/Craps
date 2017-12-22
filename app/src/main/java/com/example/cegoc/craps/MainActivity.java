@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("avatar", aux.getAvatarActual());
             editor.commit();
             tv1.setText(aux.getNombre());
-            tv2.setText(String.valueOf(aux.getMonedas()));
+            tv2.setText(String.valueOf(prefe.getInt("coins", 0)));
         }
     }
 
@@ -125,5 +125,30 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, IniciarSesion.class);
         startActivity(intent);
         this.finish();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
+            try {
+                FileInputStream fis = openFileInput(usuario_activo);
+                ObjectInputStream in = new ObjectInputStream(fis);
+                aux = (Jugador) in.readObject();
+                in.close();
+
+                tv1.setText(aux.getNombre());
+                tv2.setText(String.valueOf(aux.getMonedas()));
+                avatar.setImageResource(aux.getAvatarActual());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else{
+            aux = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
+            tv1.setText(aux.getNombre());
+            tv2.setText(String.valueOf(aux.getMonedas()));
+            avatar.setImageResource(aux.getAvatarActual());
+        }
     }
 }

@@ -364,7 +364,7 @@ public class crapsPlay extends AppCompatActivity {
             monedas = (int)(apuestaActual + apuestaActual * MULTIPLICADOR);
             Jugador aux=cargarJugador();
             if(aux==null){
-                aux = new Jugador("Invitado", "asd", "asadsasad");
+                aux = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
             }
             aux.setMonedas(monedas);
             guardaJugador(aux);
@@ -468,11 +468,5 @@ public class crapsPlay extends AppCompatActivity {
         } else{
             // No existe el archivo
         }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        this.recreate();
     }
 }

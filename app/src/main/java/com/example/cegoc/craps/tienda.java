@@ -1,7 +1,5 @@
 package com.example.cegoc.craps;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * Solo se muestran los items y dependiendo de si pulsas en uno bloqueado o no, te  dice si ya lo
+ * tienes o que estamos en WIP
+ */
 public class tienda extends AppCompatActivity {
 
     private GridLayout avatares, skins;
@@ -26,7 +27,7 @@ public class tienda extends AppCompatActivity {
         setContentView(R.layout.coleccion);
 
         // Usuario de prueba para comprobar que funciona correctamente
-        prueba = new Jugador("Cesar", "asd", "asadsasad");
+        prueba = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
         // ToDo Leer fichero del usuario actual, para ello tenemos en el SharedPreferences su nombre
         // ToDo Leer el fichero y trabajar con el jugador leido
         // ToDo A la hora de comprar se tienen que cambiar los datos del fichero guardado

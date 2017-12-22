@@ -1,7 +1,6 @@
 package com.example.cegoc.craps;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +39,7 @@ public class Coleccion extends AppCompatActivity {
 
         prueba=cargarJugador();
         if(prueba==null){
-            prueba = new Jugador("Invitado", "asd", "asadsasad");
+            prueba = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
         }
 
 
@@ -55,21 +54,22 @@ public class Coleccion extends AppCompatActivity {
                 aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SharedPreferences.Editor editor = prefe.edit();
+
                         // Compruebo si lo que esta guardado en SharedPreferences es igual que el
                         // que estoy pulsando, si es asi sale "Already..." si no, lo mete al shared y muestra
                         // otro "Equipped"
                         if (prefe.getInt("avatar", -1) == prueba.getAvatares().get(v.getId()).getImg()) {
                             Toast.makeText(Coleccion.this, R.string.Yaequipado, Toast.LENGTH_SHORT).show();
                         } else {
-                            editor.putInt("avatar", prueba.getAvatares().get(v.getId()).getImg());
-                            editor.commit();
-                            if(prueba!=null){
+                            if(!prueba.getNombre().equals("Guest")){
+                                SharedPreferences.Editor editor = prefe.edit();
+                                editor.putInt("avatar", prueba.getAvatares().get(v.getId()).getImg());
+                                editor.commit();
                                 guardaJugador(prueba, v.getId(), true);
+                                Toast.makeText(Coleccion.this, R.string.equipado, Toast.LENGTH_SHORT).show();
                             } else{
                                 Toast.makeText(Coleccion.this, R.string.invitDetect, Toast.LENGTH_SHORT).show();
                             }
-                            Toast.makeText(Coleccion.this, R.string.equipado, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -79,7 +79,7 @@ public class Coleccion extends AppCompatActivity {
 
         prueba=cargarJugador();
         if(prueba==null){
-            prueba = new Jugador("Invitado", "asd", "asadsasad");
+            prueba = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
         }
         skins = (GridLayout) findViewById(R.id.SkinsGrid);
         for (i = 0; i < prueba.getDados().size(); i++) {
@@ -90,15 +90,19 @@ public class Coleccion extends AppCompatActivity {
                 aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SharedPreferences.Editor editor = prefe.edit();
-                        editor.putInt("skin", prueba.getDados().get(v.getId()).getDados());
-                        editor.commit();
-                        if(prueba!=null){
-                            guardaJugador(prueba, v.getId(), false);
-                        } else{
-                            Toast.makeText(Coleccion.this,R.string.invitDetect, Toast.LENGTH_SHORT).show();
+                        if (prefe.getInt("avatar", -1) == prueba.getAvatares().get(v.getId()).getImg()) {
+                            Toast.makeText(Coleccion.this, R.string.Yaequipado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (!prueba.getNombre().equals("Guest")) {
+                                SharedPreferences.Editor editor = prefe.edit();
+                                editor.putInt("skin", prueba.getDados().get(v.getId()).getDados());
+                                editor.commit();
+                                guardaJugador(prueba, v.getId(), false);
+                                Toast.makeText(Coleccion.this, R.string.equipado, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(Coleccion.this, R.string.invitDetect, Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
                     }
                 });
                 skins.addView(aux);

@@ -129,7 +129,6 @@ public class registro extends AppCompatActivity {
             Toast toast1 = Toast.makeText(getApplicationContext(),R.string.NuevoUsu+ nombre, Toast.LENGTH_LONG);
             Toast toast2 = Toast.makeText(getApplicationContext(),R.string.NombreRepe, Toast.LENGTH_SHORT);
 
-            Toast.makeText(this, "Hola", Toast.LENGTH_LONG);
             if (!file.exists()) {
 
                 Jugador player = new Jugador(nombre, clave, correo);
@@ -206,7 +205,6 @@ public class registro extends AppCompatActivity {
                 }
             }
         }
-        // ToDo
         ImageView imagen1=(ImageView) findViewById(R.id.img1);
         if(campo1.length()>=6 && esMayus && esNum){
             imagen1.setImageResource(R.drawable.logo_correcto);
