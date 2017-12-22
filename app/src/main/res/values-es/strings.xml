@@ -55,7 +55,13 @@
     <string name="invitDetect">Invitado Detectado</string>
     <string name="equipado">Equipado</string>
     <string name="Yatienes">Ya lo tienes Empanado!!</string>
-    <string name="tuto">" <u>Primera ronda:</u> \\n         Ganas con 11,7  \\n         Pierdes con  2,13,12 \\n         <u>Siguientes Rondas</u> \\n         Tu ganas: mismo numero que la primera ronda \\n         Tu Pierdes con 7 \\n"</string>
+    <string name="tuto">" <n>Primera ronda:</n> \n
+        <u>Ganas</u> con 7, 11 \n
+        <u>Pierdes</u> con  2, 12, 13 \n
+        <n>Siguientes Rondas</n> \\n
+        Ganas con el mismo numero que la primera ronda \n
+        Pierdes con 7 \n"
+    </string>
 
 
 </resources>
