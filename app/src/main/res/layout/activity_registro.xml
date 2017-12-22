@@ -16,7 +16,7 @@
         <!-- Texto: Registro -->
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/titleRegis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -56,6 +56,7 @@
         <!-- Texto: Correo -->
 
         <TextView
+            android:id="@+id/TextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -75,6 +76,7 @@
         <!-- Texto: Contraseña -->
 
         <TextView
+            android:id="@+id/TextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/contra"
@@ -108,6 +110,7 @@
         <!-- Texto: Contraseña2 -->
 
         <TextView
+            android:id="@+id/TextView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/contra2"

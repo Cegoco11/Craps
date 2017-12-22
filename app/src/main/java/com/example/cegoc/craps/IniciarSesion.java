@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,37 +22,35 @@ import java.io.ObjectInputStream;
 
 public class IniciarSesion extends AppCompatActivity {
 
-
     private EditText txtusuario;
     private EditText txtclave;
-
     private TextView tv1;
     private TextView tv2;
-
-    private Typeface Pixel1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide(); // Oculta Titulo de la ventana
         setContentView(R.layout.layaut_iniciarsesion);
+
+        final Typeface Pixel1=Typeface.createFromAsset(getAssets(), "Pixel1.ttf");
+
         txtusuario = (EditText) findViewById(R.id.txtusuario);
+        txtusuario.setTypeface(Pixel1);
         txtclave = (EditText) findViewById(R.id.txtclave);
+        txtclave.setTypeface(Pixel1);
 
-        tv1 = (TextView) findViewById(R.id.tv1);
-        String fuente1="Pixel1.ttf";
-        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente1);
-
+        TextView titleLogin=(TextView)findViewById(R.id.titleLogin);
+        titleLogin.setTypeface(Pixel1);
         tv1 = (TextView) findViewById(R.id.tv1);
         tv1.setTypeface(Pixel1);
         tv2 = (TextView) findViewById(R.id.tv2);
-        String fuente2="Pixel1.ttf";
-        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente2);
-
-        tv2 = (TextView) findViewById(R.id.tv2);
         tv2.setTypeface(Pixel1);
 
-
+        Button botonIniciar=(Button)findViewById(R.id.ingresar);
+        botonIniciar.setTypeface(Pixel1);
+        Button botonRegistro=(Button)findViewById(R.id.crearCuenta);
+        botonRegistro.setTypeface(Pixel1);
     }
 
     public void Cargar(View view) {

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -322,6 +323,7 @@ public class crapsPlay extends AppCompatActivity {
      * Metodo que hace todas las inicializaciones
      */
     private void init() {
+        final Typeface Pixel1=Typeface.createFromAsset(getAssets(), "Pixel1.ttf");
         // Inicializo anuncio
         MobileAds.initialize(this, getResources().getString(R.string.id_app_adTest));
         mAdView = (AdView) findViewById(R.id.adView);
@@ -342,8 +344,11 @@ public class crapsPlay extends AppCompatActivity {
         img2.setImageResource(resID);
         dadosLayout = (LinearLayout) findViewById(R.id.dados);
         tiradaText = (TextView) findViewById(R.id.tiradaRef);
+        tiradaText.setTypeface(Pixel1);
         monedasText = (TextView) findViewById(R.id.monedas);
+        // monedasText.setTypeface(Pixel1); // No queda bien al hacer la animacion
         rondaText = (TextView) findViewById(R.id.numRonda);
+        rondaText.setTypeface(Pixel1);
         botonDoble = (Button) findViewById(R.id.botonDoble);
         botonNada = (Button) findViewById(R.id.botonNada);
         monedasText.setText(String.valueOf(monedas));

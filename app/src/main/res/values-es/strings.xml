@@ -58,9 +58,9 @@
     <string name="tuto">" <n>Primera ronda:</n> \n
         <u>Ganas</u> con 7, 11 \n
         <u>Pierdes</u> con  2, 12, 13 \n
-        <n>Siguientes Rondas</n> \\n
-        Ganas con el mismo numero que la primera ronda \n
-        Pierdes con 7 \n"
+        <n>Siguientes Rondas: </n> \n
+        <u>Ganas</u> con el mismo numero que la primera ronda \n
+        <u>Pierdes</u> con 7 \n"
     </string>
 
 

@@ -1,5 +1,6 @@
 package com.example.cegoc.craps;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,6 +26,13 @@ public class tienda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide(); // Oculta Titulo de la ventanagetSupportActionBar().hide(); // Oculta Titulo de la ventana
         setContentView(R.layout.coleccion);
+
+        final Typeface Pixel1=Typeface.createFromAsset(getAssets(), "Pixel1.ttf");
+
+        TextView tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(Pixel1);
+        TextView tv2=(TextView)findViewById(R.id.tv2);
+        tv2.setTypeface(Pixel1);
 
         // Usuario de prueba para comprobar que funciona correctamente
         prueba = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
@@ -54,6 +62,7 @@ public class tienda extends AppCompatActivity {
                 tv_aux=new TextView(this);
                 tv_aux.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv_aux.setText(String.valueOf(prueba.getAvatares().get(i).getPrecio()));
+                tv_aux.setTypeface(Pixel1);
                 ll_aux.addView(tv_aux);
                 ll_aux.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -68,6 +77,7 @@ public class tienda extends AppCompatActivity {
                 tv_aux=new TextView(this);
                 tv_aux.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv_aux.setText(String.valueOf(prueba.getAvatares().get(i).getPrecio()));
+                tv_aux.setTypeface(Pixel1);
                 ll_aux.addView(tv_aux);
                 ll_aux.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -94,6 +104,7 @@ public class tienda extends AppCompatActivity {
                 tv_aux=new TextView(this);
                 tv_aux.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv_aux.setText(String.valueOf(prueba.getDados().get(i).getPrecio()));
+                tv_aux.setTypeface(Pixel1);
                 ll_aux.addView(tv_aux);
                 ll_aux.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -108,6 +119,7 @@ public class tienda extends AppCompatActivity {
                 tv_aux=new TextView(this);
                 tv_aux.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv_aux.setText(String.valueOf(prueba.getDados().get(i).getPrecio()));
+                tv_aux.setTypeface(Pixel1);
                 ll_aux.addView(tv_aux);
                 ll_aux.setOnClickListener(new View.OnClickListener() {
                     @Override

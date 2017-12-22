@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv2;
     private Jugador aux;
     private ImageView avatar;
-    private Typeface Pixel1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +30,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide(); // Oculta Titulo de la ventana
 
-        tv1 = (TextView) findViewById(R.id.tv1);
-        String fuente1="Pixel1.ttf";
-        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente1);
+        final Typeface Pixel1=Typeface.createFromAsset(getAssets(), "Pixel1.ttf");
 
+        TextView Csesion=(TextView) findViewById(R.id.CSesion);
+        Csesion.setTypeface(Pixel1);
         tv1 = (TextView) findViewById(R.id.tv1);
         tv1.setTypeface(Pixel1);
         tv2 = (TextView) findViewById(R.id.tv2);
-        String fuente2="Pixel1.ttf";
-        this.Pixel1= Typeface.createFromAsset(getAssets(), fuente2);
-
-        tv2 = (TextView) findViewById(R.id.tv2);
-        avatar= (ImageView) findViewById(R.id.avatar);
         tv2.setTypeface(Pixel1);
+        avatar= (ImageView) findViewById(R.id.avatar);
 
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE); //Usamos el sharedpreferences para saber que usuario esta activo
         SharedPreferences.Editor editor = prefe.edit();
-        usuario_activo = prefe.getString("name","Invitado"); //Si no existe uno por defecto es Invitado
+        usuario_activo = prefe.getString("name","Guest"); //Si no existe uno por defecto es Invitado
 
-        if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
+        if (usuario_activo != "Guest"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
             try {
                 FileInputStream fis = openFileInput(usuario_activo);
                 ObjectInputStream in = new ObjectInputStream(fis);
@@ -131,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefe.edit();
-        if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
+        if (usuario_activo != "Guest"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
             try {
                 FileInputStream fis = openFileInput(usuario_activo);
                 ObjectInputStream in = new ObjectInputStream(fis);
@@ -144,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
         } else{
             aux = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
             editor.putInt("coins", 50);
-
         }
         editor.putString("name", aux.getNombre());
         editor.putInt("skin", aux.getDadosActual());

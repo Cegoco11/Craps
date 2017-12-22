@@ -2,11 +2,13 @@ package com.example.cegoc.craps;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -32,10 +34,15 @@ public class Coleccion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coleccion);
         getSupportActionBar().hide();
+
+        final Typeface Pixel1=Typeface.createFromAsset(getAssets(), "Pixel1.ttf");
+
         prefe = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
 
-        // Usuario de prueba para comprobar que funciona correctamente
-        // Aqui habria que tener en cuenta quien es el usuario actual
+        TextView tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(Pixel1);
+        TextView tv2=(TextView)findViewById(R.id.tv2);
+        tv2.setTypeface(Pixel1);
 
         prueba=cargarJugador();
         if(prueba==null){

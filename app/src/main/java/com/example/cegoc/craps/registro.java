@@ -3,6 +3,7 @@ package com.example.cegoc.craps;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -34,15 +36,37 @@ public class registro extends AppCompatActivity {
         getSupportActionBar().hide(); // Oculta Titulo de la ventana
         setContentView(R.layout.activity_registro);
 
+        final Typeface Pixel1=Typeface.createFromAsset(getAssets(), "Pixel1.ttf");
+
         campo1=false;
         campo2=false;
         campo3=false;
         campo4=false;
 
         et1 = (EditText) findViewById(R.id.nombre);
+        et1.setTypeface(Pixel1);
         et2 = (EditText) findViewById(R.id.clave);
+        et2.setTypeface(Pixel1);
         et3 = (EditText) findViewById(R.id.clave2);
+        et3.setTypeface(Pixel1);
         et4 = (EditText) findViewById(R.id.correo);
+        et4.setTypeface(Pixel1);
+
+        Button botonIniciar=(Button)findViewById(R.id.botonRegistrar);
+        botonIniciar.setTypeface(Pixel1);
+        Button botonRegistro=(Button)findViewById(R.id.button4);
+        botonRegistro.setTypeface(Pixel1);
+
+        TextView title=(TextView) findViewById(R.id.titleRegis);
+        title.setTypeface(Pixel1);
+        TextView nombre=(TextView) findViewById(R.id.TextView);
+        nombre.setTypeface(Pixel1);
+        TextView correo=(TextView) findViewById(R.id.TextView2);
+        correo.setTypeface(Pixel1);
+        TextView contra=(TextView) findViewById(R.id.TextView3);
+        contra.setTypeface(Pixel1);
+        TextView contra2=(TextView) findViewById(R.id.TextView4);
+        contra2.setTypeface(Pixel1);
 
         et1.addTextChangedListener(new TextWatcher() {
             @Override

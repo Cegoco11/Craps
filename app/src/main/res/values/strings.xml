@@ -103,7 +103,7 @@
     <string name="btnCrearC">Crear cuenta</string>
     <string name="dialog_title">Buy</string>
     <string name="dialog_message">do you goint to buy this article?</string>
-    <string name="app_name" translatable="false">CrapsGame</string>
+    <string name="app_name" translatable="false">CrapsWorld</string>
     <string name="id_app_adTest" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
     <string name="id_adTestBanner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="id_adTestVideo" translatable="false">ca-app-pub-3940256099942544/5224354917</string>

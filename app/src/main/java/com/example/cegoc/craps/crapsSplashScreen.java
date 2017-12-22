@@ -16,8 +16,6 @@ public class crapsSplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN); // Oculta barra de notificaciones
         setContentView(R.layout.craps_splashscreen);
         getSupportActionBar().hide(); // Oculta Titulo de la ventana
         progressBar=(ProgressBar) findViewById(R.id.determinateBar);
