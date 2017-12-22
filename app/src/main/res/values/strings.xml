@@ -17,6 +17,8 @@
     <string name="descDado1">Picture of the first dice</string>
     <string name="descDado2">Picture of the second dice</string>
     <string name="toastMoneda">coins</string>
+    <string name="Doblar">Double</string>
+    <string name="Salir">Exit</string>
 
     <string name="rondas">Round %d</string>
 
@@ -56,6 +58,12 @@
         <item>dado_legendario6</item>
     </string-array>
 
+    <!-- Java craps_play -->
+    <string name="Apuesta">Bet:</string>
+    <string name="Apuesta_Inicial">Initial Bet 10 coins</string>
+    <string name="MonedasInsu">Not enough coins</string>
+    <string name="Perdiste">You Lose</string>
+
     <!-- layouts de registro y login -->
     <string name="registro">Register</string>
     <string name="nombre">Username</string>
@@ -65,6 +73,14 @@
     <string name="btnRegistrar">Register</string>
     <string name="btnInicio">Login</string>
     <string name="btnCrear">Create account</string>
+    <!-- Iniciar Sesion Java-->
+    <string name="NoExis">This User Dosent Exist </string>
+    <string name="ContraInco">Wrong Pass</string>
+    <!-- Registro Java-->
+    <string name="NuevoUsu">New User Saved</string>
+    <string name="NombreRepe">Name Already Exist or not valid</string>
+    <string name="Complete">Complete all fields</string>
+
 
     <!-- menu -->
     <string name="txtCerrarSesion"><u>Logout</u></string>
@@ -91,5 +107,28 @@
     <string name="id_app_adTest" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
     <string name="id_adTestBanner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="id_adTestVideo" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+
+    ---
+
+    <!-- layout coleccion -->
+    <string name="Avatar">Avatars</string>
+    <string name="Skins" translatable="false">Skins</string>
+    <!-- java coleccion-->
+    <string name="Yaequipado">Already Equipped</string>
+    <string name="invitDetect">Invitado detected</string>
+    <string name="equipado">Equipped</string>
+    <!-- java Tienda-->
+    <string name="Yatienes">You already have it!</string>
+    <string name="WIP">WIP!</string>
+    <!-- Tutorial-->
+    <string name="tuto">-You win: \n
+        <u>First round:</u> \n
+        You win with 11,7  \n
+        You lose with 2,13,12 \n
+        <u>Following Rounds</u> \n
+        You win: same value as First round \n
+        You lose with 7 \n
+        </string>
+
 
 </resources>

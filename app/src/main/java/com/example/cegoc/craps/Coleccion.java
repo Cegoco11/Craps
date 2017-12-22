@@ -60,16 +60,16 @@ public class Coleccion extends AppCompatActivity {
                         // que estoy pulsando, si es asi sale "Already..." si no, lo mete al shared y muestra
                         // otro "Equipped"
                         if (prefe.getInt("avatar", -1) == prueba.getAvatares().get(v.getId()).getImg()) {
-                            Toast.makeText(Coleccion.this, "Already equipped", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Coleccion.this, R.string.Yaequipado, Toast.LENGTH_SHORT).show();
                         } else {
                             editor.putInt("avatar", prueba.getAvatares().get(v.getId()).getImg());
                             editor.commit();
                             if(prueba!=null){
                                 guardaJugador(prueba, v.getId(), true);
                             } else{
-                                Toast.makeText(Coleccion.this, "Invitado detected", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Coleccion.this, R.string.invitDetect, Toast.LENGTH_SHORT).show();
                             }
-                            Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Coleccion.this, R.string.equipado, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -96,7 +96,7 @@ public class Coleccion extends AppCompatActivity {
                         if(prueba!=null){
                             guardaJugador(prueba, v.getId(), false);
                         } else{
-                            Toast.makeText(Coleccion.this, "Invitado detected", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Coleccion.this,R.string.invitDetect, Toast.LENGTH_SHORT).show();
                         }
                         Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
                     }

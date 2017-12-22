@@ -39,4 +39,14 @@
     <string name="btnMoneda">Earn coins</string>
     <string name="btnSeguir">Continue</string>
     <string name="btnCrearC">New account</string>
+    <string name="Doblar">Double</string>
+    <string name="Salir">Exit</string>
+    <string name="Apuesta">Bet:</string>
+    <string name="Apuesta_Inicial">Initial Bet 10 coins</string>
+    <string name="MonedasInsu">Not enough coins</string>
+    <string name="Perdiste">You Lose</string>
+    <string name="NoExis">This User Dosent Exist</string>
+    <string name="ContraInco">Wrong Pass</string>
+    <string name="NuevoUsu">New User Saved</string>
+    <string name="NombreRepe">Name Already Exist or not valid</string>
 </resources>

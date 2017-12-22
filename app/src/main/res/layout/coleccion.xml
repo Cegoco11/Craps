@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:textAlignment="center"
         android:layout_marginTop="5dp"
-        android:text="Avatares"/>
+        android:text="@string/Avatar"/>
 
     <View
         android:layout_gravity="center"
@@ -41,7 +41,8 @@
         android:layout_height="match_parent"
         android:textAlignment="center"
         android:layout_marginTop="5dp"
-        android:text="Skins"/>
+        android:text="@string/Skins"/>
+
 
     <View
         android:layout_gravity="center"

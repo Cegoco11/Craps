@@ -123,19 +123,21 @@
 
         <Button
             android:id="@+id/botonNada"
+            android:background="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:contentDescription="@string/btnSalir"
-            android:text="Salir" />
+            android:text="@string/Salir" />
 
         <Button
             android:id="@+id/botonDoble"
+            android:background="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:contentDescription="@string/btnSeguir"
-            android:text="Seguir" />
+            android:text="@string/Doblar" />
     </LinearLayout>
 
 </LinearLayout>

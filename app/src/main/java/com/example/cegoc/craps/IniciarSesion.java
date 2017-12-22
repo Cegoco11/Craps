@@ -62,7 +62,7 @@ public class IniciarSesion extends AppCompatActivity {
         String contra = Jugador.getMD5(txtclave.getText().toString());
 
         File file = getFileStreamPath(nombre);
-        Toast toast = Toast.makeText(getApplicationContext(), "No existe ese usuario", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),R.string.NoExis, Toast.LENGTH_LONG);
 
         if (file.exists()) {
             FileInputStream fis;
@@ -87,7 +87,7 @@ public class IniciarSesion extends AppCompatActivity {
                     startActivity(intent);
                     finishAffinity();
                 } else {
-                    Toast.makeText(this, "contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,R.string.NoExis, Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 toast.show();

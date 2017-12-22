@@ -57,7 +57,7 @@ public class tienda extends AppCompatActivity {
                 ll_aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(tienda.this, "You already have it!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(tienda.this,R.string.Yatienes, Toast.LENGTH_SHORT).show();
                     }
                 });
             } else{
@@ -73,7 +73,7 @@ public class tienda extends AppCompatActivity {
                     public void onClick(View v) {
                         // Comprar
 
-
+                        Toast.makeText(tienda.this,R.string.WIP, Toast.LENGTH_SHORT).show();
                         prueba.getAvatares().get(i).compra(); // Solo cambia el estado no gasta monedas
                     }
                 });
@@ -97,7 +97,7 @@ public class tienda extends AppCompatActivity {
                 ll_aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(tienda.this, "You already have it!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(tienda.this, R.string.Yatienes, Toast.LENGTH_SHORT).show();
                     }
                 });
             } else{

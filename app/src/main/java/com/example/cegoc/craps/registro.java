@@ -126,8 +126,8 @@ public class registro extends AppCompatActivity {
 
             File file = getFileStreamPath(nombre); //Esta funcion se usa para comprobar si existe ya un archivo creado en memoria
 
-            Toast toast1 = Toast.makeText(getApplicationContext(), "Nuevo usuario guardado: "+ nombre, Toast.LENGTH_LONG);
-            Toast toast2 = Toast.makeText(getApplicationContext(), "Nombre repetido o no valido", Toast.LENGTH_SHORT);
+            Toast toast1 = Toast.makeText(getApplicationContext(),R.string.NuevoUsu+ nombre, Toast.LENGTH_LONG);
+            Toast toast2 = Toast.makeText(getApplicationContext(),R.string.NombreRepe, Toast.LENGTH_SHORT);
 
             Toast.makeText(this, "Hola", Toast.LENGTH_LONG);
             if (!file.exists()) {
@@ -160,7 +160,7 @@ public class registro extends AppCompatActivity {
                 toast2.show();
             }
         } else{
-            Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.Complete, Toast.LENGTH_SHORT).show();
         }
     }
 

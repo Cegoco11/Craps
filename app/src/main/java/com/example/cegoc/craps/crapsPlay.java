@@ -88,7 +88,7 @@ public class crapsPlay extends AppCompatActivity {
                     apuestaActual = (int)(apuestaActual*MULTIPLICADOR);
                     monedas -= apuestaActual;
                 }
-                Toast.makeText(crapsPlay.this, "Apuesta: " + apuestaActual,
+                Toast.makeText(crapsPlay.this,  R.string.Apuesta + apuestaActual,
                         Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
                 muestraBotones(false);
@@ -147,7 +147,7 @@ public class crapsPlay extends AppCompatActivity {
         if (!hasJugado) {
             if (monedas - APUESTA_INICIAL >= 0) {
                 tirarDados();
-                Toast.makeText(this, ("Apuesta inicial: 10"),
+                Toast.makeText(this, ( R.string.Apuesta_Inicial),
                         Toast.LENGTH_SHORT).show();
                 animacionContador(monedas, monedas-APUESTA_INICIAL, monedasText);
                 monedas -= APUESTA_INICIAL;
@@ -159,7 +159,7 @@ public class crapsPlay extends AppCompatActivity {
                     }
                 }, 1521);
             } else {
-                Toast.makeText(crapsPlay.this, "No tienes suficientes monedas",
+                Toast.makeText(crapsPlay.this, R.string.MonedasInsu,
                         Toast.LENGTH_SHORT).show();
                 conseguirMonedas(dadosLayout);
             }
@@ -370,7 +370,7 @@ public class crapsPlay extends AppCompatActivity {
             guardaJugador(aux);
         } else {
             // Perder
-            Toast.makeText(this, ("Perdiste"),
+            Toast.makeText(this, ( R.string.Perdiste),
                     Toast.LENGTH_SHORT).show();
         }
         estadoInicial();
@@ -406,7 +406,7 @@ public class crapsPlay extends AppCompatActivity {
      */
     public void muestraAyuda(View v){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setMessage("Tutorial").setTitle("Ayuda");
+        builder.setMessage(R.string.tuto).setTitle("Ayuda");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {}

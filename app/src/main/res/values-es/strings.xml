@@ -39,6 +39,23 @@
     <string name="btnMoneda">Conseguir monedas</string>
     <string name="btnSeguir">Seguir</string>
     <string name="btnCrearC">Crear cuenta</string>
+    <string name="Doblar">Doblar</string>
+    <string name="Salir">Salir</string>
+    <string name="Apuesta">Apuesta</string>
+    <string name="Apuesta_Inicial">Apuesta Inicial 10 monedas</string>
+    <string name="MonedasInsu">No hay suficientes monedas</string>
+    <string name="Perdiste">Perdiste</string>
+    <string name="NoExis">Este Usuario no Existe</string>
+    <string name="ContraInco">Contraseña Incorrecta</string>
+    <string name="NuevoUsu">Nuevo Usuario Guardado</string>
+    <string name="NombreRepe">Nombre ya existente o no valido</string>
+    <string name="Complete">Completa todos los campos</string>
+    <string name="Avatar">Avatares</string>
+    <string name="Yaequipado">Ya esta Equipado</string>
+    <string name="invitDetect">Invitado Detectado</string>
+    <string name="equipado">Equipado</string>
+    <string name="Yatienes">Ya lo tienes Empanado!!</string>
+    <string name="tuto">" <u>Primera ronda:</u> \\n         Ganas con 11,7  \\n         Pierdes con  2,13,12 \\n         <u>Siguientes Rondas</u> \\n         Tu ganas: mismo numero que la primera ronda \\n         Tu Pierdes con 7 \\n"</string>
 
 
 </resources>
