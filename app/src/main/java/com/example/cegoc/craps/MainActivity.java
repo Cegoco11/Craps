@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
         Intent intent = new Intent(this, IniciarSesion.class);
         startActivity(intent);
-        this.finish();
     }
 
     @Override
