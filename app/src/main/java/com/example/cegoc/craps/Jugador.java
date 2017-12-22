@@ -34,7 +34,19 @@ public class Jugador implements Serializable {
         avatares.add(new Item(R.drawable.avatar4, false, 500, R.drawable.avatar4off));
         avatares.add(new Item(R.drawable.avatar1, false, 500, R.drawable.avatar1off));
         avatares.add(new Item(R.drawable.avatar2, false, 550, R.drawable.avatar2off));
-
+        // Mas avatares
+        avatares.add(new Item(R.drawable.avatar5, false, 550, R.drawable.avatar5off));
+        avatares.add(new Item(R.drawable.avatar6, false, 550, R.drawable.avatar6off));
+        avatares.add(new Item(R.drawable.avatar7, false, 550, R.drawable.avatar7off));
+        avatares.add(new Item(R.drawable.avatar8, false, 550, R.drawable.avatar8off));
+        avatares.add(new Item(R.drawable.avatar9, false, 550, R.drawable.avatar9off));
+        avatares.add(new Item(R.drawable.avatar10, false, 550, R.drawable.avatar10off));
+        avatares.add(new Item(R.drawable.avatar11, false, 550, R.drawable.avatar11off));
+        avatares.add(new Item(R.drawable.avatar12, false, 550, R.drawable.avatar12off));
+        avatares.add(new Item(R.drawable.avatar13, false, 550, R.drawable.avatar13off));
+        avatares.add(new Item(R.drawable.avatar14, false, 550, R.drawable.avatar14off));
+        avatares.add(new Item(R.drawable.avatar15, false, 550, R.drawable.avatar15off));
+        avatares.add(new Item(R.drawable.avatar16, false, 550, R.drawable.avatar16off));
 
         dados.add(new Dados(R.drawable.icono_dado_normal, true, 0, R.drawable.icono_dado_normal,
                 R.array.dadosNormal));
