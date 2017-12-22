@@ -77,10 +77,6 @@ public class Coleccion extends AppCompatActivity {
             }
         }
 
-        prueba=cargarJugador();
-        if(prueba==null){
-            prueba = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
-        }
         skins = (GridLayout) findViewById(R.id.SkinsGrid);
         for (i = 0; i < prueba.getDados().size(); i++) {
             if (prueba.getDados().get(i).getEstado()) {
@@ -90,7 +86,7 @@ public class Coleccion extends AppCompatActivity {
                 aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (prefe.getInt("skin", -1) == prueba.getDados().get(v.getId()).getImg()) {
+                        if (prefe.getInt("skin", -1) == prueba.getDados().get(v.getId()).getDados()) {
                             Toast.makeText(Coleccion.this, R.string.Yaequipado, Toast.LENGTH_SHORT).show();
                         } else {
                             if (!prueba.getNombre().equals("Guest")) {
