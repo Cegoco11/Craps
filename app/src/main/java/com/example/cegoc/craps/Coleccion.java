@@ -1,6 +1,7 @@
 package com.example.cegoc.craps;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,12 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Clase que muestra en el layout coleccion el inventario desbloqueado del jugador
@@ -25,30 +32,43 @@ public class Coleccion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coleccion);
-
-        prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
+        getSupportActionBar().hide();
+        prefe = getSharedPreferences("Active_User", Context.MODE_PRIVATE);
 
         // Usuario de prueba para comprobar que funciona correctamente
         // Aqui habria que tener en cuenta quien es el usuario actual
-        prueba=new Jugador("Cesar","asd", "asadsasad");
 
-        avatares=(GridLayout) findViewById(R.id.AvataresGrid);
+        prueba=cargarJugador();
+        if(prueba==null){
+            prueba = new Jugador("Invitado", "asd", "asadsasad");
+        }
+
+
+        avatares = (GridLayout) findViewById(R.id.AvataresGrid);
         ImageView aux;
         // Muestro todos los avatares, hay que filtrar por los que estan desbloqueados
-        for(i=0; i<prueba.getAvatares().size(); i++){
-            if(prueba.getAvatares().get(i).getEstado()){
-                aux=new ImageView(this);
-                aux.setId(i);
+        for (i = 0; i < prueba.getAvatares().size(); i++) {
+            if (prueba.getAvatares().get(i).getEstado()) {
+                aux = new ImageView(this);
+                aux.setId(i); // Pongo de id la interaccion
                 aux.setImageResource(prueba.getAvatares().get(i).getImg());
                 aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences.Editor editor = prefe.edit();
-                        if(prefe.getInt("avatar", -1)==prueba.getAvatares().get(v.getId()).getImg()){
+                        // Compruebo si lo que esta guardado en SharedPreferences es igual que el
+                        // que estoy pulsando, si es asi sale "Already..." si no, lo mete al shared y muestra
+                        // otro "Equipped"
+                        if (prefe.getInt("avatar", -1) == prueba.getAvatares().get(v.getId()).getImg()) {
                             Toast.makeText(Coleccion.this, "Already equipped", Toast.LENGTH_SHORT).show();
-                        } else{
+                        } else {
                             editor.putInt("avatar", prueba.getAvatares().get(v.getId()).getImg());
                             editor.commit();
+                            if(prueba!=null){
+                                guardaJugador(prueba, v.getId(), true);
+                            } else{
+                                Toast.makeText(Coleccion.this, "Invitado detected", Toast.LENGTH_SHORT).show();
+                            }
                             Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -56,22 +76,87 @@ public class Coleccion extends AppCompatActivity {
                 avatares.addView(aux);
             }
         }
-        skins=(GridLayout) findViewById(R.id.SkinsGrid);
-        for(i=0; i<prueba.getDados().size(); i++){
-            if(prueba.getDados().get(i).getEstado()){
-                aux=new ImageView(this);
+
+        prueba=cargarJugador();
+        if(prueba==null){
+            prueba = new Jugador("Invitado", "asd", "asadsasad");
+        }
+        skins = (GridLayout) findViewById(R.id.SkinsGrid);
+        for (i = 0; i < prueba.getDados().size(); i++) {
+            if (prueba.getDados().get(i).getEstado()) {
+                aux = new ImageView(this);
+                aux.setId(i); // Pongo de id la interaccion
                 aux.setImageResource(prueba.getDados().get(i).getImg());
                 aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences.Editor editor = prefe.edit();
-                        editor.putInt("skin", prueba.getDados().get(i).getDados());
+                        editor.putInt("skin", prueba.getDados().get(v.getId()).getDados());
                         editor.commit();
-                        Toast.makeText(Coleccion.this, "Equipped2", Toast.LENGTH_SHORT).show();
+                        if(prueba!=null){
+                            guardaJugador(prueba, v.getId(), false);
+                        } else{
+                            Toast.makeText(Coleccion.this, "Invitado detected", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(Coleccion.this, "Equipped", Toast.LENGTH_SHORT).show();
                     }
                 });
                 skins.addView(aux);
             }
+        }
+    }
+
+    /**
+     * Metodo que carga el archivo del jugador activo (Beta)
+     *
+     * @return jugador si existe el fichero, si no retorna null
+     */
+    public Jugador cargarJugador() {
+        Jugador aux = null;
+        String nombre = prefe.getString("name", "Invitado");
+        File file = getFileStreamPath(nombre);
+        if (file.exists()) {
+            FileInputStream fis;
+            ObjectInputStream in = null;
+            try {
+                fis = openFileInput(nombre);
+                in = new ObjectInputStream(fis);
+                aux = (Jugador) in.readObject();
+                in.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return aux;
+    }
+
+    /**
+     *
+     *
+     * @param player Jugador en el que se va a escribir
+     * @param idBoton id del boton que pulsamos
+     * @param tipo true para avatar, false para dado
+     */
+    public void guardaJugador(Jugador player, int idBoton, boolean tipo) {
+        if(tipo){
+            player.setAvatarActual(player.getAvatares().get(idBoton).getImg());
+        } else{
+            player.setDadosActual(player.getDados().get(idBoton).getDados());
+        }
+        File file=getFileStreamPath(player.getNombre());
+        if (file.exists()) {
+            FileOutputStream fos;
+            ObjectOutputStream out = null;
+            try {
+                fos = openFileOutput(player.getNombre(), Context.MODE_PRIVATE); //Guardamos cada objeto de la clase Jugador en un archivo en memoria que lleve por nombre el nombre del jugador
+                out = new ObjectOutputStream(fos);
+                out.writeObject(player);
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else{
+            // No existe el archivo
         }
     }
 }

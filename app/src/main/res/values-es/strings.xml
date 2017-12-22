@@ -13,9 +13,7 @@
     <string name="rondas">Ronda %d</string>
     <string name="registro">Registro</string>
     <string name="nombre">Usuario</string>
-    <string name="hintNombre">Introduce el nombre de usuario</string>
     <string name="correo">Correo</string>
-    <string name="hintCorreo">Introduce el correo aqui</string>
     <string name="contra">Contraseña</string>
     <string name="contra2">Repite contraseña</string>
     <string name="btnRegistrar">Registrar</string>
@@ -24,6 +22,23 @@
 
     <string name='dialog_title'>Compra</string>
     <string name="dialog_message">Vas a comprar este articulo?</string>
+    <string name="tituloDialog" translatable="false">Bonus</string>
+    <string name="txtCerrarSesion"><u>Cerrar Sesion</u></string>
+    <string name="usuario">Invitado</string>
+    <string name="imgAvatar">Avatar</string>
+    <string name="imgMoneda">Moneda</string>
+    <string name="btnJugar">Jugar</string>
+    <string name="btnColeccion">Coleccion</string>
+    <string name="btnTienda">Tienda</string>
+    <string name="btnSalir">Salir</string>
+    <string name="btnRegist">Registrarse</string>
+    <string name="btnLogin">Iniciar sesion</string>
+    <string name="btnBMoneda">Buscar monedas</string>
+    <string name="btnRMoneda">Recoger monedas</string>
+    <string name="btnAyuda">Ayuda</string>
+    <string name="btnMoneda">Conseguir monedas</string>
+    <string name="btnSeguir">Seguir</string>
+    <string name="btnCrearC">Crear cuenta</string>
 
 
 </resources>

@@ -41,7 +41,6 @@
 
         <EditText
             android:id="@+id/txtusuario"
-            android:hint="@string/hintNombre"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -72,7 +71,7 @@
         android:onClick="Cargar"
         android:text="@string/btnInicio"
         android:layout_gravity="center"
-        android:contentDescription="Logearse"
+        android:contentDescription="@string/btnLogin"
         android:layout_marginTop="25dp"/>
 
     <View
@@ -89,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="irRegistro"
-        android:contentDescription="Crear cuenta"
+        android:contentDescription="@string/btnCrearC"
         android:text="@string/btnCrear" />
     </LinearLayout>
 
