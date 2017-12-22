@@ -31,39 +31,18 @@ public class Jugador implements Serializable {
         // Todos los avatares de la app
         avatares.add(new Item(R.drawable.invitado, true, 0, R.drawable.invitado));
         avatares.add(new Item(R.drawable.avatar3, true, 150, R.drawable.avatar3off));
-        avatares.add(new Item(R.drawable.avatar4, true, 500, R.drawable.avatar4off));
-        avatares.add(new Item(R.drawable.avatar1, true, 500, R.drawable.avatar1off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        // Mas avatares
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
-        avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
+        avatares.add(new Item(R.drawable.avatar4, false, 500, R.drawable.avatar4off));
+        avatares.add(new Item(R.drawable.avatar1, false, 500, R.drawable.avatar1off));
+        avatares.add(new Item(R.drawable.avatar2, false, 550, R.drawable.avatar2off));
 
 
         dados.add(new Dados(R.drawable.icono_dado_normal, true, 0, R.drawable.icono_dado_normal,
                 R.array.dadosNormal));
         dados.add(new Dados(R.drawable.icono_dado_rojo, true, 200, R.drawable.icono_bloq_dado_rojo,
                 R.array.dadosRojo));
-        dados.add(new Dados(R.drawable.icono_huevo, true, 500, R.drawable.icono_bloq_huevo,
+        dados.add(new Dados(R.drawable.icono_huevo, false, 500, R.drawable.icono_bloq_huevo,
                 R.array.dadosHuevos));
-        dados.add(new Dados(R.drawable.icono_dado_legendario, true, 1000,
+        dados.add(new Dados(R.drawable.icono_dado_legendario, false, 1000,
                 R.drawable.icono_bloq_dado_legendario, R.array.dadosLegendarios));
 
         // Avatar predeterminado
