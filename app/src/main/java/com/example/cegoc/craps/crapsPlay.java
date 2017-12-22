@@ -36,7 +36,7 @@ import java.io.ObjectOutputStream;
  */
 public class crapsPlay extends AppCompatActivity {
 
-    private final double MULTIPLICADOR = 1.5;
+    private final double MULTIPLICADOR = 1.2;
     private final int APUESTA_INICIAL = 10;
 
     private SharedPreferences prefe;
@@ -84,11 +84,11 @@ public class crapsPlay extends AppCompatActivity {
                     apuestaActual += monedas;
                     monedas = 0;
                 } else {
-                    animacionContador(monedas, (int)(monedas-apuestaActual*MULTIPLICADOR), monedasText);
-                    apuestaActual = (int)(apuestaActual*MULTIPLICADOR);
+                    animacionContador(monedas, (int)Math.floor(monedas-apuestaActual*MULTIPLICADOR), monedasText);
+                    apuestaActual = (int)Math.floor(apuestaActual*MULTIPLICADOR);
                     monedas -= apuestaActual;
                 }
-                Toast.makeText(crapsPlay.this,  R.string.Apuesta + apuestaActual,
+                Toast.makeText(crapsPlay.this, (String.format(getResources().getString(R.string.Apuesta), apuestaActual)),
                         Toast.LENGTH_SHORT).show();
                 dadosLayout.setClickable(true);
                 muestraBotones(false);
@@ -360,8 +360,8 @@ public class crapsPlay extends AppCompatActivity {
             Toast.makeText(this, ("+" + (int) (apuestaActual * MULTIPLICADOR) + " " +
                             getResources().getString(R.string.toastMoneda)),
                     Toast.LENGTH_SHORT).show();
-            animacionContador(monedas, (int)(monedas+apuestaActual*MULTIPLICADOR), monedasText);
-            monedas = (int)(apuestaActual + apuestaActual * MULTIPLICADOR);
+            animacionContador(monedas, (int)Math.floor(monedas+apuestaActual*MULTIPLICADOR), monedasText);
+            monedas = (int)Math.floor(apuestaActual + apuestaActual * MULTIPLICADOR);
             Jugador aux=cargarJugador();
             if(aux==null){
                 aux = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado

@@ -59,7 +59,7 @@
     </string-array>
 
     <!-- Java craps_play -->
-    <string name="Apuesta">Bet:</string>
+    <string name="Apuesta">Bet %d</string>
     <string name="Apuesta_Inicial">Initial Bet 10 coins</string>
     <string name="MonedasInsu">Not enough coins</string>
     <string name="Perdiste">You Lose</string>
@@ -119,7 +119,7 @@
     <string name="equipado">Equipped</string>
     <!-- java Tienda-->
     <string name="Yatienes">You already have it!</string>
-    <string name="WIP">WIP!</string>
+    <string name="WIP" translatable="false">WIP!</string>
     <!-- Tutorial-->
     <string name="tuto">-You win: \n
         <u>First round:</u> \n

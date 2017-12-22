@@ -90,7 +90,7 @@ public class Coleccion extends AppCompatActivity {
                 aux.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (prefe.getInt("avatar", -1) == prueba.getAvatares().get(v.getId()).getImg()) {
+                        if (prefe.getInt("skin", -1) == prueba.getDados().get(v.getId()).getImg()) {
                             Toast.makeText(Coleccion.this, R.string.Yaequipado, Toast.LENGTH_SHORT).show();
                         } else {
                             if (!prueba.getNombre().equals("Guest")) {

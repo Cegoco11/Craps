@@ -41,7 +41,7 @@
     <string name="btnCrearC">Crear cuenta</string>
     <string name="Doblar">Doblar</string>
     <string name="Salir">Salir</string>
-    <string name="Apuesta">Apuesta</string>
+    <string name="Apuesta">Apuesta: %d</string>
     <string name="Apuesta_Inicial">Apuesta Inicial 10 monedas</string>
     <string name="MonedasInsu">No hay suficientes monedas</string>
     <string name="Perdiste">Perdiste</string>

@@ -130,25 +130,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+        SharedPreferences prefe=getSharedPreferences("Active_User", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefe.edit();
         if (usuario_activo != "Invitado"){ //Si tenemos un jugador activo cargamos de la memoria el objeto que se corresponde a ese usuario
             try {
                 FileInputStream fis = openFileInput(usuario_activo);
                 ObjectInputStream in = new ObjectInputStream(fis);
                 aux = (Jugador) in.readObject();
                 in.close();
-
-                tv1.setText(aux.getNombre());
-                tv2.setText(String.valueOf(aux.getMonedas()));
-                avatar.setImageResource(aux.getAvatarActual());
-
+                editor.putInt("coins", aux.getMonedas());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else{
             aux = new Jugador("Guest", "123456A", "correo@correo.com"); // Invitado
-            tv1.setText(aux.getNombre());
-            tv2.setText(String.valueOf(aux.getMonedas()));
-            avatar.setImageResource(aux.getAvatarActual());
+            editor.putInt("coins", 50);
+
         }
+        editor.putString("name", aux.getNombre());
+        editor.putInt("skin", aux.getDadosActual());
+        editor.putInt("avatar", aux.getAvatarActual());
+        editor.commit();
+
+        tv1.setText(prefe.getString("name",""));
+        tv2.setText(String.valueOf(prefe.getInt("coins", 0)));
+        avatar.setImageResource(prefe.getInt("avatar", 0));
     }
 }
