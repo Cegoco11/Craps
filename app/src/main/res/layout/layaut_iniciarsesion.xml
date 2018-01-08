@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conteiners_scroll_view"
+    android:layout_width="match_parent"
+    android:background="@drawable/fondojuego2"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/titleLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+    <View
+        android:layout_width="330dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/txtusuario"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:inputType="textPersonName" />
+
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contra"
+            android:layout_marginTop ="10dp"
+            android:layout_marginStart="30dp"/>
+
+        <EditText
+            android:id="@+id/txtclave"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:inputType="textPassword"
+            />
+
+
+    <Button
+        android:id="@+id/ingresar"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:onClick="Cargar"
+        android:text="@string/btnInicio"
+        android:layout_gravity="center"
+        android:contentDescription="@string/btnLogin"
+        android:layout_marginTop="25dp"/>
+
+    <View
+        android:layout_width="330dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/crearCuenta"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="irRegistro"
+        android:contentDescription="@string/btnCrearC"
+        android:text="@string/btnCrear" />
+    </LinearLayout>
+
+</ScrollView>

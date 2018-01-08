@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 public class crapsSplashScreen extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class crapsSplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.craps_splashscreen);
+        getSupportActionBar().hide(); // Oculta Titulo de la ventana
         progressBar=(ProgressBar) findViewById(R.id.determinateBar);
         progressBar.setMax(11);
 
@@ -29,12 +31,12 @@ public class crapsSplashScreen extends AppCompatActivity {
                         }
                     });
                     if(progressStatus==progressBar.getMax()+1){
-                        Intent intent = new Intent(crapsSplashScreen.this, crapsPlay.class);
+                        Intent intent = new Intent(crapsSplashScreen.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     }
                     try {
-                        Thread.sleep(200);
+                        Thread.sleep(150);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

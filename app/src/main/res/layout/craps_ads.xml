@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fondojuego2"
     tools:context="com.example.cegoc.craps.crapsAds"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp"
@@ -65,6 +66,7 @@
         android:text="@string/cargaAnuncio"
         android:textStyle="italic"
         app:layout_constraintTop_toBottomOf="@+id/monedas"
+        android:contentDescription="Buscar Monedas"
         tools:layout_editor_absoluteX="8dp" />
 
     <Button
@@ -76,6 +78,7 @@
         android:text="@string/muestraAnuncio"
         android:textStyle="italic"
         app:layout_constraintTop_toBottomOf="@+id/carga"
+        android:contentDescription="Recoger Monedas"
         tools:layout_editor_absoluteX="8dp" />
 
     <ProgressBar

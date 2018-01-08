@@ -11,4 +11,57 @@
     <string name="descDado1">Imagen del primer dado</string>
     <string name="descDado2">Imagen del segundo dado</string>
     <string name="rondas">Ronda %d</string>
+    <string name="registro">Registro</string>
+    <string name="nombre">Usuario</string>
+    <string name="correo">Correo</string>
+    <string name="contra">Contraseña</string>
+    <string name="contra2">Repite contraseña</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="btnInicio">Iniciar sesion</string>
+    <string name="btnCrear">Crear cuenta</string>
+
+    <string name='dialog_title'>Compra</string>
+    <string name="dialog_message">Vas a comprar este articulo?</string>
+    <string name="tituloDialog" translatable="false">Bonus</string>
+    <string name="txtCerrarSesion"><u>Cerrar Sesion</u></string>
+    <string name="usuario">Invitado</string>
+    <string name="imgAvatar">Avatar</string>
+    <string name="imgMoneda">Moneda</string>
+    <string name="btnJugar">Jugar</string>
+    <string name="btnColeccion">Coleccion</string>
+    <string name="btnTienda">Tienda</string>
+    <string name="btnSalir">Salir</string>
+    <string name="btnRegist">Registrarse</string>
+    <string name="btnLogin">Iniciar sesion</string>
+    <string name="btnBMoneda">Buscar monedas</string>
+    <string name="btnRMoneda">Recoger monedas</string>
+    <string name="btnAyuda">Ayuda</string>
+    <string name="btnMoneda">Conseguir monedas</string>
+    <string name="btnSeguir">Seguir</string>
+    <string name="btnCrearC">Crear cuenta</string>
+    <string name="Doblar">Doblar</string>
+    <string name="Salir">Salir</string>
+    <string name="Apuesta">Apuesta: %d</string>
+    <string name="Apuesta_Inicial">Apuesta Inicial 10 monedas</string>
+    <string name="MonedasInsu">No hay suficientes monedas</string>
+    <string name="Perdiste">Perdiste</string>
+    <string name="NoExis">Este Usuario no Existe</string>
+    <string name="ContraInco">Contraseña Incorrecta</string>
+    <string name="NuevoUsu">Nuevo Usuario Guardado</string>
+    <string name="NombreRepe">Nombre ya existente o no valido</string>
+    <string name="Complete">Completa todos los campos</string>
+    <string name="Avatar">Avatares</string>
+    <string name="Yaequipado">Ya esta Equipado</string>
+    <string name="invitDetect">Invitado Detectado</string>
+    <string name="equipado">Equipado</string>
+    <string name="Yatienes">Ya lo tienes Empanado!!</string>
+    <string name="tuto">" <n>Primera ronda:</n> \n
+        <u>Ganas</u> con 7, 11 \n
+        <u>Pierdes</u> con  2, 12, 13 \n
+        <n>Siguientes Rondas: </n> \n
+        <u>Ganas</u> con el mismo numero que la primera ronda \n
+        <u>Pierdes</u> con 7 \n"
+    </string>
+
+
 </resources>

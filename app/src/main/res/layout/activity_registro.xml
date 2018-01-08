@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/conteiners_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/fondojuego2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
+
+
+        <!-- Texto: Registro -->
+
+        <TextView
+            android:id="@+id/titleRegis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/registro"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+        <!-- SEPARADOR -->
+        <View
+            android:layout_width="330dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray"
+            android:layout_gravity="center"/>
+
+        <!-- Texto: Nombre -->
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Campo: Nombre -->
+
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:inputType="textPersonName" />
+
+        <!-- Texto: Correo -->
+
+        <TextView
+            android:id="@+id/TextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/correo"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Campo: Correo -->
+
+        <EditText
+            android:id="@+id/correo"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:inputType="textPersonName" />
+
+        <!-- Texto: Contraseña -->
+
+        <TextView
+            android:id="@+id/TextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contra"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Campo: Contraseña -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/clave"
+                android:layout_width="269dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:maxLength="20"
+                android:inputType="textPassword"/>
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="2dp" />
+        </LinearLayout>
+
+        <!-- Texto: Contraseña2 -->
+
+        <TextView
+            android:id="@+id/TextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contra2"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Campo: Contraseña2 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/clave2"
+                android:layout_width="269dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:maxLength="20"
+                android:inputType="textPassword"/>
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="2dp" />
+        </LinearLayout>
+
+        <!-- Boton Registrar -->
+        <Button
+            android:id="@+id/botonRegistrar"
+            android:layout_width="220dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:onClick="GuardarUsuario"
+            android:text="@string/btnRegistrar"
+            android:contentDescription="Registrarse"
+            android:layout_marginTop="25dp"/>
+
+        <!-- SEPARADOR -->
+        <View
+            android:layout_width="330dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray"
+            android:layout_gravity="center"/>
+
+        <!-- Boton Iniciar -->
+        <Button
+            android:id="@+id/button4"
+            android:layout_gravity="center"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:onClick="irIniciarSesion"
+            android:contentDescription="@string/btnLogin"
+            android:text="@string/btnInicio" />
+
+    </LinearLayout>
+</ScrollView>
