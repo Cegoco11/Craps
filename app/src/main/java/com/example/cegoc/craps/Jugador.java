@@ -26,31 +26,31 @@ public class Jugador implements Serializable {
         this.nombre = nombre;
         this.correo = correo;
         this.clave = getMD5(clave);
-        this.monedas = 100;
+        this.monedas = 20000;
 
         // Todos los avatares de la app
         avatares.add(new Item(R.drawable.invitado, true, 0, R.drawable.invitado));
-        avatares.add(new Item(R.drawable.avatar3, true, 150, R.drawable.avatar3off));
-        avatares.add(new Item(R.drawable.avatar4, false, 500, R.drawable.avatar4off));
+        avatares.add(new Item(R.drawable.avatar3, false, 150, R.drawable.avatar3off));
+        avatares.add(new Item(R.drawable.avatar4, false, 300, R.drawable.avatar4off));
         avatares.add(new Item(R.drawable.avatar1, false, 500, R.drawable.avatar1off));
         avatares.add(new Item(R.drawable.avatar2, true, 550, R.drawable.avatar2off));
         // Mas avatares
         avatares.add(new Item(R.drawable.avatar5, false, 550, R.drawable.avatar5off));
-        avatares.add(new Item(R.drawable.avatar6, true, 550, R.drawable.avatar6off));
+        avatares.add(new Item(R.drawable.avatar6, false, 550, R.drawable.avatar6off));
         avatares.add(new Item(R.drawable.avatar7, false, 550, R.drawable.avatar7off));
         avatares.add(new Item(R.drawable.avatar8, false, 550, R.drawable.avatar8off));
         avatares.add(new Item(R.drawable.avatar9, false, 550, R.drawable.avatar9off));
         avatares.add(new Item(R.drawable.avatar10, false, 550, R.drawable.avatar10off));
         avatares.add(new Item(R.drawable.avatar11, false, 550, R.drawable.avatar11off));
-        avatares.add(new Item(R.drawable.avatar12, true, 550, R.drawable.avatar12off));
-        avatares.add(new Item(R.drawable.avatar13, true, 550, R.drawable.avatar13off));
+        avatares.add(new Item(R.drawable.avatar12, false, 550, R.drawable.avatar12off));
+        avatares.add(new Item(R.drawable.avatar13, false, 550, R.drawable.avatar13off));
         avatares.add(new Item(R.drawable.avatar14, false, 550, R.drawable.avatar14off));
         avatares.add(new Item(R.drawable.avatar15, false, 550, R.drawable.avatar15off));
-        avatares.add(new Item(R.drawable.avatar16, true, 550, R.drawable.avatar16off));
+        avatares.add(new Item(R.drawable.avatar16, false, 550, R.drawable.avatar16off));
 
         dados.add(new Dados(R.drawable.icono_dado_normal, true, 0, R.drawable.icono_dado_normal,
                 R.array.dadosNormal));
-        dados.add(new Dados(R.drawable.icono_dado_rojo, true, 200, R.drawable.icono_bloq_dado_rojo,
+        dados.add(new Dados(R.drawable.icono_dado_rojo, false, 200, R.drawable.icono_bloq_dado_rojo,
                 R.array.dadosRojo));
         dados.add(new Dados(R.drawable.icono_huevo, false, 500, R.drawable.icono_bloq_huevo,
                 R.array.dadosHuevos));

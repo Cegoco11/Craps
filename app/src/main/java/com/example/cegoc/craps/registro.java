@@ -1,9 +1,11 @@
 package com.example.cegoc.craps;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -56,6 +58,20 @@ public class registro extends AppCompatActivity {
         botonIniciar.setTypeface(Pixel1);
         Button botonRegistro=(Button)findViewById(R.id.button4);
         botonRegistro.setTypeface(Pixel1);
+
+        ImageView ayuda=(ImageView)findViewById(R.id.ayudaRegistro);
+        ayuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(registro.this);
+                builder.setMessage("Ayuda sobre como completar los campos").setTitle("Ayuda");
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {}
+                });
+                builder.show();
+            }
+        });
 
         TextView title=(TextView) findViewById(R.id.titleRegis);
         title.setTypeface(Pixel1);
@@ -150,7 +166,7 @@ public class registro extends AppCompatActivity {
 
             File file = getFileStreamPath(nombre); //Esta funcion se usa para comprobar si existe ya un archivo creado en memoria
 
-            Toast toast1 = Toast.makeText(getApplicationContext(),R.string.NuevoUsu+ nombre, Toast.LENGTH_LONG);
+            Toast toast1 = Toast.makeText(getApplicationContext(),nombre, Toast.LENGTH_LONG);
             Toast toast2 = Toast.makeText(getApplicationContext(),R.string.NombreRepe, Toast.LENGTH_SHORT);
 
             if (!file.exists()) {
